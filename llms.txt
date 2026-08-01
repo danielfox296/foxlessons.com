@@ -1,0 +1,17 @@
+# Fox Lessons
+
+> Private music lessons in Denver with Daniel Fox, a working multi-instrumentalist: bass (electric and upright), guitar, drums, and piano, with western jazz theory underneath. Lessons run in studio or in your home. [COPY DRAFT — pending VOICE ratification]
+
+## Pages
+
+- [Fox Lessons](https://foxlessons.com/): Music lessons in Denver with Daniel Fox — bass, guitar, drums, and piano.
+- [Bass](https://foxlessons.com/bass/): Bass lessons in Denver with a working bassist. Electric and upright, jazz theory included.
+- [Guitar](https://foxlessons.com/guitar/): Guitar lessons in Denver, beginner to advanced, acoustic and electric.
+- [Drums](https://foxlessons.com/drums/): Drum lessons in Denver, groove-first.
+- [Piano](https://foxlessons.com/piano/): Piano lessons in Denver, beginners and returning adults.
+- [Rates](https://foxlessons.com/rates/): Published lesson rates. No quote dance.
+- [About](https://foxlessons.com/about/): Daniel Fox, Denver multi-instrumentalist and educator.
+- [Contact](https://foxlessons.com/contact/): Book a lesson — text, call, or send a note.
+- [FAQ](https://foxlessons.com/faq/): What lessons cost, where they happen, and how to start.
+
+{{BLOG_ENTRIES}}

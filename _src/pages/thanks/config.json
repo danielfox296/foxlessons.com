@@ -1,0 +1,7 @@
+{
+  "title": "You're on the list | Fox Lessons",
+  "meta_description": "You're on the Fox Lessons list. When the next session goes up, you will hear first.",
+  "output": "thanks/index.html",
+  "robots": "noindex, follow",
+  "breadcrumb": "Thanks"
+}

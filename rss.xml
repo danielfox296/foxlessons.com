@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Fox Lessons Blog</title>
+  <link>https://foxlessons.com/blog/</link>
+  <description>Writing on learning an instrument, practice that sticks, and playing with other people. From Daniel Fox in Denver. [COPY DRAFT]</description>
+  <language>en-us</language>
+  <atom:link href="https://foxlessons.com/rss.xml" rel="self" type="application/rss+xml"/>
+</channel>
+</rss>
