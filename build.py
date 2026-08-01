@@ -978,7 +978,8 @@ def build():
                     "drum lessons",
                     "piano lessons",
                     "jazz theory",
-                    "music production"
+                    "music production",
+                    "Logic Pro X"
                 ]
             }
             if SAME_AS:
