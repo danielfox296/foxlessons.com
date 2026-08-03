@@ -26,7 +26,7 @@ import sys
 import urllib.request
 
 SITE = "foxlessons.com"
-KEY = "09dfe161f3a062373ee2bbf7766db185"
+KEY = "06f8d6ab70a4bc8b5c7747a9fc477081"
 ENDPOINT = "https://api.indexnow.org/indexnow"
 SITEMAP = "sitemap.xml"
 
