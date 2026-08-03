@@ -1,0 +1,4 @@
+/* Contact form: the submit control is a real <button>, which the shared .btn
+   styles were written for anchors. */
+button.btn { border: 0; cursor: pointer; }
+#note { padding-top: 0; }

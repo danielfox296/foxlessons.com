@@ -1,0 +1,12 @@
+/* Book page: offer grid. Light-ground cards per the section--light contrast
+   rules (ink borders, accent-on-light reserved for focus states). */
+.book-note { max-width: 42rem; color: rgba(10,11,13,0.65); margin-bottom: 0.5rem; }
+.offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.offer { border: 1px solid rgba(10,11,13,0.18); padding: 2rem; display: flex; flex-direction: column; }
+.offer h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+.offer .offer-meta { font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.6); margin-bottom: 1.1rem; }
+.offer .offer-price { font: 300 2.6rem var(--font-display); line-height: 1; }
+.offer .offer-sub { color: rgba(10,11,13,0.6); font-size: 0.88rem; margin: 0.35rem 0 0.9rem; }
+.offer p { font-size: 0.97rem; color: rgba(10,11,13,0.75); }
+.offer p:last-of-type { margin-bottom: 1.4rem; }
+.offer .btn { margin-top: auto; text-align: center; }

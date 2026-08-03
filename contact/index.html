@@ -18,27 +18,27 @@
   </script>
   <link rel="canonical" href="https://foxlessons.com/contact/">
   <meta name="robots" content="index, follow">
-  <title>Book a Lesson | Fox Lessons</title>
-  <meta name="description" content="Book a music lesson in Denver with Daniel Fox. Text, call, or send a note.">
+  <title>Contact | Fox Lessons</title>
+  <meta name="description" content="Questions about music lessons in Denver? Text or call 614-746-0333, or send a note. I reply between lessons, same day.">
   <meta name="theme-color" content="#0A0B0D">
 
   <!-- Open Graph -->
   <link rel="alternate" type="application/rss+xml" title="Fox Lessons Blog" href="../rss.xml">
-  <meta property="og:title" content="Book a Lesson | Fox Lessons">
-  <meta property="og:description" content="Book a music lesson in Denver with Daniel Fox. Text, call, or send a note.">
+  <meta property="og:title" content="Contact | Fox Lessons">
+  <meta property="og:description" content="Questions about music lessons in Denver? Text or call 614-746-0333, or send a note. I reply between lessons, same day.">
   <meta property="og:url" content="https://foxlessons.com/contact/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://foxlessons.com/img/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Book a Lesson | Fox Lessons">
+  <meta property="og:image:alt" content="Contact | Fox Lessons">
   <meta property="og:site_name" content="Fox Lessons">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Book a Lesson | Fox Lessons">
-  <meta name="twitter:description" content="Book a music lesson in Denver with Daniel Fox. Text, call, or send a note.">
+  <meta name="twitter:title" content="Contact | Fox Lessons">
+  <meta name="twitter:description" content="Questions about music lessons in Denver? Text or call 614-746-0333, or send a note. I reply between lessons, same day.">
   <meta name="twitter:image" content="https://foxlessons.com/img/og-default.png">
 
   <!-- Structured Data -->
@@ -90,7 +90,7 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Book a lesson"
+      "name": "Contact"
     }
   ]
 }
@@ -105,7 +105,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
   <link rel="stylesheet" href="../styles.css?v=247ecbfd">
-  
+  <style>
+/* Contact form: the submit control is a real <button>, which the shared .btn
+   styles were written for anchors. */
+button.btn { border: 0; cursor: pointer; }
+#note { padding-top: 0; }
+  </style>
 </head>
 <body>
   <!-- Skip link (FW-UX-9): first focusable element, visually hidden until
@@ -130,7 +135,7 @@
       <li><a href="../rates/">Rates</a></li>
       <li><a href="../about/">About</a></li>
       <li><a href="../blog/">Blog</a></li>
-      <li><a class="nav-cta" href="../contact/">Book a lesson</a></li>
+      <li><a class="nav-cta" href="../book/">Book a lesson</a></li>
     </ul>
   </nav>
 </header>
@@ -141,7 +146,7 @@
     <img src="../img/hero/contact.jpg" alt="" loading="eager" fetchpriority="high" width="2000" height="1333">
   </div>
   <div class="container">
-    <span class="eyebrow">Book a lesson</span>
+    <span class="eyebrow">Contact</span>
     <h1 class="fade-up">A text is the fastest way in.</h1>
     <p class="hero-sub fade-up">Tell me the instrument, roughly where you are with it, and what you want to play. I'll come back with times.</p>
   </div>
@@ -150,8 +155,36 @@
 <section class="section section--light">
   <div class="container">
     <h2>Reach me directly.</h2>
-    <p>Text or call [PHONE TODO]. Or write to [EMAIL TODO].</p>
+    <p>Text or call <a href="sms:+16147460333">614-746-0333</a>. I'm usually teaching, so I answer between lessons, same day.</p>
     <p>Lessons run at your place, at the studio, or over video. Kids are welcome in shorter slots. If you don't own an instrument yet, say so in your note and I'll point you at the right first one for your budget.</p>
+    <p>Ready now? <a href="../book/">The booking page</a> has every lesson and rate on it.</p>
+  </div>
+</section>
+
+<section class="section section--light" id="note">
+  <div class="container">
+    <h2>Or send a note.</h2>
+    <p class="form-note">It lands in my inbox with an instant receipt back to you. The reply itself is me, between lessons, same day.</p>
+    <form class="contact-form" action="https://formsubmit.co/danielchristopherfox@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New note from foxlessons.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://foxlessons.com/thanks/inquiry/">
+      <input type="hidden" name="_autoresponse" value="Got it. I'm probably teaching right now, so this is the automatic part. The real reply is me, between lessons, same day. Faster answer: text 614-746-0333. Daniel">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <label class="form-field"><span>Your name</span>
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label class="form-field"><span>Email</span>
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label class="form-field"><span>Phone, if a text back is easier</span>
+        <input type="tel" name="phone" autocomplete="tel">
+      </label>
+      <label class="form-field"><span>Your note</span>
+        <textarea name="message" rows="5" placeholder="The instrument, who it's for, where you are with it, and what you want to play." required></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit">Send the note</button>
+    </form>
   </div>
 </section>
   </main>
@@ -168,6 +201,7 @@
       <li><a href="../rates/">Rates</a></li>
       <li><a href="../about/">About</a></li>
       <li><a href="../blog/">Blog</a></li>
+      <li><a href="../book/">Book a lesson</a></li>
       <li><a href="../contact/">Contact</a></li>
       <li><a href="../privacy/">Privacy</a></li>
     </ul>

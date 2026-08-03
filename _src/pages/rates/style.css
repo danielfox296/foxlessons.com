@@ -1,0 +1,9 @@
+/* Rates grid table, light ground. */
+.rate-table { width: 100%; max-width: 46rem; border-collapse: collapse; margin: 2.5rem 0 2rem; }
+.rate-table th, .rate-table td { text-align: left; padding: 0.9rem 1.2rem 0.9rem 0; border-bottom: 1px solid rgba(10,11,13,0.14); vertical-align: top; }
+.rate-table th { font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.6); }
+.rate-table td.num { white-space: nowrap; font-weight: 600; }
+@media (max-width: 560px) {
+  .rate-table { font-size: 0.92rem; }
+  .rate-table td.num { white-space: normal; }
+}
