@@ -4,9 +4,11 @@
 #   INTERIM (now): every button opens a text to Daniel. Payment settles by
 #   card link, Venmo, or Zelle when the slot is confirmed. Honest and live.
 #
-#   LIVE (after Acuity setup): paste each appointment type's direct
-#   scheduling link over the sms: value and swap the cta/step lines for the
-#   LIVE block in ../../../../SETUP-BOOKING.md. Rebuild, push, done.
+#   LIVE (after Cal.com setup — ratified 2026-08-03, free plan + Stripe):
+#   paste each event type's direct link (cal.com/<username>/<slug>) over the
+#   sms: value and swap the cta/step lines for the LIVE block in
+#   ../../../../SETUP-BOOKING.md. Rebuild, push, done. The same swap shape
+#   works for any provider (Acuity is the documented upgrade path).
 #
 # Nothing else on the site hardcodes a booking URL. Do not edit the section
 # HTML to change destinations; edit this file.
