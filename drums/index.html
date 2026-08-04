@@ -107,7 +107,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=231bd468">
+  <link rel="stylesheet" href="../styles.css?v=0d55bb7a">
   
 </head>
 <body>
@@ -177,6 +177,24 @@
     <p>That's the gap lessons close. You keep the joy of playing along, and you add a second ear that catches what yours can't yet. The same gap is why apps plateau, and <a href="../compare/apps-vs-a-teacher/">the apps page</a> goes deeper on that. Kids love drums, and kids' lessons run 45 minutes, in your home, with a parent home.</p>
     <p><a href="../rates/">Rates</a> · <a href="../book/">Book your first lesson</a></p>
   </div>
+</section>
+
+<section class="section--dark play-section" data-play="drums">
+  <div class="container play-head">
+    <span class="eyebrow">Go ahead, play it</span>
+    <h2>Hit something.</h2>
+    <p>Kick, snare, hat, and crash, synthesized from scratch in your browser. Tap the pads or use Z X C V. Time and feel start with two hands and a pulse, and the patterns behind this page jump when you land one.</p>
+  </div>
+  <div class="container">
+    <div class="play-pads" aria-label="Playable drum pads">
+      <button class="ppad" data-hit="kick" data-key="z"><span class="ppad-name">Kick</span><span class="ppad-key">Z</span></button>
+      <button class="ppad" data-hit="snare" data-key="x"><span class="ppad-name">Snare</span><span class="ppad-key">X</span></button>
+      <button class="ppad" data-hit="hat" data-key="c"><span class="ppad-name">Hat</span><span class="ppad-key">C</span></button>
+      <button class="ppad" data-hit="crash" data-key="v"><span class="ppad-name">Crash</span><span class="ppad-key">V</span></button>
+    </div>
+    <p class="play-note">A toy, honestly. For the real thing, <a href="../book/">book a lesson</a>.</p>
+  </div>
+  <script src="../js/play.js" defer></script>
 </section>
 
 <section class="section--dark cover-wall">
@@ -469,9 +487,22 @@
 
     var smoothScroll = 0;
     var time = 0;
+    var audioLv = 0, audioPitch = 0;
 
     function draw() {
-      if (!reduceMotion) time += 0.032;
+      // Audio-reactive drive: the playable instruments (js/play.js) publish
+      // window.__foxAudio. Level lifts the plate up its mode ladder and
+      // brightens the nodal lines; pitch reaches further up it — a Chladni
+      // plate answering the note it hears. Idle, all of this is zero and
+      // the ground behaves exactly as before.
+      var fox = window.__foxAudio;
+      if (fox && !reduceMotion) {
+        var lv = fox.level();
+        audioLv += (lv - audioLv) * (lv > audioLv ? 0.5 : 0.05);
+        audioPitch += (fox.pitch01() - audioPitch) * 0.2;
+      }
+
+      if (!reduceMotion) time += 0.032 * (1 + audioLv * 2.5);
 
       var scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       var rawScroll = window.scrollY / scrollMax;
@@ -483,7 +514,8 @@
 
       mouseSmX += (mouseX - mouseSmX) * 0.03;
 
-      var modeProgress = smoothScroll * (modes.length - 1);
+      var modeDrive = Math.min(1, smoothScroll + audioLv * (0.18 + audioPitch * 0.4));
+      var modeProgress = modeDrive * (modes.length - 1);
       var modeIdx = Math.floor(modeProgress);
       var modeFrac = modeProgress - modeIdx;
       modeIdx = Math.min(modeIdx, modes.length - 2);
@@ -521,9 +553,9 @@
       var cellW = plateSize / (GRID - 1);
       var cellH = plateSize / (GRID - 1);
 
-      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16, 0.7, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16 + audioLv * 0.4, 0.7 + audioLv * 0.5, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
     }
 
     // Adaptive cadence — start at 30fps, back off when draw() is expensive

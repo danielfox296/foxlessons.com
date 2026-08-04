@@ -309,6 +309,78 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .wall-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 25vw; }
 }
 
+/* ---- playable instruments (instrument pages, js/play.js) ---- */
+/* Hidden without JS by design: the buttons only exist to make sound, so a
+   scriptless page shows no dead controls (FW-UX-9 posture). Strings run
+   full-bleed like the cover walls; pads and keys sit in the container. */
+.play-section { position: relative; z-index: 1; padding: 5rem 0 2.5rem; display: none; }
+.js .play-section { display: block; }
+.play-head { margin-bottom: 2.5rem; }
+.play-head h2 { font-size: clamp(1.7rem, 2.4vw, 2.7rem); margin-bottom: 1.1rem; }
+.play-head p { max-width: 38rem; }
+.sr-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.play-note { color: var(--gray); font-size: 0.85rem; margin-top: 2.2rem; }
+/* strings: each is a real button spanning the viewport; the wire is ::before.
+   touch-action none scopes to the string box only, so the strip strums
+   instead of scrolling and the rest of the page scrolls as normal. */
+.play-strings { touch-action: none; }
+.pstring { display: block; width: 100%; min-height: 52px; padding: 0; background: none; border: 0; position: relative; cursor: pointer; }
+.pstring::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: var(--th, 2px); transform: translateY(-50%); background: linear-gradient(90deg, rgba(152,161,171,0.6), rgba(152,161,171,0.28) 50%, rgba(152,161,171,0.6)); }
+.pstring:hover::before { background: linear-gradient(90deg, rgba(152,161,171,0.85), rgba(152,161,171,0.45) 50%, rgba(152,161,171,0.85)); }
+.pstring:focus-visible { outline: 2px solid var(--accent); outline-offset: -6px; }
+.pstring.ringing::before { background: linear-gradient(90deg, rgba(98,182,232,0.95), rgba(98,182,232,0.5) 50%, rgba(98,182,232,0.95)); animation: stringRing 0.5s ease-out; }
+@keyframes stringRing {
+  0% { transform: translateY(calc(-50% + 3px)); }
+  25% { transform: translateY(calc(-50% - 3px)); }
+  50% { transform: translateY(calc(-50% + 2px)); }
+  75% { transform: translateY(calc(-50% - 1px)); }
+  100% { transform: translateY(-50%); }
+}
+/* pads */
+.play-pads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; max-width: 44rem; }
+.ppad { aspect-ratio: 1; background: var(--panel); border: 1px solid var(--line); color: var(--paper); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; transition: transform 0.12s, border-color 0.25s, box-shadow 0.25s; }
+.ppad-name { font: 600 0.8rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; }
+.ppad-key { color: var(--gray); font: 600 0.7rem var(--font-body); border: 1px solid var(--line); padding: 0.1rem 0.5rem; }
+.ppad:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ppad.hit { transform: scale(0.96); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 0 46px rgba(98, 182, 232, 0.22); }
+/* keys */
+.play-keys { position: relative; display: flex; max-width: 46rem; height: 190px; }
+.pkey { cursor: pointer; padding: 0; }
+.pkey--w { flex: 1; position: relative; background: var(--paper); border: 1px solid rgba(10, 11, 13, 0.5); }
+.pkey--w.down { background: #dbe3ec; }
+.pkey--b { position: absolute; top: 0; height: 58%; width: 6.2%; left: calc(var(--pos) * 10% - 3.1%); background: var(--ink); border: 1px solid rgba(152, 161, 171, 0.45); z-index: 2; }
+.pkey--b.down { background: #262c35; }
+.pkey:focus-visible { outline: 2px solid var(--accent-on-light); outline-offset: -3px; z-index: 3; }
+.pkey-hint { position: absolute; bottom: 0.45rem; left: 50%; transform: translateX(-50%); font: 600 0.62rem var(--font-body); color: rgba(10, 11, 13, 0.45); }
+.pkey--b .pkey-hint { color: var(--gray); }
+@media (max-width: 640px) {
+  .play-keys { height: 150px; }
+  .play-pads { gap: 0.6rem; }
+  .pstring { min-height: 46px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pstring.ringing::before { animation: none; }
+  .ppad.hit { transform: none; }
+}
+
+/* ---- view transitions (MPA navigation) ---- */
+/* Native cross-document transitions: pages hand off with a short fade and
+   settle instead of a blink. The sticky header carries its own name so it
+   holds still while content changes. Progressive: unsupported browsers
+   ignore all of this; reduced motion turns it off outright. */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: 0.22s ease both vtOut; }
+  ::view-transition-new(root) { animation: 0.3s ease 0.04s both vtIn; }
+  @keyframes vtOut { to { opacity: 0; } }
+  @keyframes vtIn { from { opacity: 0; transform: translateY(10px); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-image-pair(*),
+  ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
 /* ---- hear-first capture (contact) ---- */
 #hear-first { scroll-margin-top: 90px; }
 .hear-first { max-width: 34rem; margin-bottom: 3.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(10,11,13,0.14); }

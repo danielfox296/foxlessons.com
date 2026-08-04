@@ -107,7 +107,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=231bd468">
+  <link rel="stylesheet" href="../styles.css?v=0d55bb7a">
   
 </head>
 <body>
@@ -180,6 +180,37 @@
     <p>A 4th grader, a Coltrane tune, and the patience to get there. Kids get real music here too. Kids' lessons run 45 minutes, in your home, with a parent home.</p>
     <p><a href="../rates/">Rates</a> · <a href="../book/">Book your first lesson</a></p>
   </div>
+</section>
+
+<section class="section--dark play-section" data-play="piano">
+  <div class="container play-head">
+    <span class="eyebrow">Go ahead, play it</span>
+    <h2>Sit down for a second.</h2>
+    <p>An octave and a half of honest synth keys. Tap them, or play from your computer keyboard, home row for the white keys and the row above for the black ones. The patterns behind this page are cymatics, and they answer what you play.</p>
+  </div>
+  <div class="container">
+    <div class="play-keys" aria-label="Playable piano keys">
+      <button class="pkey pkey--w" data-freq="261.63" data-key="a"><span class="sr-label">Play C4</span><span class="pkey-hint">A</span></button>
+      <button class="pkey pkey--w" data-freq="293.66" data-key="s"><span class="sr-label">Play D4</span><span class="pkey-hint">S</span></button>
+      <button class="pkey pkey--w" data-freq="329.63" data-key="d"><span class="sr-label">Play E4</span><span class="pkey-hint">D</span></button>
+      <button class="pkey pkey--w" data-freq="349.23" data-key="f"><span class="sr-label">Play F4</span><span class="pkey-hint">F</span></button>
+      <button class="pkey pkey--w" data-freq="392.00" data-key="g"><span class="sr-label">Play G4</span><span class="pkey-hint">G</span></button>
+      <button class="pkey pkey--w" data-freq="440.00" data-key="h"><span class="sr-label">Play A4</span><span class="pkey-hint">H</span></button>
+      <button class="pkey pkey--w" data-freq="493.88" data-key="j"><span class="sr-label">Play B4</span><span class="pkey-hint">J</span></button>
+      <button class="pkey pkey--w" data-freq="523.25" data-key="k"><span class="sr-label">Play C5</span><span class="pkey-hint">K</span></button>
+      <button class="pkey pkey--w" data-freq="587.33" data-key="l"><span class="sr-label">Play D5</span><span class="pkey-hint">L</span></button>
+      <button class="pkey pkey--w" data-freq="659.26" data-key=";"><span class="sr-label">Play E5</span><span class="pkey-hint">;</span></button>
+      <button class="pkey pkey--b" style="--pos:1" data-freq="277.18" data-key="w"><span class="sr-label">Play C sharp 4</span><span class="pkey-hint">W</span></button>
+      <button class="pkey pkey--b" style="--pos:2" data-freq="311.13" data-key="e"><span class="sr-label">Play D sharp 4</span><span class="pkey-hint">E</span></button>
+      <button class="pkey pkey--b" style="--pos:4" data-freq="369.99" data-key="t"><span class="sr-label">Play F sharp 4</span><span class="pkey-hint">T</span></button>
+      <button class="pkey pkey--b" style="--pos:5" data-freq="415.30" data-key="y"><span class="sr-label">Play G sharp 4</span><span class="pkey-hint">Y</span></button>
+      <button class="pkey pkey--b" style="--pos:6" data-freq="466.16" data-key="u"><span class="sr-label">Play A sharp 4</span><span class="pkey-hint">U</span></button>
+      <button class="pkey pkey--b" style="--pos:8" data-freq="554.37" data-key="o"><span class="sr-label">Play C sharp 5</span><span class="pkey-hint">O</span></button>
+      <button class="pkey pkey--b" style="--pos:9" data-freq="622.25" data-key="p"><span class="sr-label">Play D sharp 5</span><span class="pkey-hint">P</span></button>
+    </div>
+    <p class="play-note">A toy, honestly. For the real thing, <a href="../book/">book a lesson</a>.</p>
+  </div>
+  <script src="../js/play.js" defer></script>
 </section>
 
 <section class="section--dark cover-wall">
@@ -476,9 +507,22 @@
 
     var smoothScroll = 0;
     var time = 0;
+    var audioLv = 0, audioPitch = 0;
 
     function draw() {
-      if (!reduceMotion) time += 0.032;
+      // Audio-reactive drive: the playable instruments (js/play.js) publish
+      // window.__foxAudio. Level lifts the plate up its mode ladder and
+      // brightens the nodal lines; pitch reaches further up it — a Chladni
+      // plate answering the note it hears. Idle, all of this is zero and
+      // the ground behaves exactly as before.
+      var fox = window.__foxAudio;
+      if (fox && !reduceMotion) {
+        var lv = fox.level();
+        audioLv += (lv - audioLv) * (lv > audioLv ? 0.5 : 0.05);
+        audioPitch += (fox.pitch01() - audioPitch) * 0.2;
+      }
+
+      if (!reduceMotion) time += 0.032 * (1 + audioLv * 2.5);
 
       var scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       var rawScroll = window.scrollY / scrollMax;
@@ -490,7 +534,8 @@
 
       mouseSmX += (mouseX - mouseSmX) * 0.03;
 
-      var modeProgress = smoothScroll * (modes.length - 1);
+      var modeDrive = Math.min(1, smoothScroll + audioLv * (0.18 + audioPitch * 0.4));
+      var modeProgress = modeDrive * (modes.length - 1);
       var modeIdx = Math.floor(modeProgress);
       var modeFrac = modeProgress - modeIdx;
       modeIdx = Math.min(modeIdx, modes.length - 2);
@@ -528,9 +573,9 @@
       var cellW = plateSize / (GRID - 1);
       var cellH = plateSize / (GRID - 1);
 
-      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16, 0.7, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16 + audioLv * 0.4, 0.7 + audioLv * 0.5, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
     }
 
     // Adaptive cadence — start at 30fps, back off when draw() is expensive

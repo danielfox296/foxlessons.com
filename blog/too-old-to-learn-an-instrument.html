@@ -148,7 +148,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=231bd468">
+  <link rel="stylesheet" href="../styles.css?v=0d55bb7a">
   
 </head>
 <body>
@@ -467,9 +467,22 @@ because that story is mine too.</p>
 
     var smoothScroll = 0;
     var time = 0;
+    var audioLv = 0, audioPitch = 0;
 
     function draw() {
-      if (!reduceMotion) time += 0.032;
+      // Audio-reactive drive: the playable instruments (js/play.js) publish
+      // window.__foxAudio. Level lifts the plate up its mode ladder and
+      // brightens the nodal lines; pitch reaches further up it — a Chladni
+      // plate answering the note it hears. Idle, all of this is zero and
+      // the ground behaves exactly as before.
+      var fox = window.__foxAudio;
+      if (fox && !reduceMotion) {
+        var lv = fox.level();
+        audioLv += (lv - audioLv) * (lv > audioLv ? 0.5 : 0.05);
+        audioPitch += (fox.pitch01() - audioPitch) * 0.2;
+      }
+
+      if (!reduceMotion) time += 0.032 * (1 + audioLv * 2.5);
 
       var scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       var rawScroll = window.scrollY / scrollMax;
@@ -481,7 +494,8 @@ because that story is mine too.</p>
 
       mouseSmX += (mouseX - mouseSmX) * 0.03;
 
-      var modeProgress = smoothScroll * (modes.length - 1);
+      var modeDrive = Math.min(1, smoothScroll + audioLv * (0.18 + audioPitch * 0.4));
+      var modeProgress = modeDrive * (modes.length - 1);
       var modeIdx = Math.floor(modeProgress);
       var modeFrac = modeProgress - modeIdx;
       modeIdx = Math.min(modeIdx, modes.length - 2);
@@ -519,9 +533,9 @@ because that story is mine too.</p>
       var cellW = plateSize / (GRID - 1);
       var cellH = plateSize / (GRID - 1);
 
-      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16, 0.7, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16 + audioLv * 0.4, 0.7 + audioLv * 0.5, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
     }
 
     // Adaptive cadence — start at 30fps, back off when draw() is expensive

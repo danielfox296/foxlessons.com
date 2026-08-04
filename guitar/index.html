@@ -107,7 +107,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=231bd468">
+  <link rel="stylesheet" href="../styles.css?v=0d55bb7a">
   
 </head>
 <body>
@@ -177,6 +177,26 @@
     <p>Starting fresh, we get your hands comfortable and your first songs moving quickly. Coming back after years away, your hands remember more than you think, and we build on what's still there. Kids' lessons run 45 minutes, in your home, with a parent home.</p>
     <p><a href="../rates/">Rates</a> · <a href="../book/">Book your first lesson</a></p>
   </div>
+</section>
+
+<section class="section--dark play-section" data-play="guitar">
+  <div class="container play-head">
+    <span class="eyebrow">Go ahead, play it</span>
+    <h2>Strum this.</h2>
+    <p>Six strings in standard tuning, each one a physical model of a plucked string computed live in your browser. Drag across them, tap one at a time, or use keys 1 through 6. The patterns behind this page are cymatics, the shapes sound presses into matter, and they answer what you play.</p>
+  </div>
+  <div class="play-strings" aria-label="Playable guitar strings">
+    <button class="pstring" style="--th:3.5px" data-freq="82.41" data-decay="0.9968" data-bright="0.5" data-gain="0.55" data-pan="-0.25"><span class="sr-label">Pluck the low E string</span></button>
+    <button class="pstring" style="--th:3px" data-freq="110.00" data-decay="0.9967" data-bright="0.55" data-gain="0.53" data-pan="-0.15"><span class="sr-label">Pluck the A string</span></button>
+    <button class="pstring" style="--th:2.5px" data-freq="146.83" data-decay="0.9966" data-bright="0.6" data-gain="0.5" data-pan="-0.05"><span class="sr-label">Pluck the D string</span></button>
+    <button class="pstring" style="--th:2px" data-freq="196.00" data-decay="0.9965" data-bright="0.7" data-gain="0.48" data-pan="0.05"><span class="sr-label">Pluck the G string</span></button>
+    <button class="pstring" style="--th:1.8px" data-freq="246.94" data-decay="0.9964" data-bright="0.8" data-gain="0.46" data-pan="0.15"><span class="sr-label">Pluck the B string</span></button>
+    <button class="pstring" style="--th:1.5px" data-freq="329.63" data-decay="0.9963" data-bright="0.85" data-gain="0.44" data-pan="0.25"><span class="sr-label">Pluck the high E string</span></button>
+  </div>
+  <div class="container">
+    <p class="play-note">A toy, honestly. For the real thing, <a href="../book/">book a lesson</a>.</p>
+  </div>
+  <script src="../js/play.js" defer></script>
 </section>
 
 <section class="section--dark cover-wall">
@@ -473,9 +493,22 @@
 
     var smoothScroll = 0;
     var time = 0;
+    var audioLv = 0, audioPitch = 0;
 
     function draw() {
-      if (!reduceMotion) time += 0.032;
+      // Audio-reactive drive: the playable instruments (js/play.js) publish
+      // window.__foxAudio. Level lifts the plate up its mode ladder and
+      // brightens the nodal lines; pitch reaches further up it — a Chladni
+      // plate answering the note it hears. Idle, all of this is zero and
+      // the ground behaves exactly as before.
+      var fox = window.__foxAudio;
+      if (fox && !reduceMotion) {
+        var lv = fox.level();
+        audioLv += (lv - audioLv) * (lv > audioLv ? 0.5 : 0.05);
+        audioPitch += (fox.pitch01() - audioPitch) * 0.2;
+      }
+
+      if (!reduceMotion) time += 0.032 * (1 + audioLv * 2.5);
 
       var scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       var rawScroll = window.scrollY / scrollMax;
@@ -487,7 +520,8 @@
 
       mouseSmX += (mouseX - mouseSmX) * 0.03;
 
-      var modeProgress = smoothScroll * (modes.length - 1);
+      var modeDrive = Math.min(1, smoothScroll + audioLv * (0.18 + audioPitch * 0.4));
+      var modeProgress = modeDrive * (modes.length - 1);
       var modeIdx = Math.floor(modeProgress);
       var modeFrac = modeProgress - modeIdx;
       modeIdx = Math.min(modeIdx, modes.length - 2);
@@ -525,9 +559,9 @@
       var cellW = plateSize / (GRID - 1);
       var cellH = plateSize / (GRID - 1);
 
-      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16, 0.7, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
-      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16 + audioLv * 0.4, 0.7 + audioLv * 0.5, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
     }
 
     // Adaptive cadence — start at 30fps, back off when draw() is expensive
