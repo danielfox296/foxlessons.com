@@ -42,8 +42,9 @@ from _src.lib.reading_time import calculate_reading_time
 # Constants
 # ---------------------------------------------------------------------------
 
-VALID_EYEBROWS = {'A SOUND SESSION', 'A SOCIAL NIGHT', 'A RECORDED SESSION',
-                  'JOURNAL', 'FIELD NOTES', 'SOUND', 'PRACTICE'}
+# Fox Lessons taxonomy (replaced the inherited firstwater set 2026-08-03,
+# first blog cluster). Extend here when a post needs a new category.
+VALID_EYEBROWS = {'ADULTS', 'KIDS', 'ADHD', 'PRACTICE', 'DENVER', 'SONGS'}
 
 KNOWN_BLOCK_TYPES = {
     'prose', 'subhead', 'pullquote', 'stat_callout', 'data_viz',
@@ -115,6 +116,12 @@ def validate_post(data: dict, yaml_path: str = '<unknown>') -> tuple:
             f"[{yaml_path}] Invalid eyebrow '{eyebrow}'. "
             f"Must be one of: {', '.join(sorted(VALID_EYEBROWS))}"
         )
+
+    # -- Draft flag (ported from the signetartists.com kit 2026-08-03) ------
+    # draft: true keeps a post off every publish surface while lint still
+    # validates it — the weekly-cadence queue mechanism.
+    if 'draft' in data and not isinstance(data['draft'], bool):
+        errors.append(f"[{yaml_path}] draft must be true or false")
 
     # -- Author must have 'name' -------------------------------------------
     author = data.get('author')
@@ -288,12 +295,12 @@ def render_block(block: dict, ctx: dict, env: jinja2.Environment) -> str:
         resolved = []
         for item in block.get('posts', []):
             slug = item.get('slug', '') if isinstance(item, dict) else str(item)
-            post = dict(posts_by_slug.get(slug, {
-                'slug': slug,
-                'title': slug.replace('-', ' ').title(),
-                'eyebrow': '',
-                'dek': '',
-            }))
+            found = posts_by_slug.get(slug)
+            if found is None:
+                # Unknown or draft slug: drop the card rather than render a
+                # dead link (collect_all_post_frontmatter excludes drafts).
+                continue
+            post = dict(found)
             # Ensure slug is set
             if 'slug' not in post:
                 post['slug'] = slug
@@ -443,49 +450,38 @@ def render_post(post_dir: str, env: jinja2.Environment,
 
 
 def collect_all_post_frontmatter(pages_dir: str) -> list:
-    """Scan all blog-* directories and return a list of frontmatter dicts.
+    """Frontmatter dicts for every blog post under pages_dir, so the
+    related block can resolve slugs across the entire blog.
 
-    Includes BOTH new-format and old-format posts so the related block
-    can resolve slugs across the entire blog.  Each dict includes at
-    minimum: title, slug, eyebrow, dek, post_dir.
+    Walks nested directories (posts live at pages/blog-posts/<slug>/) —
+    the original top-level blog-* scan predated that layout and collected
+    nothing. A directory counts as a post when its config.json output
+    starts with 'blog/' and a new-format content.yaml sits beside it.
     """
-    posts = []
-    for entry in sorted(os.listdir(pages_dir)):
-        if not entry.startswith('blog-'):
-            continue
-        post_dir = os.path.join(pages_dir, entry)
-        yaml_path = os.path.join(post_dir, 'content.yaml')
-        config_path = os.path.join(post_dir, 'config.json')
+    import json
 
-        if is_new_format(yaml_path) if os.path.exists(yaml_path) else False:
-            # New-format post — full YAML frontmatter
-            try:
-                data = load_post(yaml_path)
-                data['post_dir'] = post_dir
-                posts.append(data)
-            except Exception:
-                continue
-        elif os.path.exists(config_path):
-            # Old-format post — extract basics from config.json + content.yaml
-            try:
-                import json
-                with open(config_path, 'r', encoding='utf-8') as f:
-                    config = json.load(f)
-                raw_title = config.get('title', '')
-                # Strip " — Entuned Blog" suffix
-                clean_title = raw_title
-                for suffix in [' — Entuned Blog', ' — Entuned']:
-                    if clean_title.endswith(suffix):
-                        clean_title = clean_title[:-len(suffix)]
-                        break
-                slug = entry.replace('blog-', '', 1)
-                posts.append({
-                    'title': clean_title,
-                    'slug': slug,
-                    'eyebrow': '',
-                    'dek': config.get('meta_description', ''),
-                    'post_dir': post_dir,
-                })
-            except Exception:
-                continue
+    posts = []
+    for root, dirs, files in sorted(os.walk(pages_dir)):
+        if 'config.json' not in files or 'content.yaml' not in files:
+            continue
+        try:
+            with open(os.path.join(root, 'config.json'), 'r', encoding='utf-8') as f:
+                config = json.load(f)
+        except Exception:
+            continue
+        output = config.get('output', '')
+        if not output.startswith('blog/') or output == 'blog/index.html':
+            continue
+        yaml_path = os.path.join(root, 'content.yaml')
+        if not is_new_format(yaml_path):
+            continue
+        try:
+            data = load_post(yaml_path)
+            if data.get('draft'):
+                continue  # drafts never surface, including as related cards
+            data['post_dir'] = root
+            posts.append(data)
+        except Exception:
+            continue
+    posts.sort(key=lambda p: p.get('slug', ''))
     return posts

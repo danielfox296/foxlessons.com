@@ -6,5 +6,12 @@
   <description>Writing on learning an instrument as an adult, practice that sticks, and playing with other people. From Daniel Fox in Denver.</description>
   <language>en-us</language>
   <atom:link href="https://foxlessons.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Am I too old to learn an instrument?</title>
+    <link>https://foxlessons.com/blog/too-old-to-learn-an-instrument.html</link>
+    <description>A Denver music teacher on learning an instrument as an adult: what the research says about age, what actually stops adults, and how lessons built for adults work.</description>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/too-old-to-learn-an-instrument.html</guid>
+  </item>
 </channel>
 </rss>

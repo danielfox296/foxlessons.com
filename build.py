@@ -234,13 +234,23 @@ def lint():
     total_errors = []
     total_warnings = []
 
-    for entry in sorted(os.listdir(PAGES)):
-        if not entry.startswith('blog-'):
+    # Walk nested page dirs (posts live at pages/blog-posts/<slug>/) — the
+    # old top-level blog-* scan predated that layout and linted nothing.
+    post_dirs = []
+    for root, dirs, files in os.walk(PAGES):
+        if 'content.yaml' not in files or 'config.json' not in files:
             continue
-        page_path = os.path.join(PAGES, entry)
+        try:
+            cfg = json.loads(read(os.path.join(root, 'config.json')))
+        except Exception:
+            continue
+        out = cfg.get('output', '')
+        if out.startswith('blog/') and out != 'blog/index.html':
+            post_dirs.append(root)
+
+    for page_path in sorted(post_dirs):
+        entry = os.path.relpath(page_path, PAGES)
         yaml_path = os.path.join(page_path, 'content.yaml')
-        if not os.path.exists(yaml_path):
-            continue
         if not br.is_new_format(yaml_path):
             continue
 
@@ -254,10 +264,11 @@ def lint():
             print(f'  ✗ {e}')
             total_errors.append(e)
 
+        label = ' (draft)' if data.get('draft') else ''
         if not errors and not warnings:
-            print(f'  ✓ {entry}')
+            print(f'  ✓ {entry}{label}')
         elif not errors:
-            print(f'  ✓ {entry} (with warnings)')
+            print(f'  ✓ {entry}{label} (with warnings)')
 
     print(f'\nLint complete: {len(total_errors)} error(s), {len(total_warnings)} warning(s).')
 
@@ -653,6 +664,12 @@ def build():
         if use_new_renderer:
             # --- New blog renderer path ---
             br, env = _ensure_blog_renderer()
+            # draft: true keeps a post off every publish surface (HTML, RSS,
+            # sitemap, llms.txt) while --lint still validates it. The weekly
+            # queue: flip one draft to false per week, rebuild, push.
+            if br.load_post(os.path.join(page_path, 'content.yaml')).get('draft'):
+                print(f'  ~ skipped {output_check} (draft: true)')
+                continue
             # Compute the all-posts frontmatter list once per build and reuse.
             # Without this cache the call is O(n²): every new-format post
             # re-scans + YAML-parses every other post (~12k parses for 110
@@ -1230,6 +1247,11 @@ def build():
         if old_slug in new_format_slugs:
             continue
 
+        # A new-format post missing from new_format_slugs was skipped as a
+        # draft — it is not an old-format post and stays out of the feed.
+        if _is_new_format_blog(page_path):
+            continue
+
         title = config.get('title', 'Fox Lessons')
         # Clean title
         for suffix in [' — Fox Lessons', ' — Sound Sessions']:
@@ -1402,6 +1424,8 @@ def generate_sitemap(page_dirs):
             if br is None:
                 br, _ = _ensure_blog_renderer()
             data = br.load_post(os.path.join(page_path, 'content.yaml'))
+            if data.get('draft'):
+                continue
             robots_value = data.get('robots') or config.get('robots', 'index, follow')
             if 'noindex' in robots_value:
                 continue
@@ -1500,6 +1524,8 @@ def generate_llms():
             continue  # old-format posts: none exist today
 
         data = br.load_post(yaml_path)
+        if data.get('draft'):
+            continue
         robots_value = data.get('robots') or config.get('robots', 'index, follow')
         if 'noindex' in robots_value:
             continue

@@ -1,0 +1,123 @@
+# DRAFT — first blog cluster, awaiting Daniel's readback. Search basis:
+# "music lessons vs music therapy" is an established query owned by therapy
+# practices and one national lesson chain; zero Denver-local content
+# (verified 2026-08-03). STRATEGY §6f names this post; the referral posture
+# makes the teacher-not-therapist stance concrete. Denver providers named
+# below were live-verified 2026-08-03 (Rhythmic Roots directory listing,
+# swallowhillmusic.org/music-therapy); Mountain Sound deliberately omitted
+# pending live verification per the no-unverified-links rail.
+# QUEUE: week 5. Flip to false, rebuild, push.
+draft: true
+
+title: "Music lessons or music therapy: which are you looking for?"
+seo_title: "Music Lessons vs Music Therapy in Denver: Which Do You Need?"
+slug: "music-lessons-or-music-therapy-denver"
+eyebrow: "DENVER"
+dek: "They sound similar and do different jobs. A plain guide to which one fits your goal, and who to call in Denver for each."
+date: "2026-08-03"
+last_updated: "2026-08-03"
+author:
+  name: "Daniel Fox"
+  role: "Denver"
+meta_description: "The difference between music lessons and music therapy in plain terms: what each is for, who provides each, and Denver options for both. From a Denver music teacher."
+llms_description: "Plain-language guide distinguishing music lessons (learning to play, taught by a music teacher) from music therapy (clinical goals through music, run by a board-certified music therapist). Decision cues for families, the teacher-not-therapist disclaimer, and verified Denver referrals: Rhythmic Roots Music Services and Swallow Hill Music's therapy program for music therapy. Written by Daniel Fox, a Denver music teacher who refers clinical questions out."
+tags: [denver, adhd, kids]
+sections:
+  - type: prose
+    body: |
+      Music lessons teach you to play. Music therapy uses music to work
+      toward clinical goals, and it is run by a board-certified music
+      therapist. If the goal is playing songs, you want a teacher. If the
+      goal is clinical, you want a therapist. Some families end up wanting
+      one of each, and that combination works fine.
+
+      I am a music teacher in Denver, so I sit on one side of this line. This
+      page exists because people land on it from both directions, and the
+      kindest thing I can do is help you find the right door fast.
+
+  - type: subhead
+    text: "What is music therapy?"
+
+  - type: prose
+    body: |
+      Music therapy is clinical work that happens through music. A
+      board-certified music therapist, an MT-BC, designs sessions toward
+      goals a family or care team names: communication, emotional
+      regulation, motor skills, memory. Playing well is not the point.
+      The music is the tool, not the outcome. Therapists assess, document
+      progress toward the goals, and coordinate with the rest of a care
+      team when there is one.
+
+  - type: subhead
+    text: "What are music lessons?"
+
+  - type: prose
+    body: |
+      Lessons teach you to play the instrument you want to play. With me
+      that means bass, guitar, drums, piano, or Logic Pro production, taught
+      by ear and chord charts, on songs you or your kid actually love, in
+      your home or online.
+
+      Lessons can still be built around how a particular brain works. My
+      teaching runs interest first, in short varied segments, with movement
+      treated as normal, and I am flexible about lights, volume, and breaks.
+      Plenty of my approach fits ADHD students well, and I say so plainly on
+      [the ADHD lessons page](../adhd/). You do not need a diagnosis to want
+      lessons that work this way. But none of that is clinical work, and I
+      do not pretend otherwise.
+
+  - type: subhead
+    text: "Which one does your family need?"
+
+  - type: prose
+    body: |
+      Some quick sorting questions.
+
+      **Is the wish "I want to play songs"?** Lessons. That is true for ADHD
+      kids and adults too, when playing is the goal.
+
+      **Did a clinician, school team, or care plan recommend working on
+      goals through music?** Music therapy, with an MT-BC.
+
+      **Are you hoping music will address a diagnosis?** Start with the
+      therapist. If playing for its own sake grows out of it later, a
+      teacher slots in naturally at that point.
+
+      **Both sound right?** That happens, and the two work well side by
+      side. Therapy carries the goals. Lessons carry the love of playing.
+
+      I'm a music teacher, not a music therapist. My job is helping you
+      play. If you're looking for clinical goals with music, Denver has
+      board-certified music therapists, and I'm glad to point you toward
+      them.
+
+  - type: subhead
+    text: "Who to call in Denver"
+
+  - type: prose
+    body: |
+      For music therapy, two Denver options I can point to as of August
+      2026. [Rhythmic Roots Music Services](https://rhythmicrootsmusicservices.org)
+      is run by board-certified music therapists and offers both music
+      therapy and adapted lessons; their directory listing notes a waitlist
+      for individual services, so ask early.
+      [Swallow Hill Music](https://swallowhillmusic.org/music-therapy/) also
+      runs a music therapy program alongside its school. Both are the real
+      thing.
+
+      For lessons, that is me: bass, guitar, drums, piano, and Logic Pro
+      production, in your home or online, with
+      [published rates](../rates/). And in fairness, if you want a big-school
+      environment with many teachers and group classes, Swallow Hill teaches
+      lessons too. Different door, same love of the thing.
+
+  - type: cta
+    headline: "If it's lessons you're after."
+    body: "Tell me who's playing and what they love to listen to. And if what you describe sounds like clinical goals, I'll say so and point you to the right people."
+    link: "../contact/"
+    link_text: "Send a note"
+
+  - type: related
+    posts:
+      - slug: "best-instrument-for-a-kid-with-adhd"
+      - slug: "how-to-practice-guitar-with-adhd"

@@ -1,0 +1,121 @@
+# DRAFT — first blog cluster, awaiting Daniel's readback. Search basis:
+# "starting piano again as an adult" and its variants return personal blogs
+# and app content with no authoritative owner (verified 2026-08-03); the
+# returner audience is the majority of new players per Fender. The hiatus
+# story publishes in full per interview #11 ("go deeper", Daniel's directive).
+# QUEUE: week 2. Flip to false, rebuild, push.
+draft: true
+
+title: "Starting again after years away"
+seo_title: "Coming Back to an Instrument as an Adult: Starting Again After Years Away"
+slug: "starting-again-after-years-away"
+eyebrow: "ADULTS"
+dek: "The instrument in the closet is not a failure story. Mine sat there through some hard years, and picking it back up brought music back bigger than it had ever been."
+date: "2026-08-03"
+last_updated: "2026-08-03"
+author:
+  name: "Daniel Fox"
+  role: "Denver"
+meta_description: "A Denver music teacher on coming back to an instrument as an adult: why the love goes dormant, what the restart really looks like, and how lessons help it stick."
+llms_description: "Returner post for adults coming back to an instrument after years away. Daniel's own restart story told in full: the business years and antidepressants when music lost its pull, the 2019 bass out of the closet, the obsessive woodshed, Denver jams, and the 900 dollar upright. Covers why the love goes dormant, whether ability comes back (it does; returners progress fast), the abandoned-hobby cycle including for ADHD adults, and how restart lessons run."
+tags: [adults, returners]
+sections:
+  - type: prose
+    body: |
+      Coming back to an instrument after years away works, and it usually
+      works fast. Returners progress quicker than fresh beginners because the
+      old wiring is still in there. The hard part is not ability. It is the
+      story you tell yourself about the years you did not play.
+
+      I know because the instrument in the closet was mine.
+
+  - type: subhead
+    text: "Why the love goes dormant"
+
+  - type: prose
+    body: |
+      For a stretch of years I barely played. I was busy running a business, I
+      was on antidepressants, and music did not have much of a draw for me. If
+      that sentence sounds familiar, you are not broken. A love for music can
+      go dormant under work, under health, under a season of life. It does
+      not die. It waits.
+
+      There is even a pattern to where it waits. The classical guitar I
+      started on as a kid came out of my mom's closet the summer of my
+      fifth-grade year. The bass that restarted everything came out of my own
+      closet in 2019. Same story, two closets apart.
+
+  - type: pullquote
+    text: "I felt a sword-in-the-stone moment when I grabbed it, and I was obsessed then for years."
+
+  - type: prose
+    body: |
+      In 2019 I changed my lifestyle and my medications, and I picked the
+      bass back up. What followed did not look like discipline. It looked
+      like hunger. I sat in front of YouTube and played jazz exercises for
+      hours a day. I started going to jams. I started playing out in groups.
+      An Americana band needed an upright, so I bought a rough one, used, for
+      900 dollars, and let a difficult instrument teach me. When I moved to
+      Denver, music opened up to me again in a way that it never had before.
+
+      I am not promising you an obsession. I am telling you the pull you
+      still feel toward the instrument is real, and it goes somewhere.
+
+  - type: subhead
+    text: "Does the ability come back?"
+
+  - type: prose
+    body: |
+      Yes, and sooner than you think. Motor memory persists for years. The
+      chords your hands knew are dusty, not gone. And the whole time you were
+      not playing, you were still listening, which means your ear kept
+      training without you. Returners usually surprise themselves inside the
+      first month.
+
+      The rust is real too. Expect a few weeks of your hands catching up to
+      your ear, and expect the old material to come back before the old
+      fluency does. That is the normal shape of a restart, not a verdict on
+      you.
+
+  - type: subhead
+    text: "What if your hobby history is a graveyard?"
+
+  - type: prose
+    body: |
+      Some people have restarted before, more than once, and carry guilt
+      about the gear in the basement. Adults with ADHD know this cycle
+      especially well: the new thing, the deep dive, then the case that never
+      opens again. No shame about any of that here. My lessons run interest
+      first, we go for a feeling instead of minutes, and when a week goes
+      blank we problem-solve what got in the way instead of holding a guilt
+      ritual. You do not need a diagnosis to want
+      [lessons that work this way](../adhd/).
+
+  - type: subhead
+    text: "What does starting again look like with me?"
+
+  - type: prose
+    body: |
+      It starts with a conversation. What you used to play, what stopped, and
+      what you want now, because those are usually three different answers. I
+      teach chord charts and ear, not sight-reading, and we start with music
+      you actually love. Then the instrument comes out of the case and lives
+      where you sit, because an instrument in the middle of the room gets
+      picked up and one in a closet does not.
+
+      Maybe you already know where you want this to go. Playing for your
+      family. Recording a track of yourself. A Denver jam night someday, and
+      when you are ready for one, I will be there. And playing at home, for
+      yourself, is a complete destination. The point is the part of you that
+      went quiet gets to make sound again.
+
+  - type: cta
+    headline: "The case opens again."
+    body: "Tell me what you used to play and what you want now. First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    link: "../book/"
+    link_text: "Book a first lesson"
+
+  - type: related
+    posts:
+      - slug: "too-old-to-learn-an-instrument"
+      - slug: "how-to-practice-guitar-with-adhd"

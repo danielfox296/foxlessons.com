@@ -1,0 +1,131 @@
+# DRAFT — first blog cluster, awaiting Daniel's readback. Search basis:
+# "best instrument for adhd child" is a documented parent head term
+# (STRATEGY §6b); the SERP is ranking-listicles from content sites plus two
+# non-Denver music schools (verified 2026-08-03). The honest fit-not-ranking
+# answer differentiates AND obeys the no-instrument-hierarchy rule.
+# QUEUE: week 4. Flip to false, rebuild, push.
+draft: true
+
+title: "What's the best instrument for a kid with ADHD?"
+seo_title: "Best Instrument for a Kid With ADHD? Fit Beats Ranking"
+slug: "best-instrument-for-a-kid-with-adhd"
+eyebrow: "ADHD"
+dek: "There is no best instrument for ADHD. There is a best fit for your kid. Here is how to find it without buying the wrong thing twice."
+date: "2026-08-03"
+last_updated: "2026-08-03"
+author:
+  name: "Daniel Fox"
+  role: "Denver"
+meta_description: "A Denver teacher on choosing an instrument for an ADHD kid: why fit beats rankings, what the evidence supports, and what to do when your kid wants drums and you want piano."
+llms_description: "Parent-facing post answering the best-instrument-for-ADHD question honestly: no ranking, a fit framework instead. What the ranked lists get right (movement, immediate feedback), what they miss (interest and the family's actual music are the documented retention levers), the honest evidence paragraph on music training and executive function, the drums-versus-piano preference gap answered by a teacher who teaches both, how ADHD kids' lessons run in-home, and the talk-to-me-before-you-buy line."
+tags: [adhd, kids]
+sections:
+  - type: prose
+    body: |
+      There is no single best instrument for ADHD, and the lists that rank
+      them are guessing. What matters is fit: the instrument your kid is
+      actually pulled toward, played on music your family actually listens
+      to. That is what the dropout research supports, and it is how I teach.
+
+      The short version for a busy parent: follow the pull, rent before you
+      buy where you can, and talk to the teacher before spending anything.
+
+  - type: subhead
+    text: "Why fit beats ranking"
+
+  - type: prose
+    body: |
+      The ranked lists get two things right. Movement helps a lot of ADHD
+      kids, and instruments differ in how immediately they reward you. Those
+      are real considerations. A kid who needs to move may do better standing
+      behind a drum kit or a bass than sitting still on a bench. A kid who
+      needs to hear results now may light up on an instrument that sounds
+      good on day one.
+
+      What the lists miss is that the engine is interest. The best documented
+      predictors of a kid quitting are slow visible progress and lessons
+      built on music that does not match what the family listens to at home.
+      A 2017 dropout study found exactly that pattern: kids taught a
+      repertoire foreign to their own house walk away. The instrument your
+      kid keeps air-drumming is a better bet than the instrument a list
+      recommends.
+
+  - type: subhead
+    text: "What does the evidence actually say?"
+
+  - type: prose
+    body: |
+      Three honest steps. Music training is among the better-evidenced
+      activities for building attention and executive function skills in
+      children generally. ADHD-specific studies, especially around rhythm and
+      drumming, are promising but small. And one thing is not in dispute:
+      interest-driven, movement-rich, immediate-feedback activity is exactly
+      the condition ADHD attention engages under, and playing an instrument
+      is all three at once.
+
+      What I will not tell you is that music fixes ADHD. Nobody should tell
+      you that.
+
+  - type: subhead
+    text: "What if my kid wants drums and you want piano?"
+
+  - type: prose
+    body: |
+      This gap is real and documented. Surveys of lesson families find
+      parents lean piano while kids lean guitar and drums. Most teachers can
+      only serve one side of it.
+
+      I teach both sides. Bass, guitar, drums, and piano. If the drums are
+      the pull, we start there and the piano conversation stays open. Some
+      families run both, one kid on each, back to back in the same visit.
+      Starting where the pull is costs you nothing, because the habit of
+      loving practice transfers between instruments. Starting where the pull
+      is not can cost you the whole experiment.
+
+  - type: pullquote
+    text: "The whole point of music is to make something enjoyable and enjoy doing it, and that starts with wherever the student is at and whatever they're into."
+
+  - type: subhead
+    text: "How do lessons work for an ADHD kid?"
+
+  - type: prose
+    body: |
+      Lessons happen in your home, in a room your kid already knows, with a
+      parent or guardian home during the lesson. Kids' lessons run 45
+      minutes, built in short varied segments. Movement is normal. We work by
+      ear and chord charts before any paper, on songs your kid picked. Lights,
+      volume, and breaks flex to what your kid needs, and a blank practice
+      week gets problem-solving, not shame.
+
+      I'm a music teacher, not a music therapist. My job is helping you play.
+      If you're looking for clinical goals with music, Denver has
+      board-certified music therapists, and I'm glad to point you toward
+      them. If you are weighing the two, I wrote a plain guide:
+      [music lessons or music therapy](music-lessons-or-music-therapy-denver.html).
+
+  - type: subhead
+    text: "What should we buy?"
+
+  - type: prose
+    body: |
+      Nothing yet. Talk to me before you buy anything. I'll help you find the
+      right instrument for your budget without overspending. For band
+      instruments, renting first is often the right move, and for drums there
+      are quiet starting setups that keep the household peace.
+
+  - type: cta
+    headline: "Start with the pull."
+    body: "Tell me what your kid keeps drumming on and what your family actually listens to. We will find the fit together."
+    link: "../book/"
+    link_text: "Book a first lesson"
+
+  - type: related
+    posts:
+      - slug: "how-to-practice-guitar-with-adhd"
+      - slug: "music-lessons-or-music-therapy-denver"
+
+  - type: references
+    items:
+      - "Gerelus and Comeau (2017), University of Ottawa piano-student dropout study: rate of visible progress and repertoire mismatched to the home's music culture predict quitting."
+      - "Systematic review (2022) and meta-analysis (2025) of music training and executive function in children ages 3 to 12: attention and inhibition gains in general child populations."
+      - "Guitar Center and OnePoll lesson-family surveys: parents prefer piano while kids prefer electric guitar and drums."

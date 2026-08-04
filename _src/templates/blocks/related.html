@@ -1,3 +1,4 @@
+{% if block.posts %}
 <section class="blog-related" aria-label="Related posts">
   <h2 class="blog-related__title">Keep reading</h2>
   <div class="blog-related__grid">
@@ -17,3 +18,4 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
