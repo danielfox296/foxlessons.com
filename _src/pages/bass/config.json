@@ -1,6 +1,7 @@
 {
   "title": "Bass Lessons in Denver | Fox Lessons",
-  "meta_description": "Bass lessons in Denver with Daniel Fox, a working bassist. Electric and upright, beginner to advanced, jazz theory included. At your place, at the studio, or over video.",
+  "meta_description": "Bass lessons in Denver with Daniel Fox, a working jazz bassist. Electric and upright, beginner to gigging player, chord charts and ear. In your home or online.",
   "output": "bass/index.html",
-  "breadcrumb": "Bass"
+  "breadcrumb": "Bass",
+  "og_image": "img/og/bass.png"
 }

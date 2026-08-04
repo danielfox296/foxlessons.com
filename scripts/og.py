@@ -22,7 +22,7 @@ INK = (10, 11, 13)
 ICE = (98, 182, 232)
 PAPER = (245, 247, 250)
 GRAY = (152, 161, 171)
-CANONICAL_SUB = 'Music lessons in Denver.'  # DRAFT — pending VOICE ratification
+CANONICAL_SUB = 'Music lessons in Denver, in your home or online.'  # ratified footer/OG sub-line
 
 FONT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                          'assets', 'fonts', 'SpaceGrotesk-VF.ttf')
@@ -96,28 +96,31 @@ def card(path, title, eyebrow=None, title_size=76):
 
 
 # Sitewide default (homepage + fallback)
-card('img/og-default.png', 'FIRSTWATER')
+card('img/og-default.png', 'FOX LESSONS')
 
 # Per-page cards. Keys are image slugs; values are the page display titles.
 PAGES = {
-    'about': 'About',
+    'bass': 'Bass lessons',
+    'guitar': 'Guitar lessons',
+    'drums': 'Drum lessons',
+    'piano': 'Piano lessons',
+    'production': 'Logic Pro lessons',
+    'songwriting': 'Songwriting lessons',
+    'adults': 'Lessons for adults',
+    'adhd': 'Lessons for ADHD brains',
+    'rates': 'Rates',
+    'book': 'Book a lesson',
+    'about': 'About Daniel Fox',
     'faq': 'FAQ',
     'contact': 'Contact',
-    'corporate': 'Corporate & groups',
-    'sessions': 'Sessions',
     'blog': 'Blog',
-    'sessions-healing-from-breakups': 'Healing from Breakups',
-    'sessions-sunday-downshift': 'Sunday Downshift',
-    'sessions-grief': 'Grief',
-    'sessions-new-to-denver': 'New to Denver',
-    'sessions-couples': 'Couples Reconnection',
-    'sessions-quiet-new-years': "Quiet New Year's",
-    'sessions-laid-off': 'Laid Off',
-    'sessions-singles': 'Singles',
-    'sessions-sleep': 'Sleep Descent',
+    'cost-denver': 'What lessons cost in Denver',
+    'compare-guitar-center': 'Guitar Center, compared',
+    'compare-apps': 'Apps vs. a teacher',
+    'compare-school-of-rock': 'School of Rock, compared',
 }
 
 for slug, title in PAGES.items():
-    card(f'img/og/{slug}.png', title, eyebrow='FIRSTWATER')
+    card(f'img/og/{slug}.png', title, eyebrow='FOX LESSONS')
 
 print('og done')

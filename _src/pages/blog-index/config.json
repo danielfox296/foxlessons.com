@@ -1,6 +1,7 @@
 {
   "title": "Blog | Fox Lessons",
-  "meta_description": "Writing on learning an instrument, practice that sticks, and playing with other people. From Daniel Fox in Denver. [COPY DRAFT]",
+  "meta_description": "Writing on learning an instrument as an adult, practice that sticks, and playing with other people. From Daniel Fox in Denver.",
   "output": "blog/index.html",
-  "breadcrumb": "Blog"
+  "breadcrumb": "Blog",
+  "og_image": "img/og/blog.png"
 }

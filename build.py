@@ -57,12 +57,12 @@ from _src.lib import sessions_feed
 SITE_URL = 'https://foxlessons.com'
 
 # Sitewide description used in LocalBusiness + WebSite JSON-LD.
-# Assembled from pre-existing approved schema copy plus the canonical line
-# "Each night is built around something worth putting down." (VOICE.md).
+# The ratified one-liner (DRAFT-ICP-MESSAGING, amended 2026-08-03 per
+# interview #26: studio off the site).
 SITE_DESCRIPTION = (
-    'Private music lessons in Denver with Daniel Fox: bass (electric and '
-    'upright), guitar, drums, and piano. In studio or in your home.'
-)  # DRAFT — pending VOICE/messaging ratification
+    'Music lessons in Denver: bass, guitar, drums, piano, and Logic Pro '
+    'production. In your home or online.'
+)
 
 # Public profile URLs (GBP, Eventbrite, Meetup, Insight Timer, socials) for
 # schema.org sameAs on the LocalBusiness and publisher entities — the
@@ -979,7 +979,10 @@ def build():
                     "piano lessons",
                     "jazz theory",
                     "music production",
-                    "Logic Pro X"
+                    "Logic Pro X",
+                    "songwriting lessons",
+                    "music lessons for adults",
+                    "ADHD-friendly music lessons"
                 ]
             }
             if SAME_AS:

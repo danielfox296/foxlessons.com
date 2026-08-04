@@ -2,5 +2,6 @@
   "title": "Contact | Fox Lessons",
   "meta_description": "Questions about music lessons in Denver? Text or call 614-746-0333, or send a note. I reply between lessons, same day.",
   "output": "contact/index.html",
-  "breadcrumb": "Contact"
+  "breadcrumb": "Contact",
+  "og_image": "img/og/contact.png"
 }

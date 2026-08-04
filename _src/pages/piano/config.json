@@ -1,6 +1,7 @@
 {
   "title": "Piano Lessons in Denver | Fox Lessons",
-  "meta_description": "Piano lessons in Denver with Daniel Fox. Beginners, returning adults, and theory grounded in real music. At your place, at the studio, or over video.",
+  "meta_description": "Piano lessons in Denver with Daniel Fox. Chord-chart piano for pop, rock, and simpler jazz, by ear, no notation required. Adults and kids. In your home or online.",
   "output": "piano/index.html",
-  "breadcrumb": "Piano"
+  "breadcrumb": "Piano",
+  "og_image": "img/og/piano.png"
 }

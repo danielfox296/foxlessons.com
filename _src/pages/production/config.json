@@ -1,6 +1,7 @@
 {
-  "title": "Music Production Lessons in Denver | Fox Lessons",
-  "meta_description": "Music production lessons in Logic Pro X with Daniel Fox: general production and music theory, in person in Denver or remote.",
+  "title": "Logic Pro Lessons in Denver | Fox Lessons",
+  "meta_description": "Logic Pro lessons with Daniel Fox: production basics, tracking out a song, and the producer-level understanding to finish your music. In Denver or over screen share.",
   "output": "production/index.html",
-  "breadcrumb": "Production"
+  "breadcrumb": "Production",
+  "og_image": "img/og/production.png"
 }

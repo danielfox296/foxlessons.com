@@ -1,0 +1,10 @@
+/* Home: audience fork + offer doors. Light-ground cards, ink borders per the
+   light-ground contrast rules. */
+.fork, .doors { display: grid; gap: 1.5rem; margin-top: 3rem; }
+.fork { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 52rem; }
+.doors { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.door { display: block; border: 1px solid rgba(10,11,13,0.18); padding: 2rem; text-decoration: none; color: inherit; transition: border-color .2s; }
+.door:hover { border-color: rgba(10,11,13,0.55); }
+.door h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.door p { font-size: 0.97rem; color: rgba(10,11,13,0.7); }
+.door .go { display: inline-block; margin-top: 1.1rem; font: 600 0.8rem var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-on-light); }

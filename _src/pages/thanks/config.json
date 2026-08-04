@@ -1,6 +1,6 @@
 {
-  "title": "You're on the list | Fox Lessons",
-  "meta_description": "You're on the Fox Lessons list. When the next session goes up, you will hear first.",
+  "title": "You're set | Fox Lessons",
+  "meta_description": "You're booked in. I'll be in touch.",
   "output": "thanks/index.html",
   "robots": "noindex, follow",
   "breadcrumb": "Thanks"

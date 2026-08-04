@@ -1,6 +1,7 @@
 {
   "title": "Lesson Rates | Fox Lessons",
-  "meta_description": "Straightforward lesson rates, published. Hour lessons in Denver, in studio or in your home.",
+  "meta_description": "Every rate published: adults $90 in home or $75 on Zoom, kids $70 per 45 minutes, founding rates through 2026. Billed monthly, month to month, no registration fee.",
   "output": "rates/index.html",
-  "breadcrumb": "Rates"
+  "breadcrumb": "Rates",
+  "og_image": "img/og/rates.png"
 }

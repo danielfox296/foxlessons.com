@@ -1,6 +1,7 @@
 {
   "title": "About Daniel Fox | Fox Lessons",
-  "meta_description": "Daniel Fox is a Denver multi-instrumentalist: bass first (electric and upright), plus guitar, drums, piano, and western jazz theory.",
+  "meta_description": "Daniel Fox, working Denver musician. Bass is the main instrument, electric and upright. Flamenco and jazz gigs, two teachers' student books inherited, honest training.",
   "output": "about/index.html",
-  "breadcrumb": "About"
+  "breadcrumb": "About",
+  "og_image": "img/og/about.png"
 }

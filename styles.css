@@ -150,6 +150,24 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .section--light .step .step-k { color: var(--accent-on-light); } /* FW-DES-3: ice text fails on paper */
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 
+/* ---- rate/comparison table, light ground (was rates/style.css; promoted
+   sitewide for the cost pillar + compare pages) ---- */
+.rate-table { width: 100%; max-width: 46rem; border-collapse: collapse; margin: 2.5rem 0 2rem; }
+.rate-table th, .rate-table td { text-align: left; padding: 0.9rem 1.2rem 0.9rem 0; border-bottom: 1px solid rgba(10,11,13,0.14); vertical-align: top; }
+.rate-table th { font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.6); }
+.rate-table td.num { white-space: nowrap; font-weight: 600; }
+@media (max-width: 560px) {
+  .rate-table { font-size: 0.92rem; }
+  .rate-table td.num { white-space: normal; }
+}
+
+/* ---- pull quote (a student's words, or Daniel's) ---- */
+.pull { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2.4rem 0; max-width: 42rem; font-size: 1.1rem; line-height: 1.65; }
+.section--light .pull { border-color: var(--accent-on-light); }
+.pull p { max-width: none; }
+.pull footer { margin-top: 0.8rem; font-size: 0.9rem; font-family: var(--font-body); color: var(--gray); }
+.section--light .pull footer { color: rgba(10,11,13,0.6); }
+
 /* ---- faq ---- */
 .faq-list { max-width: 46rem; margin-top: 2.5rem; }
 .accordion { border-bottom: 1px solid var(--line); }

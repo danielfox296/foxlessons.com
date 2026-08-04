@@ -1,6 +1,7 @@
 {
   "title": "Guitar Lessons in Denver | Fox Lessons",
-  "meta_description": "Guitar lessons in Denver with Daniel Fox, a working multi-instrumentalist. Beginner to advanced, acoustic and electric. At your place, at the studio, or over video.",
+  "meta_description": "Guitar lessons in Denver with Daniel Fox. Acoustic and electric, songs first, chord charts and ear. Beginners, returning players, and kids. In your home or online.",
   "output": "guitar/index.html",
-  "breadcrumb": "Guitar"
+  "breadcrumb": "Guitar",
+  "og_image": "img/og/guitar.png"
 }

@@ -1,6 +1,7 @@
 {
   "title": "Drum Lessons in Denver | Fox Lessons",
-  "meta_description": "Drum lessons in Denver with Daniel Fox. Groove-first teaching for beginners and returning players. At your place, at the studio, or over video.",
+  "meta_description": "Drum lessons in Denver with Daniel Fox. Pop and rock groove, time and feel, taught from real gigs and jams. Beginners, returners, and kids. In your home or online.",
   "output": "drums/index.html",
-  "breadcrumb": "Drums"
+  "breadcrumb": "Drums",
+  "og_image": "img/og/drums.png"
 }
