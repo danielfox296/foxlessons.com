@@ -1,11 +1,10 @@
-# DRAFT — first blog cluster, awaiting Daniel's readback. Search basis:
-# "starting piano again as an adult" and its variants return personal blogs
-# and app content with no authoritative owner (verified 2026-08-03); the
-# returner audience is the majority of new players per Fender. The hiatus
-# story publishes in full per interview #11 ("go deeper", Daniel's directive).
-# QUEUE: week 2. Flip to false, rebuild, push.
-draft: true
-
+# Published 2026-08-24 via the site-ops weekly run, week 2 of the ratified
+# first blog cluster. Search basis: "starting piano again as an adult" and its
+# variants return personal blogs and app content with no authoritative owner
+# (verified 2026-08-03); the returner audience is the majority of new players
+# per Fender. The hiatus story publishes in full per interview #11 ("go
+# deeper", Daniel's directive). Ratified under the 2026-08-03 blanket approval.
+draft: false
 title: "Starting again after years away"
 seo_title: "Coming Back to an Instrument as an Adult: Starting Again After Years Away"
 slug: "starting-again-after-years-away"

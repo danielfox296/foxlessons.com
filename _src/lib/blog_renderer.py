@@ -304,13 +304,21 @@ def render_block(block: dict, ctx: dict, env: jinja2.Environment) -> str:
             # Ensure slug is set
             if 'slug' not in post:
                 post['slug'] = slug
-            # Resolve hero image path — new-format or standard img/blog/{slug}.jpg
+            # Resolve hero image path — new-format or standard img/blog/{slug}.jpg.
+            # The synthesized fallback is only used when the file actually
+            # exists on disk; otherwise leave hero_img unset and let the
+            # template drop the <img>. Same rule as the dead-link guard above:
+            # never render a path we have not confirmed.
             if 'hero_img' not in post:
                 hero = post.get('hero', {})
                 if isinstance(hero, dict) and hero.get('src'):
                     post['hero_img'] = hero['src']
                 else:
-                    post['hero_img'] = f'{nav_prefix}img/blog/{slug}.jpg'
+                    build_root = os.path.dirname(os.path.dirname(
+                        os.path.dirname(os.path.abspath(__file__))))
+                    if os.path.isfile(os.path.join(
+                            build_root, 'img', 'blog', f'{slug}.jpg')):
+                        post['hero_img'] = f'{nav_prefix}img/blog/{slug}.jpg'
             resolved.append(post)
         block['posts'] = resolved
 
