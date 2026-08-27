@@ -28,7 +28,13 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://foxlessons.com/thanks/inquiry/">
       <input type="hidden" name="_autoresponse" value="Got it. I'm probably teaching right now, so this is the automatic part. The real reply is me, between lessons, same day. Faster answer: text 614-746-0333. Daniel">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- No honeypot, on purpose: formsubmit drops any submission with
+           _honey set while still redirecting to the thanks page, and browser
+           autofill fills hidden fields it can classify (it ignores
+           autocomplete="off"). That combination silently killed a real
+           enquiry on signetartists.com the week of 2026-08-24. FormSubmit's
+           own server-side filtering is the spam layer; if spam grows,
+           escalate to a relay that logs submissions, never a silent trap. -->
       <label class="form-field"><span>Your name</span>
         <input type="text" name="name" autocomplete="name" required>
       </label>
