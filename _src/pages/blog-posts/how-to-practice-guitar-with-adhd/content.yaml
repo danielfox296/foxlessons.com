@@ -1,10 +1,10 @@
-# DRAFT — first blog cluster, awaiting Daniel's readback. Search basis:
-# "how to practice guitar with adhd" SERP is app companies and generic
-# guitar-content sites; zero teachers describing their own method; the
-# adult-ADHD lane is unserved (verified 2026-08-03; STRATEGY §6b agrees).
-# Method claims below are Daniel's confirmed commitments (INTERVIEW §2 only).
-# QUEUE: week 3. Flip to false, rebuild, push.
-draft: true
+# Published 2026-08-31 via the site-ops weekly run, week 3 of the ratified
+# first blog cluster. Search basis: "how to practice guitar with adhd" SERP
+# is app companies and generic guitar-content sites; zero teachers describing
+# their own method, and the adult-ADHD lane is unserved (verified 2026-08-03;
+# STRATEGY 6b agrees). Method claims are Daniel's confirmed commitments
+# (INTERVIEW 2 only). Ratified under the 2026-08-03 blanket approval.
+draft: false
 
 title: "How to practice guitar when you have ADHD"
 seo_title: "How to Practice Guitar With ADHD: What Actually Works"
