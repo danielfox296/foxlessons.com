@@ -6,16 +6,16 @@
 # below were live-verified 2026-08-03 (Rhythmic Roots directory listing,
 # swallowhillmusic.org/music-therapy); Mountain Sound deliberately omitted
 # pending live verification per the no-unverified-links rail.
-# QUEUE: week 5. Flip to false, rebuild, push.
-draft: true
+# QUEUE: released 2026-09-14 by the weekly run (Step A flip, no new approval needed).
+draft: false
 
 title: "Music lessons or music therapy: which are you looking for?"
 seo_title: "Music Lessons vs Music Therapy in Denver: Which Do You Need?"
 slug: "music-lessons-or-music-therapy-denver"
 eyebrow: "DENVER"
 dek: "They sound similar and do different jobs. A plain guide to which one fits your goal, and who to call in Denver for each."
-date: "2026-08-03"
-last_updated: "2026-08-03"
+date: "2026-09-14"
+last_updated: "2026-09-14"
 author:
   name: "Daniel Fox"
   role: "Denver"
