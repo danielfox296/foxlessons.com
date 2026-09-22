@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Fox Lessons Blog</title>
+  <link>https://foxlessons.com/blog/</link>
+  <description>Writing on learning an instrument as an adult, practice that sticks, and playing with other people. From Daniel Fox in Denver.</description>
+  <language>en-us</language>
+  <atom:link href="https://foxlessons.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Music lessons or music therapy: which are you looking for?</title>
+    <link>https://foxlessons.com/blog/music-lessons-or-music-therapy-denver.html</link>
+    <description>The difference between music lessons and music therapy in plain terms: what each is for, who provides each, and Denver options for both. From a Denver music teacher.</description>
+    <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/music-lessons-or-music-therapy-denver.html</guid>
+  </item>
+  <item>
+    <title>What's the best instrument for a kid with ADHD?</title>
+    <link>https://foxlessons.com/blog/best-instrument-for-a-kid-with-adhd.html</link>
+    <description>A Denver teacher on choosing an instrument for an ADHD kid: why fit beats rankings, what the evidence supports, and what to do when your kid wants drums and you want piano.</description>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/best-instrument-for-a-kid-with-adhd.html</guid>
+  </item>
+  <item>
+    <title>How to practice guitar when you have ADHD</title>
+    <link>https://foxlessons.com/blog/how-to-practice-guitar-with-adhd.html</link>
+    <description>A Denver teacher on practicing guitar with ADHD: songs you choose, sessions that go for a feeling instead of minutes, and how to start when starting is the wall.</description>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/how-to-practice-guitar-with-adhd.html</guid>
+  </item>
+  <item>
+    <title>Starting again after years away</title>
+    <link>https://foxlessons.com/blog/starting-again-after-years-away.html</link>
+    <description>A Denver music teacher on coming back to an instrument as an adult: why the love goes dormant, what the restart really looks like, and how lessons help it stick.</description>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/starting-again-after-years-away.html</guid>
+  </item>
+  <item>
+    <title>Am I too old to learn an instrument?</title>
+    <link>https://foxlessons.com/blog/too-old-to-learn-an-instrument.html</link>
+    <description>A Denver music teacher on learning an instrument as an adult: what the research says about age, what actually stops adults, and how lessons built for adults work.</description>
+    <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+    <guid>https://foxlessons.com/blog/too-old-to-learn-an-instrument.html</guid>
+  </item>
+</channel>
+</rss>

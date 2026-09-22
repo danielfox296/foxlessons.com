@@ -1,0 +1,131 @@
+# Published 2026-08-31 via the site-ops weekly run, week 3 of the ratified
+# first blog cluster. Search basis: "how to practice guitar with adhd" SERP
+# is app companies and generic guitar-content sites; zero teachers describing
+# their own method, and the adult-ADHD lane is unserved (verified 2026-08-03;
+# STRATEGY 6b agrees). Method claims are Daniel's confirmed commitments
+# (INTERVIEW 2 only). Ratified under the 2026-08-03 blanket approval.
+draft: false
+
+title: "How to practice guitar when you have ADHD"
+seo_title: "How to Practice Guitar With ADHD: What Actually Works"
+slug: "how-to-practice-guitar-with-adhd"
+eyebrow: "ADHD"
+dek: "Skip the discipline lectures. Practice that works for an ADHD player runs on interest, short varied reps, and a guitar that's impossible to ignore."
+date: "2026-08-03"
+last_updated: "2026-08-03"
+author:
+  name: "Daniel Fox"
+  role: "Denver"
+meta_description: "A Denver teacher on practicing guitar with ADHD: songs you choose, sessions that go for a feeling instead of minutes, and how to start when starting is the wall."
+llms_description: "Practical post for ADHD guitarists and learners. The method is Daniel's confirmed teaching commitments: interest-first repertoire, short varied segments with switching allowed, going for a feeling instead of minute quotas, leaving the guitar out in the room to solve practice initiation, no shame after a blank week, and goal-calibrated feedback. Includes the honest apps take (play-along feels great but does not critique you) and the teacher-not-therapist referral line. No diagnosis required."
+tags: [adhd, practice, guitar]
+sections:
+  - type: key_takeaways
+    items:
+      - "Play music you actually care about. Interest is what keeps an ADHD player playing, and self-chosen songs are the strongest predictor of sticking with it in the research on everyone."
+      - "Go for the feel of a thing and don't count minutes. If you get the lick down in five minutes, you're done with it."
+      - "Starting is usually the wall, so design for it. Keep the guitar out of the case, in the room where you already sit."
+
+  - type: prose
+    body: |
+      Practicing guitar with ADHD is a design problem. Sessions built on
+      interest, variety, and quick wins work, and minute quotas, assigned
+      songs and shame don't. Here is how I set
+      practice up with my students, and how to set it up for yourself.
+
+  - type: subhead
+    text: "Why is practicing guitar so hard with ADHD?"
+
+  - type: prose
+    body: |
+      Usually the wall is starting, because most ADHD players care intensely
+      about music. The guitar is in its case, the case is in another room,
+      and the ten seconds of friction between wanting to play and playing is
+      where the whole evening goes.
+
+      Then the guilt makes it worse. A blank week turns into a story about
+      being someone who quits, you open the case less, and by week three the
+      guitar is a monument to self-blame. That's what happens when practice
+      is designed for someone else's attention.
+
+  - type: subhead
+    text: "What should a practice session look like?"
+
+  - type: prose
+    body: |
+      It should be short, varied, and yours. We work on real songs you're
+      actually interested in, immediately, and I bring in exercises only as
+      far as they serve a song you want to play.
+
+      Inside a session, switching is allowed. We can change songs. We can
+      switch what we're working on entirely if that's what resets you. I only
+      push on something when you're close to a breakthrough. Otherwise we
+      follow whatever's interesting. Music is physical, so moving, standing
+      up, and playing something loud for a minute are all normal parts of
+      practice.
+
+      And the target is never a timer.
+
+  - type: pullquote
+    text: "We're really going for a feeling, not minutes. If somebody gets a lick down in five minutes instead of 20, then they're done."
+
+  - type: subhead
+    text: "How do I start when I can't start?"
+
+  - type: prose
+    body: |
+      Put the guitar where you sit, out of the case, on a stand, in the
+      middle of the room if that's what it takes. A lot of times that alone
+      does it, because the ten seconds of friction are gone and the
+      instrument is right there.
+
+      If it still isn't happening, the fix is coaching rather than willpower.
+      We figure out what pulls you toward the guitar and what you're afraid
+      of, and we work with both. After a blank week there's no shame ritual. We
+      problem-solve what got in the way, reconnect the playing to what you
+      actually care about, and start again. Restarts are the norm, and we
+      plan for them.
+
+  - type: subhead
+    text: "Do apps help or hurt?"
+
+  - type: prose
+    body: |
+      Both. Play-along apps are good at getting you to show up, and the
+      streak mechanics help a lot of ADHD players, so keep the app.
+
+      Here is what I noticed after years of playing along with records:
+      playing along feels really good, but you don't necessarily critique
+      yourself. When the headphones are on and the band sounds wonderful, you
+      are captured by the emotion of it, and your own technique rides along
+      unexamined. That's the app's blind spot too, since it can see your notes
+      and can't see your hands. Pair the app with a teacher who watches you play and
+      you get both halves. I wrote a fuller comparison in
+      [apps versus a teacher](../compare/apps-vs-a-teacher/).
+
+  - type: subhead
+    text: "Do I need a diagnosis to ask for lessons like this?"
+
+  - type: prose
+    body: |
+      No. You don't need a diagnosis to want lessons that work this way.
+      This is simply how I teach: interest first, movement normal, feedback
+      calibrated to your goals. Founding students also get direct text access
+      between lessons and a midweek check-in by text or call, for
+      accountability and hard spots.
+
+      I'm a music teacher, not a music therapist. My job is helping you play. If you're looking for clinical
+      goals with music, Denver has board-certified music therapists, and I'm
+      glad to point you toward them. Everything on
+      [the ADHD lessons page](../adhd/) describes teaching, nothing more.
+
+  - type: cta
+    headline: "Lessons built the way you work."
+    body: "Interest first, movement normal, zero shame about the blank week. First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    link: "../book/"
+    link_text: "Book a first lesson"
+
+  - type: related
+    posts:
+      - slug: "best-instrument-for-a-kid-with-adhd"
+      - slug: "starting-again-after-years-away"

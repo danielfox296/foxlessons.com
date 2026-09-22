@@ -1,0 +1,8 @@
+{
+  "title": "FAQ: Music Lessons in Denver | Fox Lessons",
+  "meta_description": "What lessons cost, where they happen, whether you're too old, reading music, kids, ADHD, jams, and cancellation. Plain answers from Daniel Fox in Denver.",
+  "output": "faq/index.html",
+  "breadcrumb": "FAQ",
+  "faq_schema_from_content": true,
+  "og_image": "img/og/faq.png"
+}

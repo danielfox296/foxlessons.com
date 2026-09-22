@@ -1,0 +1,30 @@
+# Booking mode switch. This file is the ONE place the site learns where the
+# book buttons go and how the flow is described. Modes:
+#
+#   INTERIM (retired 2026-08-03 night): every button opened a text to Daniel.
+#   Superseded by Daniel's call the same night: number off the page, booking
+#   happens online.
+#
+#   BRIDGE (now): live Cal.com links, real-calendar instant booking, no card
+#   step yet. Payment settles by card link after booking, until Stripe clears
+#   the account review.
+#
+#   LIVE (next): when Stripe clears, payments switch on inside Cal.com (same
+#   URLs, no site change needed). Then swap the note and step3 lines for the
+#   LIVE block in ../../../../SETUP-BOOKING.md. Rebuild, push, done. The same
+#   swap shape works for any provider (Acuity is the documented upgrade path).
+#
+# Nothing else on the site hardcodes a booking URL. Do not edit the section
+# HTML to change destinations; edit this file.
+booking:
+  cta: "Pick your time"
+  note: "Book online, day or night. The calendar shows what's actually open."
+  adult_home: "https://cal.com/foxlessons/first-lesson-adults-home"
+  adult_zoom: "https://cal.com/foxlessons/first-lesson-adults-zoom"
+  kids: "https://cal.com/foxlessons/first-lesson-kids-home"
+  siblings: "https://cal.com/foxlessons/first-lesson-siblings"
+  production: "https://cal.com/foxlessons/first-lesson-production"
+  step2_title: "Pick your time"
+  step2_body: "The calendar shows what's actually open. Book at 10pm if that's when you decide things."
+  step3_title: "Lock it in"
+  step3_body: "You'll get a confirmation right away, and I'll send a card link to lock the slot. What you pay for the first lesson credits toward your first month."
