@@ -1,0 +1,127 @@
+# Weekly run 2026-09-21 draft; approved by Daniel 2026-09-28 ("ship it"). Objection post
+# (STRATEGY §9d class 2). Search basis: "do you need to read music to learn
+# guitar / bass / piano" is a live adult-beginner question; the site's FAQ
+# answers it in one line and nothing on the blog expands it. Every
+# first-person claim traces to INTERVIEW-2026-08.md: 2.3 (chord charts and
+# ear, not sight-reading), 2.1 (real songs the student wants), 3.1 (YouTube
+# ii-V-I exercises, in the interview's own words), 3.4 (Deacon Blues; the
+# "a little rusty" and "sometimes simpler slower jazz" piano scope kept
+# verbatim), 3.6 (music theory under everything; jazz is one palette), 5.4
+# (the training line and "listen and implement what I hear"). Revised after
+# the 2026-09-21 adversarial pass: invented qualifiers removed, founding rate
+# added, CTA matched to siblings, timed-outcome lines untimed.
+draft: false
+
+title: "Do I need to read music to take lessons?"
+seo_title: "Do You Need to Read Music to Learn an Instrument? A Denver Teacher Answers"
+slug: "do-i-need-to-read-music-to-take-lessons"
+eyebrow: "ADULTS"
+dek: "You don't. I teach from chord charts and by ear. What a chord chart is, what you can play from one, and who really does need to read."
+date: "2026-09-28"
+last_updated: "2026-09-28"
+author:
+  name: "Daniel Fox"
+  role: "Denver"
+meta_description: "You don't. Lessons with me run on chord charts and ear, not sight-reading. What a chord chart is, what you can play from one, and who really does need to read."
+llms_description: "Answer-shaped post from Daniel Fox, a Denver music teacher (bass, guitar, drums, piano, Logic Pro production, in-home or online). You do not need to read music to take lessons with him; he teaches chord charts and ear, not sight-reading. Explains what a chord chart contains versus standard notation, what a chord-chart player can and can't do, that music theory still sits under everything (jazz, pop, rock, R&B and flamenco as different palettes of the same theory), and who does need notation (orchestral and classical-program students), whom he refers elsewhere."
+tags: [adults, guitar, bass, piano, drums]
+sections:
+  - type: prose
+    body: |
+      No. You don't need to read music to take lessons with me, and I won't
+      make you learn. I teach chord charts and ear, not sight-reading. Lessons
+      are in your home in the Denver metro or online. Adult lessons are $90
+      in-home or $75 on Zoom, with a founding rate of $75 and $60 for my first
+      10 new students through December 31, 2026, and the full grid is on the
+      [rates page](../rates/).
+
+      What you need in your living room, or at a jam, is to be able to hear a
+      song, know where it's going, and play along with it, and that's the
+      thing we build.
+
+  - type: subhead
+    text: "What a chord chart is"
+
+  - type: prose
+    body: |
+      Standard notation writes down every note you play and how long each one
+      lasts. A chord chart writes down the chords and how the song is put
+      together. Four bars of G, two of C, two of D, back to the top, and the
+      chorus goes here. It fits on one page, and it's letters and a count, so
+      there's nothing to decode before you can use it.
+
+      What it leaves out is the part you already have. You know the melody of
+      the song you picked. You know where the drums drop out and where the big
+      chord hits. Once you can hear the chord change coming and you know the
+      shapes, the chart is a reminder, and eventually you stop looking at it.
+
+  - type: subhead
+    text: "What we do instead"
+
+  - type: prose
+    body: |
+      We start with songs you actually want to play, on the instrument you want
+      to play them on. We listen to the song together and work out what key
+      it's in and where the chords change, and I show you the shapes on the
+      neck or the keys, and you learn to read the chart for it. If a song
+      needs a technique you don't have yet, we build an exercise for it, but
+      only as far as it serves the song.
+
+      This is close to how I learned most of what I play. My own training is
+      jazz band in high school and college, private lessons on the guitar,
+      self-taught on bass and drums, and piano lessons as a small child that I
+      don't remember. Most of my actual skill comes from how I've developed my
+      ability to listen and implement what I hear. When I picked the bass back
+      up, I sat in front of YouTube and played jazz exercises, two-five-ones,
+      for hours a day. On piano I picked "Deacon Blues" by Steely Dan to learn
+      first, because I like to pick hard songs and learn them first so that
+      everything else seems easy, and I used it to learn all of those chords
+      and how they worked and interacted. I'm a little rusty on the piano
+      today, and I
+      can read down a chord chart in a pop, rock, or sometimes simpler slower
+      jazz situation.
+
+  - type: pullquote
+    text: "There's music theory under everything, and jazz has a particular set of colors, and so does flamenco, and so does pop, and rock, and R&B."
+
+  - type: subhead
+    text: "Doesn't skipping notation mean skipping theory?"
+
+  - type: prose
+    body: |
+      Notation is a way of writing music down.
+      Theory is why the chords go where they go, and you can learn a great
+      deal of it from a chart and your ears. When we work through a song,
+      you'll find out why the chorus lifts and why one particular chord
+      sounds like it's pulling you home. That's theory. It sits under every
+      kind of music, and each kind of music gets painted with it in a slightly
+      different way; jazz uses one set of colors and pop and rock use another.
+
+  - type: subhead
+    text: "Who does need to read music"
+
+  - type: prose
+    body: |
+      Some people do, and I'd rather say so than sell you something that won't
+      get you where you're going. If you want to play in an orchestra or
+      audition for a classical program, you need to read notation fluently.
+      That's a different kind of teacher than me, and if you tell me that's
+      the goal in the first conversation I'll say so.
+
+      On drums there's no chart to read at all. We work inside music you
+      love, by ear, and reading drum notation isn't part of what I teach on
+      any instrument.
+
+      For playing songs you love, at home or with friends or at a jam, a chord
+      chart and a decent set of ears are what I teach with.
+
+  - type: cta
+    headline: "Bring a song."
+    body: "First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    link: "../book/"
+    link_text: "Book a first lesson"
+
+  - type: related
+    posts:
+      - slug: "too-old-to-learn-an-instrument"
+      - slug: "starting-again-after-years-away"
