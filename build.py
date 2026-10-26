@@ -48,12 +48,6 @@ LAYOUTS  = os.path.join(SRC, 'layouts')
 PARTIALS = os.path.join(SRC, 'partials')
 PAGES    = os.path.join(SRC, 'pages')
 
-# Sessions feed (WP5 seam): fetched from the events service at build time,
-# cached in data/sessions-cache.json, never allowed to break the build.
-# Stdlib-only module, safe to import unconditionally.
-if REPO not in sys.path:
-    sys.path.insert(0, REPO)
-from _src.lib import sessions_feed
 SITE_URL = 'https://foxlessons.com'
 
 # Sitewide description used in LocalBusiness + WebSite JSON-LD.
@@ -538,13 +532,13 @@ def extract_faqs_from_content(content):
 # CTA is deliberately absent: it's a button-styled link whose .active recolor
 # would fight its fill (and the old client-side exact-URL match never lit its
 # fragment href either).
-_NAV_SECTION_PREFIXES = ('sessions', 'about', 'faq', 'blog', 'corporate')
+_NAV_SECTION_PREFIXES = ('about', 'faq', 'blog')
 
 
 def mark_active_nav(page_header, output, nav_prefix):
     """Mark the header link for the current page's section at build time.
     The exact section page gets aria-current="page"; a child page (blog post,
-    session page) gets aria-current="true" so its section stays lit. Replaces
+    page) gets aria-current="true" so its section stays lit. Replaces
     the old client-side exact-URL match, which left child pages with no
     highlighted section and did nothing with JS off."""
     for sec in _NAV_SECTION_PREFIXES:
@@ -575,13 +569,6 @@ def build():
     base = base.replace('styles.css"', f'styles.css?v={_styles_ver}"')
 
     pages_built = []
-
-    # Load the sessions feed (WP5). On any failure this falls back to the
-    # committed data/sessions-cache.json, then to an empty feed — the build
-    # always proceeds.
-    print('Loading sessions feed...')
-    feed = sessions_feed.load_feed(REPO)
-    print()
 
     # Find all page directories (supports nested: pages/blog-posts/slug/)
     page_dirs = []
@@ -657,7 +644,7 @@ def build():
         # ---------------------------------------------------------------
         output_check = config.get('output', f'{page_name}.html')
         use_new_renderer = (
-            output_check.startswith(('blog/', 'sessions/'))
+            output_check.startswith('blog/')
             and _is_new_format_blog(page_path)
         )
 
@@ -685,14 +672,14 @@ def build():
                 raise SystemExit(1)
 
             # Pull metadata from the YAML frontmatter.
-            # config.seo_title (STRUCTURE-owned) wins so session <title>s follow
+            # config.seo_title (STRUCTURE-owned) wins so <title>s follow
             # the SEO pattern from config.json without touching content.yaml
             # (which the content pipeline owns and which drives the H1). Falls
             # back to the post's own seo_title/title.
             _raw_title = (config.get('seo_title') or post_data.get('seo_title')
                           or post_data.get('title', config.get('title', 'Fox Lessons')))
             # Strip any existing suffix (legacy or canonical) before re-appending
-            for legacy in (' | Fox Lessons', ' — Fox Lessons', ' | Sound Sessions', ' — Sound Sessions'):
+            for legacy in (' | Fox Lessons', ' — Fox Lessons'):
                 if _raw_title.endswith(legacy):
                     _raw_title = _raw_title[:-len(legacy)]
                     break
@@ -705,8 +692,7 @@ def build():
             content     = content_html
 
             # Store new-format post data for RSS generation later.
-            # Session pages also use this renderer but are not blog posts:
-            # only blog/ outputs belong in the feed.
+            # Only blog/ outputs belong in the feed.
             if output_check.startswith('blog/'):
                 if not hasattr(build, '_new_format_posts'):
                     build._new_format_posts = []
@@ -742,62 +728,6 @@ def build():
             if os.path.exists(content_yaml_path):
                 yaml_data = parse_simple_yaml(read(content_yaml_path))
                 content = resolve_content(content, {'content': yaml_data})
-
-        # ---------------------------------------------------------------
-        # SESSIONS FEED INJECTION (WP5)
-        # Session pages: append the dates/tickets block (inside the article)
-        # for future on_sale/sold_out/scheduled sessions of this event.
-        # Homepage: fill the hero next-date slot with the earliest future
-        # on_sale/scheduled session. With no sessions (the empty-cache
-        # state) both branches are no-ops and output is byte-identical.
-        # ---------------------------------------------------------------
-        page_sessions = []
-        _sess_match = re.fullmatch(r'sessions/([^/]+)/index\.html', output)
-        if _sess_match and use_new_renderer:
-            page_sessions = sessions_feed.sessions_for_slug(feed, _sess_match.group(1))
-
-            # Session pages reuse the blog article template but are selling
-            # pages, not posts: strip the byline/read-time and reading-progress
-            # bar, and put a plain status line where the byline was — the real
-            # date/room when the feed has a live session, else the config
-            # fallback ('Denver · first date being set'). Blog posts never pass
-            # through here and keep both.
-            _status = sessions_feed.status_line(
-                page_sessions,
-                fallback=config.get('status_line', 'Denver · first date being set'),
-            )
-            content = sessions_feed.strip_blog_chrome(content, _status)
-
-            if page_sessions:
-                # Depth-correct asset prefix (nav_prefix is '../' for all
-                # new-renderer pages, which is wrong at sessions/<slug>/ depth).
-                # render_sessions_block emits the .logistics card + one-click
-                # ticket button + js/sessions.js; Event JSON-LD is emitted below.
-                _asset_prefix = '../' * output.count('/')
-                _block = sessions_feed.render_sessions_block(page_sessions, _asset_prefix)
-                if '</article>' in content:
-                    content = content.replace('</article>', _block + '\n\n</article>', 1)
-                else:
-                    content += '\n\n' + _block
-
-        # Sessions hub (FW-UX-6): stamp each catalog card with its next date
-        # from the feed ('Aug 25', muted). No dated sessions -> no-op.
-        if output == 'sessions/index.html':
-            content = sessions_feed.annotate_hub_dates(content, feed)
-
-        if output == 'index.html':
-            _next = sessions_feed.next_session(feed)
-            if _next:
-                _hero_label = (
-                    f'<a href="sessions/{html_mod.escape(_next["event_slug"], quote=True)}/">'
-                    f'Denver &middot; next session '
-                    f'{html_mod.escape(sessions_feed.fmt_date_short(_next["starts_at"]))}</a>'
-                )
-                content = re.sub(
-                    r'(<span class="hero-date fade-up">).*?(</span>)',
-                    lambda m: m.group(1) + _hero_label + m.group(2),
-                    content, count=1, flags=re.DOTALL,
-                )
 
         # ---------------------------------------------------------------
         # SHARED LAYOUT ASSEMBLY (both old and new pipelines converge)
@@ -847,13 +777,13 @@ def build():
 
         # Clean title for OG/schema (strip suffixes)
         og_title = title
-        for suffix in [' — Fox Lessons', ' — Sound Sessions']:
+        for suffix in [' — Fox Lessons']:
             if og_title.endswith(suffix):
                 og_title = og_title[:-len(suffix)]
                 break
 
         # Clean leaf name for BreadcrumbList (no brand suffix, no descriptor
-        # tail). Session/blog pages use their content-owned display title;
+        # tail). Blog pages use their content-owned display title;
         # root pages use an explicit config `breadcrumb`, else a derived name.
         if use_new_renderer:
             leaf_name = post_data.get('title') or _clean_leaf(title)
@@ -1120,9 +1050,6 @@ def build():
             if is_blog:
                 crumbs.append({"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog/"})
                 crumbs.append({"@type": "ListItem", "position": 3, "name": leaf_name})
-            elif output.startswith('sessions/') and output != 'sessions/index.html':
-                crumbs.append({"@type": "ListItem", "position": 2, "name": "Sessions", "item": SITE_URL + "/sessions/"})
-                crumbs.append({"@type": "ListItem", "position": 3, "name": leaf_name})
             else:
                 crumbs.append({"@type": "ListItem", "position": 2, "name": leaf_name})
 
@@ -1132,34 +1059,6 @@ def build():
                 "itemListElement": crumbs
             }
             schema_json += f'\n  <script type="application/ld+json">\n{json.dumps(breadcrumb_schema, indent=2)}\n  </script>'
-
-        # Service schema — corporate page only. Metadata layer, so planner
-        # language is fine here (Appendix E finding 3).
-        if output == 'corporate/index.html':
-            service_schema = {
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "name": "Corporate & Group Sound Sessions",
-                "serviceType": "Corporate wellness event",
-                "provider": {"@type": "LocalBusiness", "name": "Fox Lessons", "url": "https://foxlessons.com"},
-                "areaServed": {"@type": "AdministrativeArea", "name": "Denver metro and the Colorado Front Range"},
-                "offers": {"@type": "Offer", "price": "450", "priceCurrency": "USD"},
-                "url": "https://foxlessons.com/corporate/"
-            }
-            schema_json += f'\n  <script type="application/ld+json">\n{json.dumps(service_schema, indent=2)}\n  </script>'
-
-        # Event schema (WP5) — one per real dated session on this page.
-        # Only ever emitted when the feed has a future dated session, which
-        # is exactly DESIGN.md's "Event schema once a real date exists" rule.
-        if page_sessions:
-            _event_title = (post_data.get('title') if use_new_renderer else config.get('title', '')) or og_title
-            _event_title = _event_title.split(' — ')[0].strip()
-            for _s in page_sessions:
-                _ev = sessions_feed.event_schema(
-                    _s, _event_title, canonical_url, SITE_URL,
-                    description=description, image=og_image,
-                )
-                schema_json += f'\n  <script type="application/ld+json">\n{json.dumps(_ev, indent=2)}\n  </script>'
 
         # Substitute into base layout
         html = base
@@ -1254,7 +1153,7 @@ def build():
 
         title = config.get('title', 'Fox Lessons')
         # Clean title
-        for suffix in [' — Fox Lessons', ' — Sound Sessions']:
+        for suffix in [' — Fox Lessons']:
             if title.endswith(suffix):
                 title = title[:-len(suffix)]
                 break

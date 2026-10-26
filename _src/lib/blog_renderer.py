@@ -42,8 +42,8 @@ from _src.lib.reading_time import calculate_reading_time
 # Constants
 # ---------------------------------------------------------------------------
 
-# Fox Lessons taxonomy (replaced the inherited firstwater set 2026-08-03,
-# first blog cluster). Extend here when a post needs a new category.
+# Fox Lessons taxonomy (2026-08-03, first blog cluster). Extend here when a
+# post needs a new category.
 VALID_EYEBROWS = {'ADULTS', 'KIDS', 'ADHD', 'PRACTICE', 'DENVER', 'SONGS'}
 
 KNOWN_BLOCK_TYPES = {

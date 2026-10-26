@@ -4,7 +4,7 @@ Design: ink ground, the ripple mark low-right (img/favicon.svg traced —
 concentric ice circles; each ring ~1.9x the last with stroke halving and
 opacity decaying x0.45, continued outward as fading hairlines), page title
 in Space Grotesk, canonical line as the sub. Titles are the existing
-page/session names — no new copy.
+page names — no new copy.
 
 LOCAL-only: needs Pillow + the vendored SpaceGrotesk-VF.ttf in
 scripts/assets/fonts/ (SIL OFL 1.1 — see the README there). The PNGs are
@@ -73,7 +73,7 @@ def card(path, title, eyebrow=None, title_size=76):
     d = ImageDraw.Draw(img)
     _ripple(d, 932, 470)
 
-    # Shrink-to-fit: long session titles stay on one line inside the margin.
+    # Shrink-to-fit: long page titles stay on one line inside the margin.
     size = title_size
     f_title = _font(size, 500)
     while d.textlength(title, font=f_title) > (W - 160) * SS and size > 40:

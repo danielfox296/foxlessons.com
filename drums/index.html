@@ -107,7 +107,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=0d55bb7a">
+  <link rel="stylesheet" href="../styles.css?v=17694ca0">
   
 </head>
 <body>
@@ -641,25 +641,6 @@
         btn.disabled = true;
         btn.setAttribute('aria-busy', 'true');
         btn.textContent = 'Sending…'; // HUMAN REVIEW — in-flight button label
-      });
-    });
-    // GA4 begin_checkout when a session checkout form submits (delegated:
-    // the form is feed-injected). Progressive only — the POST proceeds
-    // identically without gtag or with JS off; gtag.js sends via beacon so
-    // the navigation doesn't lose the event.
-    document.addEventListener('submit', (e) => {
-      const form = e.target;
-      if (!form.classList || !form.classList.contains('session-checkout')) return;
-      if (typeof window.gtag !== 'function') return;
-      const card = form.closest('[data-session-id]');
-      const tier = form.querySelector('input[name="tier_id"]:checked') ||
-                   form.querySelector('input[name="tier_id"]');
-      window.gtag('event', 'begin_checkout', {
-        items: [{
-          item_id: card ? card.getAttribute('data-session-id') : '',
-          item_name: document.title.split('|')[0].trim(),
-          item_variant: tier ? tier.value : ''
-        }]
       });
     });
 
