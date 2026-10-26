@@ -1,6 +1,6 @@
 {
   "title": "Lesson Rates | Fox Lessons",
-  "meta_description": "One rate, published: $75 an hour, in your home or on Zoom. Kids 45 minutes at the same hourly rate. Pay after your first lesson. No fees.",
+  "meta_description": "One rate, published: $75 an hour, in your home or on Zoom. Pay after your first lesson. No fees.",
   "output": "rates/index.html",
   "breadcrumb": "Rates",
   "og_image": "img/og/rates.png"

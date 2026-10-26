@@ -21,7 +21,7 @@ author:
   role: "Denver"
 meta_description: "The difference between music lessons and music therapy in plain terms: what each is for, who provides each, and Denver options for both. From a Denver music teacher."
 llms_description: "Plain-language guide distinguishing music lessons (learning to play, taught by a music teacher) from music therapy (clinical goals through music, run by a board-certified music therapist). Decision cues for families, the teacher-not-therapist disclaimer, and verified Denver referrals: Rhythmic Roots Music Services and Swallow Hill Music's therapy program for music therapy. Written by Daniel Fox, a Denver music teacher who refers clinical questions out."
-tags: [denver, adhd, kids]
+tags: [denver, adhd]
 sections:
   - type: prose
     body: |
@@ -54,7 +54,7 @@ sections:
     body: |
       Lessons teach you to play the instrument you want to play. With me
       that means bass, guitar, drums, piano, or Logic Pro production, taught
-      by ear and chord charts, on songs you or your kid actually love, in
+      by ear and chord charts, on songs you actually love, in
       your home or online.
 
       Lessons can still be built around how a particular brain works. My
@@ -73,7 +73,7 @@ sections:
       Here are some quick sorting questions.
 
       **Is the wish "I want to play songs"?** Lessons. That's true for ADHD
-      kids and adults too, when playing is the goal.
+      adults too, when playing is the goal.
 
       **Did a clinician, school team, or care plan recommend working on
       goals through music?** Music therapy, with an MT-BC.
@@ -119,5 +119,4 @@ sections:
 
   - type: related
     posts:
-      - slug: "best-instrument-for-a-kid-with-adhd"
       - slug: "how-to-practice-guitar-with-adhd"
