@@ -107,7 +107,7 @@ sections:
 
   - type: cta
     headline: "The case opens again."
-    body: "Tell me what you used to play and what you want now. First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    body: "Tell me what you used to play and what you want now. You pay after the first lesson. If it isn't a fit, it's free."
     link: "../book/"
     link_text: "Book a first lesson"
 

@@ -30,9 +30,8 @@ sections:
     body: |
       No. You don't need to read music to take lessons with me, and I won't
       make you learn. I teach chord charts and ear, not sight-reading. Lessons
-      are in your home in the Denver metro or online. Adult lessons are $90
-      in-home or $75 on Zoom, with a founding rate of $75 and $60 for my first
-      10 new students through December 31, 2026, and the full grid is on the
+      are in your home in the Denver metro or online. Lessons are $75 an hour,
+      in your home or on Zoom, and the full grid is on the
       [rates page](../rates/).
 
       What you need in your living room, or at a jam, is to be able to hear a
@@ -111,7 +110,7 @@ sections:
 
   - type: cta
     headline: "Bring a song."
-    body: "First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    body: "You pay after the first lesson. If it isn't a fit, it's free."
     link: "../book/"
     link_text: "Book a first lesson"
 

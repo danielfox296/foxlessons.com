@@ -110,7 +110,7 @@ sections:
 
   - type: cta
     headline: "Find out at your own kitchen table."
-    body: "First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    body: "You pay after the first lesson. If it isn't a fit, it's free."
     link: "../book/"
     link_text: "Book a first lesson"
 

@@ -110,7 +110,7 @@ sections:
     body: |
       No. You don't need a diagnosis to want lessons that work this way.
       This is simply how I teach: interest first, movement normal, feedback
-      calibrated to your goals. Founding students also get direct text access
+      calibrated to your goals. You also get direct text access
       between lessons and a midweek check-in by text or call, for
       accountability and hard spots.
 
@@ -121,7 +121,7 @@ sections:
 
   - type: cta
     headline: "Lessons built the way you work."
-    body: "Interest first, movement normal, zero shame about the blank week. First lesson is paid up front and credits toward your first month. If it isn't a fit, it's free."
+    body: "Interest first, movement normal, zero shame about the blank week. You pay after the first lesson. If it isn't a fit, it's free."
     link: "../book/"
     link_text: "Book a first lesson"
 
