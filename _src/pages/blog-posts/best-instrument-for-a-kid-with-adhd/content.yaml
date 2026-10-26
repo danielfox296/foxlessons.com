@@ -4,7 +4,10 @@
 # non-Denver music schools (verified 2026-08-03). The honest fit-not-ranking
 # answer differentiates AND obeys the no-instrument-hierarchy rule.
 # QUEUE: released 2026-09-07 by the weekly run (Step A flip, no new approval needed).
-draft: true  # unpublished 2026-10-26: kids' lessons discontinued
+# Republished 2026-10-26 on Daniel's call: it ranks, keep it. Lessons are
+# adults-only now, so the kids'-lesson logistics section and the booking CTA
+# are gone; the fit framework, evidence and buying advice stand as written.
+draft: false
 
 title: "What's the best instrument for a kid with ADHD?"
 seo_title: "Best Instrument for a Kid With ADHD? Fit Beats Ranking"
@@ -17,7 +20,7 @@ author:
   name: "Daniel Fox"
   role: "Denver"
 meta_description: "A Denver teacher on choosing an instrument for an ADHD kid: why fit beats rankings, what the evidence supports, and what to do when your kid wants drums and you want piano."
-llms_description: "Parent-facing post answering the best-instrument-for-ADHD question plainly: no ranking, a fit framework instead. What the ranked lists get right (movement, immediate feedback), what they miss (interest and the family's actual music are the documented retention levers), the honest evidence paragraph on music training and executive function, the drums-versus-piano preference gap answered by a teacher who teaches both, how ADHD kids' lessons run in-home, and the talk-to-me-before-you-buy line."
+llms_description: "Parent-facing post answering the best-instrument-for-ADHD question plainly: no ranking, a fit framework instead. What the ranked lists get right (movement, immediate feedback), what they miss (interest and the family's actual music are the documented retention levers), the honest evidence paragraph on music training and executive function, the drums-versus-piano preference gap answered by a teacher who teaches both, and the talk-to-your-teacher-before-you-buy line. Daniel teaches adults only; the post is advice for parents, not a booking funnel."
 tags: [adhd, kids]
 sections:
   - type: prose
@@ -86,16 +89,13 @@ sections:
     text: "The whole point of music is to make something enjoyable and enjoy doing it, and that starts with wherever the student is at and whatever they're into."
 
   - type: subhead
-    text: "How do lessons work for an ADHD kid?"
+    text: "A note on lessons"
 
   - type: prose
     body: |
-      Lessons happen in your home, in a room your kid already knows, with a
-      parent or guardian home during the lesson. Kids' lessons run 45
-      minutes, built in short varied segments. Movement is normal. We work by
-      ear and chord charts before any paper, on songs your kid picked. Lights,
-      volume, and breaks flex to what your kid needs, and a blank practice
-      week gets problem-solving instead of a lecture.
+      My own lessons are for adults, so I'm not writing this to book your
+      kid. I'm writing it because the ranked lists are wrong in a way that
+      costs families money and kids their first instrument.
 
       I'm a music teacher, not a music therapist. My job is helping you play.
       If you're looking for clinical goals with music, Denver has
@@ -108,16 +108,17 @@ sections:
 
   - type: prose
     body: |
-      Nothing yet. Talk to me before you buy anything. I'll help you find the
-      right instrument for your budget without overspending. For band
+      Nothing yet. Whoever ends up teaching your kid, talk to them before
+      you buy anything. A good teacher will help you find the right
+      instrument for your budget without overspending. For band
       instruments, renting first is often the right move, and for drums there
       are quiet starting setups that keep the household peace.
 
   - type: cta
     headline: "Start with the pull."
-    body: "Tell me what your kid keeps drumming on and what your family actually listens to, and we'll find the fit together."
-    link: "../book/"
-    link_text: "Book a first lesson"
+    body: "Follow what your kid keeps drumming on and what your family actually listens to. If you're an adult with ADHD wondering the same thing about yourself, the method is the same."
+    link: "adhd-music-lessons-adults.html"
+    link_text: "If lessons never stuck, it was the method"
 
   - type: related
     posts:
