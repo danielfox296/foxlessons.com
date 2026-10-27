@@ -24,7 +24,6 @@ teacher_referral:
   after: ", and I'll recommend someone if I know one."
 
 hub:
-  draft: true
   eyebrow: Jams · Front Range
   h1: How Denver jams and open mics work
   intro: >-
@@ -98,7 +97,6 @@ llms:
 
 # 7.6: the first-jam guide. Drafted from the Adults page jam section.
 guide:
-  draft: true
   eyebrow: Jams · Your first night
   h1: Your first jam night
   sub: >-

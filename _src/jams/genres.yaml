@@ -2,7 +2,7 @@
 # §4 stands (Daniel, 2026-10-27), so these pages carry no listings and no
 # line names a jam, a venue or a night. `maps` and `maps_jam_only` group the
 # internal match list by style; they never reach a page.
-# Every entry is draft: true until Daniel signs off on its copy; drafts
+# An entry carries draft: true until Daniel signs off on its copy; drafts
 # render on branch previews with a visible marker, and the build refuses
 # to run on main while any remain. VOICE.md governs every line (Daniel,
 # 2026-10-27), so prep levels are full sentences with the player as the
@@ -17,7 +17,6 @@ genres:
   - key: blues
     name: Blues
     h1: How blues jams work
-    draft: true
     maps: [blues]
     intro: >-
       Blues jams are the easiest jams to walk into. The songs follow a short
@@ -165,7 +164,6 @@ genres:
   - key: jazz
     name: Jazz
     h1: How jazz jams work
-    draft: true
     maps: [jazz, B3 organ jazz]
     intro: >-
       Jazz jams run on a shared songbook. A player calls a standard by name
@@ -297,7 +295,6 @@ genres:
   - key: funk-and-soul
     name: Funk and soul
     h1: How funk and soul jams work
-    draft: true
     maps: [funk, soul, R&B, neo-soul, hip-hop]
     intro: >-
       Funk and soul jams run on a groove more than on chord changes. Most
@@ -438,7 +435,6 @@ genres:
   - key: rock
     name: Rock
     h1: How rock jams work
-    draft: true
     maps: [rock, classic rock, metal, indie, Grateful Dead, jam band]
     intro: >-
       Rock jams run from classic covers to Grateful Dead nights where one tune
@@ -582,7 +578,6 @@ genres:
   - key: bluegrass-and-folk
     name: Bluegrass and folk
     h1: How bluegrass and folk jams work
-    draft: true
     maps: [bluegrass, old-time, Irish, folk, ukulele, acoustic, cowboy]
     maps_jam_only: [standards]
     intro: >-
@@ -711,7 +706,6 @@ genres:
   - key: open-jams
     name: Open jams
     h1: How open jams work
-    draft: true
     maps_jam_only: [mixed]
     intro: >-
       Open jams take any player and any genre. The host builds bands from
@@ -846,7 +840,6 @@ genres:
     name: Open mics
     h1: How open mics and songwriter nights work
     prep_heading: What each act needs
-    draft: true
     page_type: format
     intro: >-
       At an open mic or a songwriter night, you bring your own act and play a
