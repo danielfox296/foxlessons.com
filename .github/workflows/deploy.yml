@@ -34,6 +34,12 @@ jobs:
       - name: Install Python dependencies
         run: pip install jinja2 markdown Pillow pyyaml
 
+      # Fails only while jams copy is still marked draft: true on main. Its
+      # report on the internal match list is warnings, and is skipped when
+      # the list isn't in the checkout.
+      - name: Check jams copy
+        run: python3 scripts/jams_check.py --strict
+
       - name: Build site
         run: python3 build.py
 
@@ -43,7 +49,7 @@ jobs:
           rsync -a \
             --exclude '_site' --exclude '_src' --exclude '.git' --exclude '.github' \
             --exclude 'scripts' --exclude '__pycache__' --exclude 'build.py' \
-            --exclude '.gitignore' \
+            --exclude '.gitignore' --exclude 'data/jams.json' \
             --exclude '*.md' ./ _site/
 
       - name: Upload Pages artifact

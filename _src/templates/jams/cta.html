@@ -1,0 +1,13 @@
+{#- Call to action (handoff 7.5). The guide link drops out on the guide
+    itself and on the hub, whose teaser links the guide just above. -#}
+<section class="section section--{{ ground }} jams-cta" aria-labelledby="jams-cta-h">
+  <div class="container">
+    <h2 id="jams-cta-h">{{ cta.heading }}</h2>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+    <p>{{ body }}</p>
+    <p class="jams-cta__actions"><a class="btn btn-primary" href="{{ prefix }}book/">{{ cta.book_label }}</a>{% if guide_link %} <a class="btn btn-ghost" href="{{ prefix }}jams/first-jam/">{{ cta.guide_label }}</a>{% endif %}</p>
+    <p class="jams-fine">{{ cta.fine_print }}</p>
+  </div>
+</section>

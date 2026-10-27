@@ -22,4 +22,4 @@
 - [Guitar Center, compared](https://foxlessons.com/compare/guitar-center-lessons/): Their cost and strengths as of August 2026, and when a private teacher is worth more.
 - [Apps vs. a teacher](https://foxlessons.com/compare/apps-vs-a-teacher/): What Yousician, Simply Piano, and YouTube do well, and the gap a teacher closes.
 - [School of Rock, compared](https://foxlessons.com/compare/school-of-rock/): Their band program given its due, and the adult alternative: real Denver jams, prepared.
-{{blog_section}}
+{{jams_section}}{{blog_section}}

@@ -1,0 +1,168 @@
+# Jams section: fixed text for the guides. VOICE.md governs every line
+# (Daniel, 2026-10-27), with BASE-VOICE and the AI-tells catalog it brings
+# in; §4 stands, so no line names a jam, a venue or a night, and the match
+# is person to person. The voice gate scans this file. Blocks marked
+# draft: true wait on Daniel's sign-off, and the build refuses to run on
+# main while any remain.
+
+labels:
+  draft_marker: Draft, waiting on Daniel
+  daniels_take: Daniel's take
+
+# Prep blocks link only to instruments Daniel teaches (handoff 7.4).
+lesson_links:
+  bass/: Bass lessons
+  guitar/: Guitar lessons
+  drums/: Drum lessons
+  piano/: Piano lessons
+  songwriting/: Songwriting lessons
+
+# Open decision 4, Daniel 2026-10-27: every other prep block gets this line,
+# linked to the contact page.
+teacher_referral:
+  link: Inquire about a good teacher for you
+  after: ", and I'll recommend someone if I know one."
+
+hub:
+  draft: true
+  eyebrow: Jams · Front Range
+  h1: How Denver jams and open mics work
+  intro: >-
+    Denver has jams and open mics most nights of the week, from blues and jazz
+    to bluegrass circles and songwriter nights. Below, you'll find how each
+    kind of night runs and what to practice before you go.
+  guides_heading: Pick a style
+  teaser_heading: Your first jam
+  teaser: >-
+    On a first night, you pick a night that fits, learn one tune from memory,
+    find the signup list, watch a set or two, and then play. Each step is laid
+    out in the guide.
+  teaser_link: How a first jam goes
+
+genre_page:
+  eyebrow: "Jams · {name}"
+  how_heading: What happens on the night
+  how_what: What gets played
+  how_signup: How signup works
+  how_set: How a set goes
+  how_habits: Habits worth knowing
+  prep_heading: What each instrumentalist needs
+  prep_intro: Find your instrument, then the level you want to play at.
+  skill_guide_link: All five levels, defined
+
+# 7.2: shown whole on the first-jam guide. Level 4 drops the handoff's
+# leading fragment ("Experienced players.") under VOICE.md.
+skill_levels:
+  - level: "1"
+    text: First time on any stage is fine. The host helps you through it.
+  - level: "2"
+    text: You can play basic chords or a groove and follow along. Wrong notes are no big deal.
+  - level: "3"
+    text: You can hold your part and take a solo or a verse, and you know the common tunes.
+  - level: "4"
+    text: People expect you to know the tunes or forms by name and keep up.
+  - level: "5"
+    text: Working pros sit in. Come ready to play at the level of a paid gig.
+
+# 7.2, summarized for the style guides' prep sections.
+skill_bands:
+  - band: "1-2"
+    label: 1 to 2, first-timer friendly
+    text: Your first time on any stage is fine, and so is playing basic chords or a groove and following along.
+  - band: "3"
+    label: 3, middle
+    text: You hold your part, take a solo or a verse, and know the common tunes.
+  - band: "4-5"
+    label: 4 to 5, experienced
+    text: People expect you to know the tunes by name and keep up, and working pros sit in.
+
+# 7.5: the call to action. Style guides swap the material phrase. The
+# handoff's "A lesson or two covers" became "we cover" under VOICE.md's
+# no-inanimate-agency rule.
+cta:
+  heading: Walk in ready.
+  body_before_material: "In a lesson or two before your first night, we cover "
+  material: the tunes people call at that jam
+  body_after_material: >-
+    , how the signup works, and how a set goes. Once you're my student, I'll
+    help you pick the right night, and I'll be there.
+  book_label: Book a lesson
+  guide_label: How a first jam goes
+  fine_print: $75 an hour, in your home or on Zoom. You pay after the lesson.
+
+# Lines the build writes into llms.txt.
+llms:
+  hub: How Denver jams and open mics run, style by style, with a guide to a first night.
+  genre: How these nights run, from the signup list to the last tune, and what each player needs at each level.
+  guide: How a first jam night goes, what to have ready, and the skill levels Daniel uses to match a student to a night.
+
+# 7.6: the first-jam guide. Drafted from the Adults page jam section.
+guide:
+  draft: true
+  eyebrow: Jams · Your first night
+  h1: Your first jam night
+  sub: >-
+    How a jam night runs, what to have ready, and what happens when your name
+    is called.
+  sections:
+    - heading: What a jam night actually is
+      body: |
+        A jam is a night when musicians who mostly haven't met take turns on
+        stage in small groups, playing tunes most of them already know.
+        There's usually a host, sometimes a house band that plays first, and
+        a signup list. You put your name on the list, the host puts small
+        bands together from it, and you play a few tunes with people you just
+        met.
+
+        An open mic works differently. You bring your own act, usually two or
+        three songs or about ten minutes, and perform it yourself, solo or
+        with whoever you brought. Songwriter nights are open mics for original
+        songs, and some run in the round, with writers taking turns.
+    - heading: Before you go
+      body: |
+        Pick a night that fits where you are, and read how that style of
+        night runs. If you're not sure, go and watch a night before you play
+        one.
+
+        Learn the tune you'll call from memory. When your turn comes, the host
+        or the band will ask what you want to play. Pick something common for
+        that night's style, in a key you've practiced, and know its form,
+        meaning how many bars it has, where it repeats, and how it ends. One
+        tune you can play all the way through is enough for a first night.
+
+        Before you leave the house, check the night's signup time, cover,
+        venue age restrictions, parking, and what gear the venue provides. If
+        the night posts a song list, pick from it.
+    - heading: When you get there
+      body: |
+        Find the list and sign up early, because the popular nights fill
+        before the first band finishes. Then watch a few sets to see how many
+        tunes each group gets, how solos get passed around, and how players
+        get on and off the stage. Buy something from the bar or the kitchen
+        while you wait.
+    - heading: When you're called up
+      body: |
+        Whoever calls the tune names the key and counts it in, saying "one,
+        two, three, four" at the tempo they want. If that's you, say the tune
+        and the key loud enough for the drummer to hear, count it in at the
+        tempo you practiced, and start. Solos usually go around the stage in
+        order. Take one solo, once through the form, make the end of it
+        obvious, and nod to the next player. Near the end of the tune, watch
+        whoever's leading, because the ending comes from a raised hand or a
+        shout.
+
+        When your tunes are done, thank the band, pack up fast, and clear the
+        stage for the next group.
+  index_link: How each style of jam runs
+  skill_heading: Skill levels, defined
+  skill_intro: These are the levels I use when I match you to a night.
+  open_mic_heading: "Open mics: what to have ready"
+  open_mic_body: |
+    Your set is short, so make it tight. Bring two or three songs you can play
+    from memory, tune up and put your capo on before your name is called, and
+    decide who talks and when. Get there by the signup time, which is often
+    earlier than the start time, because the list can fill before the music
+    starts.
+
+    If a verse falls out, keep playing the chords until the words come back,
+    or skip to the chorus. Stay for the acts after yours.

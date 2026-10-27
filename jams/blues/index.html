@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set a .js flag so CSS only hides hero content (opacity:0) when JS runs;
+       without it the hero stays visible if scripts are blocked or fail. -->
+  <script>document.documentElement.className += ' js';</script>
+  <meta name="msvalidate.01" content="9C97AFC25A8EE199FF51C4C6D7C46F2E" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVVFT27EK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVVFT27EK');
+  </script>
+  <link rel="canonical" href="https://foxlessons.com/jams/blues/">
+  <meta name="robots" content="index, follow">
+  <title>How Denver Blues Jams Work | Fox Lessons</title>
+  <meta name="description" content="How Denver blues jams run, from the signup list to the ending, and what each player needs at each level, from first night to working pro.">
+  <meta name="theme-color" content="#0A0B0D">
+
+  <!-- Open Graph -->
+  <link rel="alternate" type="application/rss+xml" title="Fox Lessons Blog" href="../../rss.xml">
+  <meta property="og:title" content="How Denver Blues Jams Work | Fox Lessons">
+  <meta property="og:description" content="How Denver blues jams run, from the signup list to the ending, and what each player needs at each level, from first night to working pro.">
+  <meta property="og:url" content="https://foxlessons.com/jams/blues/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://foxlessons.com/img/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="How Denver Blues Jams Work | Fox Lessons">
+  <meta property="og:site_name" content="Fox Lessons">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Denver Blues Jams Work | Fox Lessons">
+  <meta name="twitter:description" content="How Denver blues jams run, from the signup list to the ending, and what each player needs at each level, from first night to working pro.">
+  <meta name="twitter:image" content="https://foxlessons.com/img/og-default.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "MusicSchool"
+  ],
+  "name": "Fox Lessons",
+  "url": "https://foxlessons.com",
+  "image": "https://foxlessons.com/img/og-default.png",
+  "description": "Music lessons in Denver: bass, guitar, drums, piano, and Logic Pro production. In your home or online.",
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Denver metro and the Colorado Front Range"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Denver",
+    "addressRegion": "CO",
+    "addressCountry": "US"
+  },
+  "priceRange": "$$",
+  "knowsAbout": [
+    "bass lessons",
+    "upright bass lessons",
+    "guitar lessons",
+    "drum lessons",
+    "piano lessons",
+    "jazz theory",
+    "music production",
+    "Logic Pro X",
+    "songwriting lessons",
+    "music lessons for adults",
+    "ADHD-friendly music lessons"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://foxlessons.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Jams",
+      "item": "https://foxlessons.com/jams/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Blues jams"
+    }
+  ]
+}
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
+  <!-- PNG fallbacks for clients that skip SVG favicons (Safari, iOS home screen) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../../styles.css?v=5c062577">
+  
+</head>
+<body>
+  <!-- Skip link (FW-UX-9): first focusable element, visually hidden until
+       keyboard focus. HUMAN REVIEW — mechanical a11y label -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- CYMATICS — Chladni nodal lines, fixed behind all content, scroll-driven -->
+  <canvas id="cymaticsCanvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+  <nav class="container nav">
+    <a href="/" class="logo" aria-label="Home">
+      <span class="logo-word">FOX LESSONS</span><!-- TODO: graphic wordmark when designed -->
+    </a>
+    <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="../../bass/">Bass</a></li>
+      <li><a href="../../guitar/">Guitar</a></li>
+      <li><a href="../../drums/">Drums</a></li>
+      <li><a href="../../piano/">Piano</a></li>
+      <li><a href="../../production/">Production</a></li>
+      <li><a href="../../songwriting/">Songwriting</a></li>
+      <li><a href="../../jams/" class="active" aria-current="true">Jams</a></li>
+      <li><a href="../../rates/">Rates</a></li>
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a class="nav-cta" href="../../book/">Book a lesson</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main id="main" tabindex="-1">
+  <section class="section section--dark hero-section page-hero jams-hero">
+  <div class="container">
+    <span class="eyebrow">Jams · Blues</span>
+    <h1 class="fade-up">How blues jams work</h1>
+    <p class="hero-sub fade-up">Blues jams are the easiest jams to walk into. The songs follow a short twelve-bar form that most players already know, so a good host can put a new player into a band within one tune.</p>
+    <p class="jams-draft">Draft, waiting on Daniel</p>
+  </div>
+</section>
+
+<section class="section section--light jams-how" aria-labelledby="jams-how-h">
+  <div class="container">
+    <h2 id="jams-how-h">What happens on the night</h2>
+    <p class="jams-draft">Draft, waiting on Daniel</p>
+    <div class="jams-how-grid">
+      <div>
+        <h3>What gets played</h3>
+        <p>The night is mostly twelve-bar blues in E, A, G and C, the keys guitarists like, played as shuffles and slow blues. Bands also play a handful of standards most players can fake, like Stormy Monday, The Thrill Is Gone and Sweet Home Chicago, and someone usually calls a minor blues or a funk blues.</p>
+      </div>
+      <div>
+        <h3>How signup works</h3>
+        <p>Most blues jams keep a paper list or a whiteboard near the stage. The host builds small bands from the list and calls players up in groups, mixing instruments so every group has drums, bass and someone playing chords. Signup times and methods vary from night to night.</p>
+      </div>
+      <div>
+        <h3>How a set goes</h3>
+        <p>Each group usually plays two or three tunes. The player who calls a tune names the key, counts it in and leads it. Solos go around the band once, the leader signals the last time through, and the band finds the ending together.</p>
+      </div>
+      <div>
+        <h3>Habits worth knowing</h3>
+        <ul>
+          <li>Keep a solo to one or two times through the form unless the leader waves you on.</li>
+          <li>Play softer than you think you need to behind a singer or another soloist.</li>
+          <li>Learn the quick change, the jump to the IV chord in bar two, because hosts call it without warning.</li>
+          <li>If you don&#39;t know a tune, say so before it starts, since the whole band stalls when one player is lost in the form.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark jams-prep" id="prep" aria-labelledby="prep-h">
+  <div class="container">
+    <h2 id="prep-h">What each instrumentalist needs</h2>
+    <p class="jams-draft">Draft, waiting on Daniel</p>
+    <p>Find your instrument, then the level you want to play at.</p>
+    <ul class="jams-bands">
+      <li class="jams-band jams-band--1-2"><span class="jams-band__label">1 to 2, first-timer friendly</span> Your first time on any stage is fine, and so is playing basic chords or a groove and following along.</li>
+      <li class="jams-band jams-band--3"><span class="jams-band__label">3, middle</span> You hold your part, take a solo or a verse, and know the common tunes.</li>
+      <li class="jams-band jams-band--4-5"><span class="jams-band__label">4 to 5, experienced</span> People expect you to know the tunes by name and keep up, and working pros sit in.</li>
+    </ul>
+    <p class="jams-bands__more"><a href="../../jams/first-jam/#skill-levels">All five levels, defined</a></p>
+    <div class="prep-grid">
+      <article class="prep-block">
+        <h3>Guitarists</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You can play barre or open chords through a twelve-bar blues in E and A with a steady shuffle strum, and you stay out of the singer&#39;s way.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You know the quick change and the common turnarounds, you can voice seventh and ninth chords, and you can take a solo with the minor pentatonic scale and trade solos with another guitarist.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You can phrase a slow blues, catch stops and hits, play in any key that gets called, comp under a soloist without crowding them, and lead a band through an ending.</dd></div>
+        </dl>
+        <p class="prep-lessons">We work on the forms, the keys and the comping, and we rehearse calling a tune and counting it in. <a href="../../guitar/">Guitar lessons</a></p>
+      </article>
+      <article class="prep-block">
+        <h3>Bassists</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You can hold the roots through a twelve-bar blues in E and A while you watch the guitarist for the chord changes.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You can play shuffle and walking lines in the common keys, handle the quick change, and follow the band through turnarounds and endings.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You can play in any key that gets called, handle a minor blues and stops and hits, lay back under a singer, and take a solo.</dd></div>
+        </dl>
+        <p class="prep-lessons">We learn the forms and keys that get called, and we practice following a bandleader you&#39;ve never played with. <a href="../../bass/">Bass lessons</a></p>
+      </article>
+      <article class="prep-block">
+        <h3>Drummers</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You can play a steady shuffle and a slow 12/8 feel at one volume, and keep the tempo the leader counted in.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You can move between a shuffle, a slow blues, a two-feel and a funk backbeat, and set up the stops and the last time through.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You can follow a singer&#39;s dynamics, catch hits and stop-time on the fly, play train and rhumba grooves, and end a tune cleanly off the leader&#39;s signal.</dd></div>
+        </dl>
+        <p class="prep-lessons">We drill the three or four grooves blues jams call, and we practice reading a leader you just met. <a href="../../drums/">Drum lessons</a></p>
+      </article>
+      <article class="prep-block">
+        <h3>Keyboard players</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You can play simple triads or seventh chords through a twelve-bar blues in C, G and E, keep it light, and keep your left hand out of the bass player&#39;s range.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You can comp a shuffle, play a slow blues with a gospel feel, play organ pads behind solos, and take a solo of your own.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You know blues piano and organ language, you can play an intro or an ending on request, and you comp lightly enough that the soloist stays out front.</dd></div>
+        </dl>
+        <p class="prep-lessons">We build chord-chart fluency in the jam keys, then practice comping under a singer. <a href="../../piano/">Piano lessons</a></p>
+      </article>
+      <article class="prep-block">
+        <h3>Singers</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You know one tune all the way through, in a key you&#39;ve sung it in, and you tell the band that key before the count-in.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You have two or three tunes in your keys, you can cue the band for stops and the last time through, and you can work a mic and PA you&#39;ve never used.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You can sing a set&#39;s worth of material, change keys on request, direct the band with hand signals, and pull a crowd&#39;s attention back from the bar.</dd></div>
+        </dl>
+        <p class="prep-lessons"><a href="../../contact/">Inquire about a good teacher for you</a>, and I&#39;ll recommend someone if I know one.</p>
+      </article>
+      <article class="prep-block">
+        <h3>Horn players</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You know the twelve-bar form by ear, you count bars so you come in on your turn, and you have one riff you can repeat in whatever key the guitars call.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>You can play blues phrases in the guitar keys, add background lines and stabs behind a singer, and trade fours.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You know the melodies of the common shuffles, you can harmonize a background line with another horn on the spot, and you can pace a slow-blues solo without rushing it.</dd></div>
+        </dl>
+        <p class="prep-lessons"><a href="../../contact/">Inquire about a good teacher for you</a>, and I&#39;ll recommend someone if I know one.</p>
+      </article>
+      <article class="prep-block">
+        <h3>Harmonica players</h3>
+        <dl class="prep-levels">
+          <div class="prep-level prep-level--1-2"><dt>1 to 2, first-timer friendly</dt><dd>You can play in second position on a couple of harps, say a C and an A, you know the twelve-bar form, and you stay out while the singer sings.</dd></div>
+          <div class="prep-level prep-level--3"><dt>3, middle</dt><dd>Your bends hit the pitch, you can play train rhythms and chugging patterns, you can cup a mic, and you can build a solo over one time through the form.</dd></div>
+          <div class="prep-level prep-level--4-5"><dt>4 to 5, experienced</dt><dd>You can play third position for a minor blues, keep a good tone at low volume, play amplified or acoustic, and trade solos with a guitarist without turning it into a volume contest.</dd></div>
+        </dl>
+        <p class="prep-lessons"><a href="../../contact/">Inquire about a good teacher for you</a>, and I&#39;ll recommend someone if I know one.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section section--light jams-cta" aria-labelledby="jams-cta-h">
+  <div class="container">
+    <h2 id="jams-cta-h">Walk in ready.</h2>
+    <p class="jams-draft">Draft, waiting on Daniel</p>
+    <p>In a lesson or two before your first night, we cover the blues forms and keys that get called, how the signup works, and how a set goes. Once you&#39;re my student, I&#39;ll help you pick the right night, and I&#39;ll be there.</p>
+    <p class="jams-cta__actions"><a class="btn btn-primary" href="../../book/">Book a lesson</a> <a class="btn btn-ghost" href="../../jams/first-jam/">How a first jam goes</a></p>
+    <p class="jams-fine">$75 an hour, in your home or on Zoom. You pay after the lesson.</p>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-line">Music lessons in Denver, in your home or online.</p>
+    <ul class="footer-links">
+      <li><a href="../../bass/">Bass</a></li>
+      <li><a href="../../guitar/">Guitar</a></li>
+      <li><a href="../../drums/">Drums</a></li>
+      <li><a href="../../piano/">Piano</a></li>
+      <li><a href="../../production/">Production</a></li>
+      <li><a href="../../songwriting/">Songwriting</a></li>
+      <li><a href="../../jams/">Jams</a></li>
+      <li><a href="../../adults/">Adults</a></li>
+      <li><a href="../../adhd/">ADHD</a></li>
+      <li><a href="../../rates/">Rates</a></li>
+      <li><a href="../../about/">About</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../faq/">FAQ</a></li>
+      <li><a href="../../book/">Book a lesson</a></li>
+      <li><a href="../../contact/">Contact</a></li>
+      <li><a href="../../privacy/">Privacy</a></li>
+    </ul>
+    <p class="footer-fine">Denver, Colorado.</p>
+  </div>
+</footer>
+
+  <script>
+  // Cymatics ground — ported from entuned.co, recolored to the ink/ice palette.
+  // Chladni plate modes advance with scroll; marching squares traces the nodal lines.
+  (function() {
+    const canvas = document.getElementById('cymaticsCanvas');
+    if (!canvas) return;
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = canvas.getContext('2d');
+
+    let W, H;
+    let mouseX = 0.5, mouseSmX = 0.5;
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Lower grid + 30fps cap vs. the entuned original: this canvas is a ground
+    // under real content, so it must never contend with the page for the main thread.
+    const isMobile = window.innerWidth < 768;
+    const GRID = isMobile ? 120 : 180;
+    const field = new Float32Array(GRID * GRID);
+
+    function resize() {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      if (reduceMotion) draw();
+    }
+    window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', function(e) { mouseX = e.clientX / W; });
+
+    function chladni(x, y, n, m, mix) {
+      var PI = Math.PI;
+      var a = Math.sin(n * PI * x) * Math.sin(m * PI * y);
+      var b = Math.sin(m * PI * x) * Math.sin(n * PI * y);
+      return a * mix + b * (1 - mix);
+    }
+
+    function chladniBlend(x, y, n1, m1, n2, m2, blend, mix) {
+      return chladni(x, y, n1, m1, mix) * (1 - blend) + chladni(x, y, n2, m2, mix) * blend;
+    }
+
+    function marchingSquares(field, cols, rows, threshold) {
+      var segments = [];
+      for (var j = 0; j < rows - 1; j++) {
+        for (var i = 0; i < cols - 1; i++) {
+          var tl = field[j * cols + i];
+          var tr = field[j * cols + i + 1];
+          var br = field[(j+1) * cols + i + 1];
+          var bl = field[(j+1) * cols + i];
+          var idx = 0;
+          if (tl > threshold) idx |= 8;
+          if (tr > threshold) idx |= 4;
+          if (br > threshold) idx |= 2;
+          if (bl > threshold) idx |= 1;
+          if (idx === 0 || idx === 15) continue;
+
+          var t = threshold;
+          function lerp(v1, v2) {
+            if (Math.abs(v2 - v1) < 0.0001) return 0.5;
+            return (t - v1) / (v2 - v1);
+          }
+          var top    = { x: i + lerp(tl, tr), y: j };
+          var right  = { x: i + 1, y: j + lerp(tr, br) };
+          var bottom = { x: i + lerp(bl, br), y: j + 1 };
+          var left   = { x: i, y: j + lerp(tl, bl) };
+
+          switch (idx) {
+            case 1: case 14: segments.push(left, bottom); break;
+            case 2: case 13: segments.push(bottom, right); break;
+            case 3: case 12: segments.push(left, right); break;
+            case 4: case 11: segments.push(top, right); break;
+            case 5: segments.push(top, left); segments.push(bottom, right); break;
+            case 6: case 9: segments.push(top, bottom); break;
+            case 7: case 8: segments.push(top, left); break;
+            case 10: segments.push(top, right); segments.push(bottom, left); break;
+          }
+        }
+      }
+      return segments;
+    }
+
+    var modes = [
+      [1, 1], [1, 2], [2, 2], [2, 3], [3, 3], [3, 4],
+      [4, 4], [4, 5], [5, 5], [5, 6], [6, 6], [6, 7],
+      [7, 7], [7, 8], [8, 8], [8, 9], [9, 9], [9, 10],
+      [10, 10], [10, 12], [12, 12], [12, 14], [14, 14],
+      [14, 16], [16, 16], [16, 18], [18, 20], [20, 22],
+      [22, 25], [25, 28]
+    ];
+
+    // Ice carries the primary nodal lines; paper sits underneath them
+    var ICE = 'rgba(98, 182, 232,';
+    var PAPER = 'rgba(245, 247, 250,';
+
+    var smoothScroll = 0;
+    var time = 0;
+    var audioLv = 0, audioPitch = 0;
+
+    function draw() {
+      // Audio-reactive drive: the playable instruments (js/play.js) publish
+      // window.__foxAudio. Level lifts the plate up its mode ladder and
+      // brightens the nodal lines; pitch reaches further up it — a Chladni
+      // plate answering the note it hears. Idle, all of this is zero and
+      // the ground behaves exactly as before.
+      var fox = window.__foxAudio;
+      if (fox && !reduceMotion) {
+        var lv = fox.level();
+        audioLv += (lv - audioLv) * (lv > audioLv ? 0.5 : 0.05);
+        audioPitch += (fox.pitch01() - audioPitch) * 0.2;
+      }
+
+      if (!reduceMotion) time += 0.032 * (1 + audioLv * 2.5);
+
+      var scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var rawScroll = window.scrollY / scrollMax;
+      if (reduceMotion) {
+        smoothScroll = 0.3;
+      } else {
+        smoothScroll += (rawScroll - smoothScroll) * 0.08;
+      }
+
+      mouseSmX += (mouseX - mouseSmX) * 0.03;
+
+      var modeDrive = Math.min(1, smoothScroll + audioLv * (0.18 + audioPitch * 0.4));
+      var modeProgress = modeDrive * (modes.length - 1);
+      var modeIdx = Math.floor(modeProgress);
+      var modeFrac = modeProgress - modeIdx;
+      modeIdx = Math.min(modeIdx, modes.length - 2);
+
+      var n1 = modes[modeIdx][0], m1 = modes[modeIdx][1];
+      var n2 = modes[modeIdx + 1][0], m2 = modes[modeIdx + 1][1];
+
+      var mix = 0.35 + mouseSmX * 0.3;
+      var timeDrift = Math.sin(time * 0.15) * 0.02;
+
+      for (var j = 0; j < GRID; j++) {
+        for (var i = 0; i < GRID; i++) {
+          var x = (i / (GRID - 1)) * 2 - 1;
+          var y = (j / (GRID - 1)) * 2 - 1;
+          var dist = Math.sqrt(x * x + y * y);
+          if (dist > 1.0) {
+            field[j * GRID + i] = 999;
+            continue;
+          }
+          var val = chladniBlend(x, y, n1 + timeDrift, m1, n2 + timeDrift, m2, modeFrac, mix);
+          if (dist > 0.85) {
+            var edge = (dist - 0.85) / 0.15;
+            val *= (1 - edge * edge);
+          }
+          field[j * GRID + i] = val;
+        }
+      }
+
+      // Transparent clear — the ink page ground stays visible beneath the lines
+      ctx.clearRect(0, 0, W, H);
+
+      var plateSize = Math.min(W, H) * 1.8;
+      var offX = (W - plateSize) / 2;
+      var offY = (H - plateSize) / 2;
+      var cellW = plateSize / (GRID - 1);
+      var cellH = plateSize / (GRID - 1);
+
+      drawSegs(marchingSquares(field, GRID, GRID, 0), ICE, 0.16 + audioLv * 0.4, 0.7 + audioLv * 0.5, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, 0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+      drawSegs(marchingSquares(field, GRID, GRID, -0.12), PAPER, 0.05 + audioLv * 0.16, 0.4, offX, offY, cellW, cellH);
+    }
+
+    // Adaptive cadence — start at 30fps, back off when draw() is expensive
+    // (slow devices, software rendering) so the page never fights the canvas.
+    var frameTick = 0, frameDiv = 2, emaMs = 0;
+    function loop() {
+      frameTick++;
+      if (frameTick % frameDiv === 0) {
+        var t0 = performance.now();
+        draw();
+        var dt = performance.now() - t0;
+        emaMs = emaMs ? emaMs * 0.9 + dt * 0.1 : dt;
+        frameDiv = Math.min(10, Math.max(2, Math.round(emaMs / 7) + 1));
+      }
+      requestAnimationFrame(loop);
+    }
+
+    function drawSegs(segs, colorStr, alpha, lineWidth, offX, offY, cellW, cellH) {
+      if (segs.length < 2) return;
+      ctx.strokeStyle = colorStr + alpha + ')';
+      ctx.lineWidth = lineWidth;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      for (var i = 0; i < segs.length; i += 2) {
+        var a = segs[i], b = segs[i + 1];
+        ctx.moveTo(offX + a.x * cellW, offY + a.y * cellH);
+        ctx.lineTo(offX + b.x * cellW, offY + b.y * cellH);
+      }
+      ctx.stroke();
+    }
+
+    resize();
+    if (reduceMotion) { draw(); } else { requestAnimationFrame(loop); }
+  })();
+  </script>
+
+  <script>
+    // Nav active state is baked at build time (FW-UX-11, build.py
+    // mark_active_nav): child pages light their section, no JS needed.
+
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinksEl = document.querySelector('.nav-links');
+    if (menuToggle && navLinksEl) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinksEl.classList.toggle('mobile-open');
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Accordion toggle
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const accordion = trigger.parentElement;
+        const isOpen = accordion.getAttribute('data-open') === 'true';
+        accordion.setAttribute('data-open', isOpen ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+
+    // Double-submit guard on the capture forms (contact + hear first).
+    // Progressive enhancement only: it runs at submit time, so with JS off
+    // the forms post and redirect exactly as before.
+    const captureForms = document.querySelectorAll('form.contact-form');
+    captureForms.forEach(form => {
+      form.addEventListener('submit', () => {
+        const btn = form.querySelector('button[type="submit"]');
+        if (!btn || btn.disabled) return;
+        btn.dataset.restingLabel = btn.textContent;
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.textContent = 'Sending…'; // HUMAN REVIEW — in-flight button label
+      });
+    });
+
+    // Coming back from /thanks/ via the back button can restore the disabled
+    // state from the bfcache; put the button back the way it was.
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted) return;
+      captureForms.forEach(form => {
+        const btn = form.querySelector('button[type="submit"]');
+        if (!btn || !btn.disabled) return;
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        if (btn.dataset.restingLabel) btn.textContent = btn.dataset.restingLabel;
+      });
+    });
+  </script>
+</body>
+</html>

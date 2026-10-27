@@ -1,0 +1,10 @@
+{
+  "title": "How Denver Jazz Jams Work | Fox Lessons",
+  "meta_description": "How Denver jazz jams run, from calling a standard to trading fours, and what each player needs at each level, from first night to working pro.",
+  "output": "jams/jazz/index.html",
+  "breadcrumb": "Jazz jams",
+  "jams_page": {
+    "type": "genre",
+    "key": "jazz"
+  }
+}

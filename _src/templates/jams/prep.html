@@ -1,0 +1,33 @@
+{#- What each instrumentalist needs (handoff 7.4). -#}
+<section class="section section--dark jams-prep" id="prep" aria-labelledby="prep-h">
+  <div class="container">
+    <h2 id="prep-h">{{ cfg.get('prep_heading') or s.genre_page.prep_heading }}</h2>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+    <p>{{ s.genre_page.prep_intro }}</p>
+    <ul class="jams-bands">
+{% for b in s.skill_bands %}
+      <li class="jams-band jams-band--{{ b.band }}"><span class="jams-band__label">{{ b.label }}</span> {{ b.text }}</li>
+{% endfor %}
+    </ul>
+    <p class="jams-bands__more"><a href="{{ prefix }}jams/first-jam/#skill-levels">{{ s.genre_page.skill_guide_link }}</a></p>
+    <div class="prep-grid">
+{% for b in blocks %}
+      <article class="prep-block">
+        <h3>{{ b.label }}</h3>
+        <dl class="prep-levels">
+{% for band in s.skill_bands %}
+          <div class="prep-level prep-level--{{ band.band }}"><dt>{{ band.label }}</dt><dd>{{ b.levels[band.band] }}</dd></div>
+{% endfor %}
+        </dl>
+{% if b.lessons %}
+        <p class="prep-lessons">{{ b.lessons }} <a href="{{ b.lesson_href }}">{{ b.lesson_label }}</a></p>
+{% else %}
+        <p class="prep-lessons"><a href="{{ b.lesson_href }}">{{ s.teacher_referral.link }}</a>{{ s.teacher_referral.after }}</p>
+{% endif %}
+      </article>
+{% endfor %}
+    </div>
+  </div>
+</section>

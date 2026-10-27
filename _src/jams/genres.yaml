@@ -1,0 +1,925 @@
+# Jams section: the style guides (handoff sections 7.3, 7.4, 7.5). VOICE.md
+# §4 stands (Daniel, 2026-10-27), so these pages carry no listings and no
+# line names a jam, a venue or a night. `maps` and `maps_jam_only` group the
+# internal match list by style; they never reach a page.
+# Every entry is draft: true until Daniel signs off on its copy; drafts
+# render on branch previews with a visible marker, and the build refuses
+# to run on main while any remain. VOICE.md governs every line (Daniel,
+# 2026-10-27), so prep levels are full sentences with the player as the
+# subject, never the noun stacks of the handoff's example.
+#
+# The prep levels follow the skill bands: 1-2 first-timer friendly,
+# 3 middle, 4-5 experienced. `lesson_page` appears only on instruments
+# Daniel teaches; every other block gets the teacher-referral line from
+# strings.yaml (open decision 4).
+
+genres:
+  - key: blues
+    name: Blues
+    h1: How blues jams work
+    draft: true
+    maps: [blues]
+    intro: >-
+      Blues jams are the easiest jams to walk into. The songs follow a short
+      twelve-bar form that most players already know, so a good host can put
+      a new player into a band within one tune.
+    cta_material: the blues forms and keys that get called
+    how:
+      what_gets_played: >-
+        The night is mostly twelve-bar blues in E, A, G and C, the keys
+        guitarists like, played as shuffles and slow blues. Bands also play a
+        handful of standards most players can fake, like Stormy Monday, The
+        Thrill Is Gone and Sweet Home Chicago, and someone usually calls a
+        minor blues or a funk blues.
+      signup: >-
+        Most blues jams keep a paper list or a whiteboard near the stage. The
+        host builds small bands from the list and calls players up in groups,
+        mixing instruments so every group has drums, bass and someone playing
+        chords. Signup times and methods vary from night to night.
+      set: >-
+        Each group usually plays two or three tunes. The player who calls a
+        tune names the key, counts it in and leads it. Solos go around the
+        band once, the leader signals the last time through, and the band
+        finds the ending together.
+      habits:
+        - Keep a solo to one or two times through the form unless the leader waves you on.
+        - Play softer than you think you need to behind a singer or another soloist.
+        - Learn the quick change, the jump to the IV chord in bar two, because hosts call it without warning.
+        - If you don't know a tune, say so before it starts, since the whole band stalls when one player is lost in the form.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You can play barre or open chords through a twelve-bar blues in E
+            and A with a steady shuffle strum, and you stay out of the
+            singer's way.
+          "3": >-
+            You know the quick change and the common turnarounds, you can
+            voice seventh and ninth chords, and you can take a solo with the
+            minor pentatonic scale and trade solos with another guitarist.
+          "4-5": >-
+            You can phrase a slow blues, catch stops and hits, play in any key
+            that gets called, comp under a soloist without crowding them, and
+            lead a band through an ending.
+        lessons: >-
+          We work on the forms, the keys and the comping, and we rehearse
+          calling a tune and counting it in.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can hold the roots through a twelve-bar blues in E and A while
+            you watch the guitarist for the chord changes.
+          "3": >-
+            You can play shuffle and walking lines in the common keys, handle
+            the quick change, and follow the band through turnarounds and
+            endings.
+          "4-5": >-
+            You can play in any key that gets called, handle a minor blues and
+            stops and hits, lay back under a singer, and take a solo.
+        lessons: >-
+          We learn the forms and keys that get called, and we practice
+          following a bandleader you've never played with.
+      - key: drums
+        label: Drummers
+        lesson_page: drums/
+        levels:
+          "1-2": >-
+            You can play a steady shuffle and a slow 12/8 feel at one volume,
+            and keep the tempo the leader counted in.
+          "3": >-
+            You can move between a shuffle, a slow blues, a two-feel and a funk
+            backbeat, and set up the stops and the last time through.
+          "4-5": >-
+            You can follow a singer's dynamics, catch hits and stop-time on
+            the fly, play train and rhumba grooves, and end a tune cleanly off
+            the leader's signal.
+        lessons: >-
+          We drill the three or four grooves blues jams call, and we practice
+          reading a leader you just met.
+      - key: keys
+        label: Keyboard players
+        lesson_page: piano/
+        levels:
+          "1-2": >-
+            You can play simple triads or seventh chords through a twelve-bar
+            blues in C, G and E, keep it light, and keep your left hand out of
+            the bass player's range.
+          "3": >-
+            You can comp a shuffle, play a slow blues with a gospel feel, play
+            organ pads behind solos, and take a solo of your own.
+          "4-5": >-
+            You know blues piano and organ language, you can play an intro or
+            an ending on request, and you comp lightly enough that the soloist
+            stays out front.
+        lessons: >-
+          We build chord-chart fluency in the jam keys, then practice comping
+          under a singer.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one tune all the way through, in a key you've sung it in,
+            and you tell the band that key before the count-in.
+          "3": >-
+            You have two or three tunes in your keys, you can cue the band for
+            stops and the last time through, and you can work a mic and PA
+            you've never used.
+          "4-5": >-
+            You can sing a set's worth of material, change keys on request,
+            direct the band with hand signals, and pull a crowd's attention
+            back from the bar.
+      - key: horns
+        label: Horn players
+        levels:
+          "1-2": >-
+            You know the twelve-bar form by ear, you count bars so you come in
+            on your turn, and you have one riff you can repeat in whatever key
+            the guitars call.
+          "3": >-
+            You can play blues phrases in the guitar keys, add background
+            lines and stabs behind a singer, and trade fours.
+          "4-5": >-
+            You know the melodies of the common shuffles, you can harmonize a
+            background line with another horn on the spot, and you can pace a
+            slow-blues solo without rushing it.
+      - key: harmonica
+        label: Harmonica players
+        levels:
+          "1-2": >-
+            You can play in second position on a couple of harps, say a C and
+            an A, you know the twelve-bar form, and you stay out while the
+            singer sings.
+          "3": >-
+            Your bends hit the pitch, you can play train rhythms and chugging
+            patterns, you can cup a mic, and you can build a solo over one
+            time through the form.
+          "4-5": >-
+            You can play third position for a minor blues, keep a good tone
+            at low volume, play amplified or acoustic, and trade solos with a
+            guitarist without turning it into a volume contest.
+
+  - key: jazz
+    name: Jazz
+    h1: How jazz jams work
+    draft: true
+    maps: [jazz, B3 organ jazz]
+    intro: >-
+      Jazz jams run on a shared songbook. A player calls a standard by name
+      and key, and a band of people who may have just met plays it.
+    cta_material: the standards and keys that get called
+    how:
+      what_gets_played: >-
+        Players call standards, including blues tunes, rhythm changes, and
+        songs like Autumn Leaves, All of Me, Blue Bossa and Summertime. Hosts
+        tend to keep the early sets to the best-known tunes so more players
+        can join.
+      signup: >-
+        Signup is often looser than at a blues jam. Some nights keep a list,
+        and others run on a word with the host. Some nights are sit-ins with a
+        house trio and have no open list, so find out which kind of night it is
+        before you go.
+      set: >-
+        A tune starts with the melody, called the head, then players take
+        solos over the form, sometimes trade fours with the drummer, and play
+        the head again to end. Whoever called the tune sets the key, the tempo
+        and the feel, and everyone else accompanies.
+      habits:
+        - Call tunes you can play without a chart. If you need the page, pick an easier tune.
+        - Comp lightly while someone else solos, and sometimes drop out entirely.
+        - Bass players and drummers often play whole sets, so pace yourselves.
+        - Make the end of your solo obvious so the next player knows where the band is in the form.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You can play shell voicings through a blues in F and B-flat, comp
+            a steady quarter-note rhythm, and keep your place in the melody of
+            one standard.
+          "3": >-
+            You know two-five-one phrases, you comp without getting in the
+            piano's way, you can play a dozen standards from memory, and you
+            can trade fours.
+          "4-5": >-
+            You can play rhythm changes and a minor blues at tempo, play an
+            intro or an ending on request, and share the comping with a
+            pianist by ear.
+        lessons: >-
+          We build a working set of standards and practice comping the way a
+          rhythm section wants it.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can play roots and fifths in two through a blues in F, and
+            follow the drummer's feel without rushing.
+          "3": >-
+            You can walk through standard chord changes, open in two and move
+            into four, play the common turnarounds, and keep the form when a
+            soloist stretches over it.
+          "4-5": >-
+            You can play any standard at any tempo, use pedal points and
+            substitutions on the fly, trade fours, and keep the form steady for
+            everyone else.
+        lessons: >-
+          We learn walking lines and the standards that get called, and we
+          practice keeping the form under pressure.
+      - key: drums
+        label: Drummers
+        lesson_page: drums/
+        levels:
+          "1-2": >-
+            You can keep a steady ride pattern, play in two and in four, and
+            keep your volume under the soloist.
+          "3": >-
+            You can swing at medium and fast tempos, play a bossa and a
+            straight-eighth feel, trade fours, and catch the hits in a melody
+            you half know.
+          "4-5": >-
+            You can play fast tempos without tension and ballads with brushes,
+            play Latin grooves, and shape the whole band's dynamics from the
+            kit.
+        lessons: >-
+          We work on swing feel at real tempos and practice trading fours and
+          catching cues.
+      - key: keys
+        label: Piano and keyboard players
+        lesson_page: piano/
+        levels:
+          "1-2": >-
+            You can play shell voicings for a blues in F and a few
+            two-five-ones, and comp softly in time.
+          "3": >-
+            You can play rootless voicings, you know a dozen standards, you
+            can build an intro from the last eight bars, and you can comp
+            behind a soloist without crowding them.
+          "4-5": >-
+            You can play any standard that gets called, start a tune with a
+            solo intro, set a ballad on request, and feed the changes to a
+            lost soloist without stopping the tune.
+        lessons: >-
+          We build rootless voicings and a list of tunes you can call, and we
+          practice comping for people you've never played with.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one standard in your key with the melody solid, and you
+            have that key written down to hand the pianist.
+          "3": >-
+            You have a few standards with clear keys and forms, you count off
+            your own tempo, and you come back in at the top after the solos.
+          "4-5": >-
+            You have a book of tunes with keys, you cue endings and tags, and
+            you can front a band of strangers like it's your own gig.
+      - key: horns
+        label: Horn players
+        levels:
+          "1-2": >-
+            You can play a blues in concert F and B-flat, you know the melody
+            of one standard, and you count your rests so you come in on your
+            turn.
+          "3": >-
+            You know a dozen melodies from memory, you have two-five-one
+            phrases in the common keys, you can play backgrounds behind a
+            singer, and you can trade fours.
+          "4-5": >-
+            You can play melodies at tempo in the common keys, double a melody
+            in octaves or harmony on the spot, and pace a solo past one time
+            through the form.
+
+  - key: funk-and-soul
+    name: Funk and soul
+    h1: How funk and soul jams work
+    draft: true
+    maps: [funk, soul, R&B, neo-soul, hip-hop]
+    intro: >-
+      Funk and soul jams run on a groove more than on chord changes. Most
+      tunes sit on one or two chords, and the rhythm section locks together
+      underneath them.
+    cta_material: the grooves and tunes those nights run on
+    how:
+      what_gets_played: >-
+        Expect vamps on one or two chords, James Brown and Meters tunes,
+        Stevie Wonder and Aretha Franklin songs, and neo-soul grooves. On the
+        nights that lean hip-hop, rappers freestyle over a groove the band
+        keeps going.
+      signup: >-
+        Signup is often looser than at a blues night. Some nights keep a list,
+        and on others the host waves players up, often calling singers and
+        horn players in batches.
+      set: >-
+        The leader sets a groove and the band locks into it. Tunes run long,
+        players solo over the vamp, and the leader cues breakdowns, hits and
+        the ending with hand signals or a shout.
+      habits:
+        - Play less than you want to, because the groove needs space.
+        - Watch the leader the whole time, since breakdowns and endings come from hand signals.
+        - Ask what the cues mean before you go up. A raised fist, a raised hand and a spin each mean something different.
+        - If you lose the downbeat, drop out for a bar and come back in. Playing against the groove sounds worse than a bar of silence.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You can play a clean ninth-chord vamp with a sixteenth-note scratch
+            strum at one volume, and stay off the low strings.
+          "3": >-
+            You can play single-note riffs that lock with the bass, keep
+            dotted rhythms from rushing, and comp through a two-chord soul
+            tune.
+          "4-5": >-
+            You can switch between rhythm parts and lead fills, play Motown and
+            Stax voicings, and keep a sixteenth-note part steady for ten
+            minutes without drifting.
+        lessons: >-
+          We build the right-hand feel and the two or three voicings that
+          cover most of the songbook.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can keep a one-bar groove going for as long as the tune lasts,
+            mostly on the root and locked to the kick drum.
+          "3": >-
+            You can play syncopated sixteenth-note lines with ghost notes, stay
+            with the kick drum through a breakdown, and play a slap groove or
+            two at real tempos.
+          "4-5": >-
+            You can sit in the pocket at any tempo, play fills that come back
+            to the downbeat, catch cued hits in the middle of a groove, and
+            anchor a ten-minute vamp without missing the ending.
+        lessons: >-
+          We lock in sixteenth-note feel against real tracks and practice
+          reading cues in the middle of a groove.
+      - key: drums
+        label: Drummers
+        lesson_page: drums/
+        levels:
+          "1-2": >-
+            You can play a solid backbeat at a medium tempo, save fills until
+            the leader asks for them, and count in without rushing.
+          "3": >-
+            You can play sixteenth-note hi-hat grooves with ghosted snare
+            notes, play James Brown and Meters feels, and catch cued breaks.
+          "4-5": >-
+            You can play displaced grooves and half-time shuffles, bring the
+            volume from a whisper up on cue, and drive a breakdown back to the
+            full band cleanly.
+        lessons: >-
+          We drill the funk feels and a steady backbeat, then practice
+          reading cues.
+      - key: keys
+        label: Keyboard players
+        lesson_page: piano/
+        levels:
+          "1-2": >-
+            You can play a two-chord vamp on an electric piano sound with short
+            stabs in time, and leave the low end to the bass.
+          "3": >-
+            You can play clavinet-style rhythm parts, use seventh and ninth
+            voicings, swell an organ behind a singer, and take a solo that
+            stays inside the groove.
+          "4-5": >-
+            You can split parts between organ and electric piano, cover the
+            bass with your left hand when there's no bassist, and arrange pads,
+            stabs and fills so the groove keeps its space.
+        lessons: >-
+          We get the voicings and the rhythm-hand feel down, and practice
+          playing inside a band without covering it up.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one soul tune in your key with the form memorized, and
+            you're comfortable repeating a chorus while the band vamps.
+          "3": >-
+            You can ad-lib over the groove, bring the band down for a verse and
+            up for a chorus, and sing backgrounds behind another singer.
+          "4-5": >-
+            You can front the band, call breakdowns, stack background parts on
+            the spot, teach the crowd a hook, and end a vamp on cue.
+      - key: horns
+        label: Horn players
+        levels:
+          "1-2": >-
+            You can play single-note stabs in time, sit out when the part calls
+            for it, and move one riff to any key.
+          "3": >-
+            You can play in a section with another horn, play the common funk
+            lines and backgrounds behind vocals, and take a short solo that
+            builds.
+          "4-5": >-
+            You can write a line on the spot and teach it to the other horns
+            between choruses, solo over one chord without running out of
+            ideas, and follow the dynamics on cue.
+      - key: harmonica
+        label: Harmonica players
+        levels:
+          "1-2": >-
+            You can play riffs in second position over a one-chord vamp, play
+            sparingly, and lower the mic when you're not playing.
+          "3": >-
+            You can play chugging rhythms locked with the drums, play fills
+            between vocal lines, and cup a tone that doesn't feed back.
+          "4-5": >-
+            You can play third-position minor vamps, play section-style lines
+            with the horns, and build a solo on the groove more than on the
+            chord changes.
+
+  - key: rock
+    name: Rock
+    h1: How rock jams work
+    draft: true
+    maps: [rock, classic rock, metal, indie, Grateful Dead, jam band]
+    intro: >-
+      Rock jams run from classic covers to Grateful Dead nights where one tune
+      can last half an hour. You'll need to know the songs, or know how to
+      listen your way into one.
+    cta_material: the covers and keys those nights lean on
+    how:
+      what_gets_played: >-
+        On most nights players call classic covers everyone can join, like the
+        Beatles, the Rolling Stones, Tom Petty, Led Zeppelin and Creedence.
+        Grateful Dead and jam-band nights stretch tunes into long
+        improvisations, and the metal and indie nights work more like an open
+        mic with gear provided.
+      signup: >-
+        Most nights keep a list near the stage. Some hosts collect names and
+        instruments and build the bands, and others let a band that arrives
+        together take a slot.
+      set: >-
+        Each group plays two to four songs. Someone calls a song and a key,
+        the band finds the form fast, and whoever gets the nod takes the solo.
+        At Grateful Dead nights the band moves from song to song and decides
+        the transitions on stage.
+      habits:
+        - Call songs with four chords and a chorus everyone knows. Strangers can't follow a deep cut on the first try.
+        - Agree on the ending before the count-in, whether that's one last chorus or riding the riff until the drummer stops.
+        - Tune before you plug in.
+        - Match the stage volume and let the sound system make you loud enough.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You can play open and barre chords, use a capo if you need one,
+            and strum a four-chord song in time all the way through.
+          "3": >-
+            You can play in the common keys without a capo, play pentatonic
+            leads, remember the riffs from the classic songbook, and switch
+            between rhythm and lead when someone nods at you.
+          "4-5": >-
+            You can change feels in the middle of a tune, build a solo, leave
+            the other guitarist space the way Grateful Dead players do, and lead
+            a band through a song you called.
+        lessons: >-
+          We build the cover-night songbook and your lead playing, and we
+          practice passing parts around a band.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can play root notes through a four-chord progression, locked to
+            the kick drum, with your eyes on the guitarist's left hand for the
+            changes.
+          "3": >-
+            You can walk into choruses with passing tones, play the bass lines
+            everybody expects on the classics, and keep a jam steady while the
+            guitars wander.
+          "4-5": >-
+            You can play in any key, follow key changes on the fly, lead the
+            Grateful Dead and jam-band passages where the bass takes over, and
+            pull a drifting band back to the downbeat.
+        lessons: >-
+          We cover a rock bassist's job song by song, and we practice
+          following chord changes you've never seen.
+      - key: drums
+        label: Drummers
+        lesson_page: drums/
+        levels:
+          "1-2": >-
+            You can play a straight backbeat at one tempo, put crashes where
+            they belong, and skip any fill you can't finish cleanly.
+          "3": >-
+            You can play the common feels, straight eighths, half-time, train
+            beats and 12/8, count in at the right tempo, and end songs either
+            cold or with a long ringing finish.
+          "4-5": >-
+            You can improvise with the band's dynamics the way Grateful Dead
+            drummers do, keep odd phrase lengths without losing the band, and
+            steer a twenty-minute jam from the kit.
+        lessons: >-
+          We lock in a steady tempo and the common feels, then practice cueing
+          and endings.
+      - key: keys
+        label: Keyboard players
+        lesson_page: piano/
+        levels:
+          "1-2": >-
+            You can play triads and suspended chords through a four-chord song,
+            play pads under the vocals, and keep your hands out of the low
+            octaves.
+          "3": >-
+            You can play organ pads and fills, drive the rockers with piano
+            eighth notes, read a guitarist's hands for the changes, and take a
+            solo that peaks and ends.
+          "4-5": >-
+            You know B3 organ language and Grateful Dead and Allman Brothers
+            voicings, you can play synth leads where they fit, and you can
+            cover the melody when there's no singer.
+        lessons: >-
+          We sort out the sounds and the roles, and we practice following
+          chord changes nobody rehearsed.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one classic song all the way through, in your key, and
+            you're ready to count it off yourself.
+          "3": >-
+            You have a handful of covers in different feels, you can find your
+            pitch over a loud stage, and you can signal the ending so the band
+            stops with you.
+          "4-5": >-
+            You can pick a set list for any band, sing harmonies on the spot,
+            and make a band of strangers sound rehearsed.
+      - key: horns
+        label: Horn players
+        levels:
+          "1-2": >-
+            You can play roots and riffs in the guitar keys, sit out until your
+            solo, and play one phrase you can fit anywhere.
+          "3": >-
+            You know the classic horn lines, you can transpose quickly, and you
+            play backgrounds that stay clear of the vocal.
+          "4-5": >-
+            You can arrange a two-horn section live, solo over a one-chord jam,
+            and match a loud guitar without overblowing.
+      - key: harmonica
+        label: Harmonica players
+        levels:
+          "1-2": >-
+            You can play in first and second position over G, C and D, and you
+            can tell when a song doesn't want harmonica at all.
+          "3": >-
+            You can play folk-rock phrases, use a neck rack if you also strum,
+            use hand effects, and play short fills between vocal lines.
+          "4-5": >-
+            You can get an amplified tone for the blues-rock numbers, pick
+            positions for minor keys, and solo without chasing the guitars.
+
+  - key: bluegrass-and-folk
+    name: Bluegrass and folk
+    h1: How bluegrass and folk jams work
+    draft: true
+    maps: [bluegrass, old-time, Irish, folk, ukulele, acoustic, cowboy]
+    maps_jam_only: [standards]
+    intro: >-
+      Bluegrass, old-time, Irish and folk nights mostly happen in a circle,
+      acoustic and unplugged, on tunes players learn by ear. Players care
+      about etiquette here more than at any other kind of night on this
+      list.
+    cta_material: the fiddle keys and circle tunes that come around
+    how:
+      what_gets_played: >-
+        Players in the circle play bluegrass standards like Salt Creek and
+        Nine Pound Hammer, old-time fiddle tunes repeated until everyone has
+        them, Irish session sets, and folk songs with choruses the whole
+        circle can sing. Most of the night is in G, A, D and C, and capos are
+        welcome.
+      signup: >-
+        Most circles have no signup. You sit in the circle and play, the lead
+        moves around the circle, and you can pass when it's your turn. Some
+        nights split into a fast circle and a slow one, and the slow circle is
+        the place to start.
+      set: >-
+        Whoever's turn it is calls a tune and a key and starts it. In
+        bluegrass, solos, called breaks, go around the circle in order. In
+        old-time and Irish circles everyone plays the melody together and
+        nobody solos. A tune ends when someone raises a foot or calls the last
+        time through.
+      habits:
+        - Match the circle's volume and tempo. If you can't hear the fiddle, you're playing too loud.
+        - Play rhythm on tunes you don't know yet, and take the melody only after you've heard it come around a few times.
+        - In old-time and Irish circles, play the tune with everyone and save improvising for bluegrass.
+        - Ask before you record, and ask a tune's name after it ends.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You can play G, C, D and A with a capo, keep a boom-chuck rhythm,
+            and follow the changes by watching the other players' hands.
+          "3": >-
+            You can play solid rhythm at fiddle-tune tempo with bass runs
+            between chords, take a flatpicked break on the common tunes, and
+            play the G run where it belongs.
+          "4-5": >-
+            You can take breaks at any tempo that gets called, crosspick, back
+            a singer with no mandolin chop to lean on, and kick tunes off
+            cleanly.
+        lessons: >-
+          We put rhythm first, since every circle needs it, and build breaks
+          from there.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can play root-fifth in G, A and D on beats one and three, every
+            time.
+          "3": >-
+            You can walk into chord changes, play waltz time, read a capoed
+            guitarist's chord shapes, and keep the tempo steady against a
+            rushing banjo.
+          "4-5": >-
+            You can play in any key that gets called, slap where an old-time
+            night wants it, and keep time for the whole circle.
+        lessons: >-
+          We make root-fifth automatic and train your ear for the changes in
+          the fiddle keys.
+      - key: banjo
+        label: Banjo players
+        levels:
+          "1-2": >-
+            You can play rolls in G at an easy tempo, vamp on the tunes you
+            don't know, and capo up for A.
+          "3": >-
+            You can play Scruggs-style breaks on the standards, play backup up
+            the neck, play basic clawhammer for the old-time circles, and take
+            your turn without speeding up.
+          "4-5": >-
+            You can take breaks at session tempo in any key that gets called,
+            play melodic style where it fits, and switch between bluegrass
+            drive and old-time rhythm.
+      - key: mandolin
+        label: Mandolin players
+        levels:
+          "1-2": >-
+            You can play two-finger chords for G, C, D and A, chop on the
+            offbeat, and use tremolo only when you choose to.
+          "3": >-
+            You can take breaks on the common fiddle tunes, play double stops,
+            kick off a tune cleanly, and keep the chop going when the guitar
+            takes a break.
+          "4-5": >-
+            You know a deep list of fiddle tunes, play at session tempo in any
+            key that gets called, pick up old-time and Irish melodies by ear,
+            and lead tunes from the chop.
+      - key: fiddle
+        label: Fiddle players
+        levels:
+          "1-2": >-
+            You can play first-position melodies in D, G and A with long,
+            in-tune strokes, and play softly under the circle until you have
+            the melody.
+          "3": >-
+            You know the common session tunes from memory, play double stops
+            and drones, kick off at a tempo you can keep, and play pads behind
+            singers.
+          "4-5": >-
+            You can play bluegrass, old-time and Irish sets, take breaks at any
+            tempo, add harmony lines on the spot, and lead sets without losing
+            the circle.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one folk song with a chorus everyone knows, in a key the
+            circle can play, with the words memorized.
+          "3": >-
+            You can lead the verses while the circle sings the choruses, teach
+            a chorus by singing it twice, and pitch the song so the last verse
+            still fits your voice.
+          "4-5": >-
+            You can sing harmony above or below a lead on the spot, stack duet
+            and trio parts, lead call and response, and reach the back of the
+            venue with no microphone.
+
+  - key: open-jams
+    name: Open jams
+    h1: How open jams work
+    draft: true
+    maps_jam_only: [mixed]
+    intro: >-
+      Open jams take any player and any genre. The host builds bands from
+      whoever signed up, so the music changes with who shows up each week.
+    cta_material: the progressions and tunes a mixed stage can agree on
+    how:
+      what_gets_played: >-
+        Bands play whatever the people on stage can agree on, like a blues
+        shuffle, four-chord rock, a funk vamp, a country two-step, or a song
+        somebody brought. Hosts steer groups toward tunes everyone on stage
+        can fake.
+      signup: >-
+        Open jams almost always use a list where you write your name and your
+        instrument. The host mixes groups so each one has drums, bass and
+        someone on chords, then works down the list in rounds.
+      set: >-
+        Each group plays two or three tunes. With the host's help, the group
+        agrees on something simple in a few seconds, and someone counts it
+        in.
+      habits:
+        - Name everything you can play when you sign up, so the host can build a group that works.
+        - Bring the song you'd call, key included, so the huddle on stage stays short.
+        - Pick tunes the least experienced player on stage can play.
+        - Switch instruments only if the host offers, since the list sets the order.
+    prep:
+      - key: guitar
+        label: Guitarists
+        lesson_page: guitar/
+        levels:
+          "1-2": >-
+            You know a dozen open chords, you have a capo, and you can follow a
+            called key when someone says the chord names out loud.
+          "3": >-
+            You can play barre chords in any key, follow the common
+            progressions by number, and take a short pentatonic solo.
+          "4-5": >-
+            You can hear chord changes without being told, cover bass or lead
+            when the group needs it, and arrange a stranger's song on the
+            spot.
+        lessons: >-
+          We make you the guitarist a pickup band is glad to see, with keys,
+          numbers and steady time.
+      - key: bass
+        label: Bassists
+        lesson_page: bass/
+        levels:
+          "1-2": >-
+            You can play roots on beat one with your eyes on the guitarist's
+            hands, and you ask for the key before the count-in.
+          "3": >-
+            You can hear one-four-five and the common pop progressions, walk
+            between chords, and lock in with a drummer you just met.
+          "4-5": >-
+            You can play any style the list throws at you, fill whatever gaps
+            the group has, and run the band from the back without saying
+            much.
+        lessons: >-
+          We train your ear for progressions and for locking in with a drummer
+          you don't know.
+      - key: drums
+        label: Drummers
+        lesson_page: drums/
+        levels:
+          "1-2": >-
+            You can play one steady rock beat and one shuffle, at the band's
+            tempo.
+          "3": >-
+            You can match a feel to a song you've never heard, play brushes on
+            the soft ones, and end songs off eye contact.
+          "4-5": >-
+            You can play country, funk, swing and Latin feels on demand, steady
+            a rushing band, and count in at the right tempo for the song.
+        lessons: >-
+          We build the common feels and practice listening before you play.
+      - key: keys
+        label: Keyboard players
+        lesson_page: piano/
+        levels:
+          "1-2": >-
+            You can play triads from chord names called out loud, and play
+            softly until you're sure.
+          "3": >-
+            You can play by numbers and keys, choose between pads and comping,
+            and fill only the space the band leaves.
+          "4-5": >-
+            You can cover the bass with your left hand when there's no bassist,
+            play an intro when asked, and keep a mixed group together from the
+            keyboard.
+        lessons: >-
+          We work on reading chord charts, the number system, and playing
+          less.
+      - key: singers
+        label: Singers
+        levels:
+          "1-2": >-
+            You know one song with the words down and your key on paper, and
+            you're patient while the band finds it.
+          "3": >-
+            You have a few songs in different feels, you can give the band the
+            progression in numbers, and you can start on pitch from the
+            guitarist's chord.
+          "4-5": >-
+            You can lead the group by calling the song, the key, the feel and
+            the ending, and you can put a band of strangers at ease.
+      - key: horns
+        label: Horn players
+        levels:
+          "1-2": >-
+            You can play long tones under the band, you know the melody of one
+            tune, and you ask which concert key has been called.
+          "3": >-
+            You can play riffs and pads by ear in the common keys, take a solo
+            over a twelve-bar blues, and sit out for whole verses.
+          "4-5": >-
+            You can fake melodies by ear, harmonize a line with another horn,
+            and add intros, stops and endings the group didn't plan.
+      - key: harmonica
+        label: Harmonica players
+        levels:
+          "1-2": >-
+            You have a C harp and an A harp, you know second-position basics,
+            and you play only in the gaps.
+          "3": >-
+            You can match a harp to the called key fast, play folk and blues
+            fills, and lock chugging rhythms with the drummer.
+          "4-5": >-
+            You have a full set of harps, you know your positions, you can play
+            the melody when there's no singer, and you know when to stop
+            playing.
+
+  - key: open-mics
+    name: Open mics
+    h1: How open mics and songwriter nights work
+    prep_heading: What each act needs
+    draft: true
+    page_type: format
+    intro: >-
+      At an open mic or a songwriter night, you bring your own act and play a
+      short set on a stage that changes hands all night. You need a song or
+      two you can finish, and you need to get there by the signup time.
+    cta_material: the songs you'll play and how to fit them into ten minutes
+    how:
+      what_gets_played: >-
+        Each act gets two or three songs or about ten minutes, whichever comes
+        first. Most nights welcome covers, songwriter nights want original
+        songs, and a few run in the round, with writers taking turns. At the
+        mixed nights, poets and comics share the list.
+      signup: >-
+        Most nights keep a list at the door, and some of the bigger ones take
+        signups online ahead of time. The popular lists fill before the music
+        starts, so get there by the signup time, which is often earlier than
+        the start time.
+      set: >-
+        The host calls you up, the sound person checks that your mic and
+        instrument are coming through, and you play your songs with a sentence
+        or two of talk between them. Watch the host for the signal to wrap
+        up.
+      habits:
+        - Tune before you get on stage, so you have time for your last song.
+        - Keep the talk between songs shorter than the songs.
+        - Stay for the acts after yours.
+        - Thank the host and the sound person by name on your way off.
+    prep:
+      - key: singer-songwriters
+        label: Singer-songwriters
+        lesson_page: songwriting/
+        levels:
+          "1-2": >-
+            You have two finished songs you can play from memory, you're tuned
+            before your name is called, and if a verse falls out you start it
+            over without apologizing.
+          "3": >-
+            You have a tight ten minutes with the intros planned, you can keep
+            playing a chord until lost words come back, and you can tell which
+            of your songs fits the night.
+          "4-5": >-
+            You can stretch or cut your set on the host's signal, talk between
+            songs without eating into your time, and debut a brand-new song
+            with no warm-up.
+        lessons: >-
+          We finish the songs, time the set, and rehearse what to do when
+          something goes wrong.
+      - key: solo-instrumentalists
+        label: Solo instrumentalists
+        levels:
+          "1-2": >-
+            You have one piece arranged to stand on its own, a pickup or mic
+            setup you've tested, and you nod instead of apologizing when a note
+            goes wrong.
+          "3": >-
+            You have a short set with contrast between the pieces, you can loop
+            the last section to cover a fumble, and your introductions help a
+            bar crowd follow instrumental music.
+          "4-5": >-
+            You can set up tunings and effects in seconds, improvise a bridge
+            when your memory blanks, and keep a crowd's attention with no words
+            at all.
+      - key: duos-and-bands
+        label: Duos and small bands
+        levels:
+          "1-2": >-
+            You have two rehearsed songs, one tuner you share, and a setup you
+            can finish in two minutes.
+          "3": >-
+            You have three songs with dynamics, endings you can cue by eye when
+            the host is rushing the list, and a plan for who talks between
+            songs.
+          "4-5": >-
+            You can check your sound one instrument at a time, run backing
+            tracks from your own device at a volume you've tested, and drop a
+            song on the fly when the slot gets shorter.

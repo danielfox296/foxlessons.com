@@ -1,0 +1,55 @@
+{#- A style guide (handoff 5.2 without the listings, which VOICE.md §4 keeps
+    off the site): how those nights run, what each player needs, the call
+    to action. -#}
+<section class="section section--dark hero-section page-hero jams-hero">
+  <div class="container">
+    <span class="eyebrow">{{ eyebrow }}</span>
+    <h1 class="fade-up">{{ cfg.h1 }}</h1>
+    <p class="hero-sub fade-up">{{ cfg.intro }}</p>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+  </div>
+</section>
+
+<section class="section section--light jams-how" aria-labelledby="jams-how-h">
+  <div class="container">
+    <h2 id="jams-how-h">{{ s.genre_page.how_heading }}</h2>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+    <div class="jams-how-grid">
+      <div>
+        <h3>{{ s.genre_page.how_what }}</h3>
+        <p>{{ cfg.how.what_gets_played }}</p>
+      </div>
+      <div>
+        <h3>{{ s.genre_page.how_signup }}</h3>
+        <p>{{ cfg.how.signup }}</p>
+      </div>
+      <div>
+        <h3>{{ s.genre_page.how_set }}</h3>
+        <p>{{ cfg.how.set }}</p>
+      </div>
+      <div>
+        <h3>{{ s.genre_page.how_habits }}</h3>
+        <ul>
+{% for habit in cfg.how.habits %}
+          <li>{{ habit }}</li>
+{% endfor %}
+        </ul>
+      </div>
+    </div>
+{% if cfg.get('daniels_take') %}
+    <aside class="jams-take" aria-label="{{ labels.daniels_take }}">
+      <p class="jam-label">{{ labels.daniels_take }}</p>
+{% for para in cfg.daniels_take.split('\n\n') %}
+      <p>{{ para }}</p>
+{% endfor %}
+    </aside>
+{% endif %}
+  </div>
+</section>
+
+{{ prep_html }}
+{{ cta_html }}

@@ -135,6 +135,21 @@ def _ensure_blog_renderer():
     return _blog_renderer, _jinja_env
 
 
+_jams = None  # lazy-loaded _src.lib.jams (needs jinja2 + pyyaml)
+
+
+def _ensure_jams():
+    """Lazy-import the jams guides module. It caches the _src/jams/*.yaml
+    files itself, so they load once per build."""
+    global _jams
+    if _jams is None:
+        if REPO not in sys.path:
+            sys.path.insert(0, REPO)
+        from _src.lib import jams as _jams_mod
+        _jams = _jams_mod
+    return _jams
+
+
 def _is_new_format_blog(page_path: str) -> bool:
     """Check if a page directory contains a new-format blog content.yaml."""
     yaml_path = os.path.join(page_path, 'content.yaml')
@@ -532,7 +547,7 @@ def extract_faqs_from_content(content):
 # CTA is deliberately absent: it's a button-styled link whose .active recolor
 # would fight its fill (and the old client-side exact-URL match never lit its
 # fragment href either).
-_NAV_SECTION_PREFIXES = ('about', 'faq', 'blog')
+_NAV_SECTION_PREFIXES = ('about', 'faq', 'blog', 'jams')
 
 
 def mark_active_nav(page_header, output, nav_prefix):
@@ -728,6 +743,12 @@ def build():
             if os.path.exists(content_yaml_path):
                 yaml_data = parse_simple_yaml(read(content_yaml_path))
                 content = resolve_content(content, {'content': yaml_data})
+
+            # Jams guides render from the copy in _src/jams/*.yaml; no jam,
+            # venue or night reaches the site (VOICE.md §4).
+            if config.get('jams_page'):
+                jams_html = _ensure_jams().render_page(config['jams_page'], nav_prefix)
+                content = f'{content}\n\n{jams_html}' if content.strip() else jams_html
 
         # ---------------------------------------------------------------
         # SHARED LAYOUT ASSEMBLY (both old and new pipelines converge)
@@ -1050,6 +1071,9 @@ def build():
             if is_blog:
                 crumbs.append({"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog/"})
                 crumbs.append({"@type": "ListItem", "position": 3, "name": leaf_name})
+            elif output.startswith('jams/') and output != 'jams/index.html':
+                crumbs.append({"@type": "ListItem", "position": 2, "name": "Jams", "item": SITE_URL + "/jams/"})
+                crumbs.append({"@type": "ListItem", "position": 3, "name": leaf_name})
             else:
                 crumbs.append({"@type": "ListItem", "position": 2, "name": leaf_name})
 
@@ -1349,6 +1373,11 @@ def generate_sitemap(page_dirs):
                 continue
             lastmod = config.get('lastmod')
             loc = page_url(output)
+            # Jams guides change with their shared copy and templates as
+            # much as with their own config.
+            if config.get('jams_page'):
+                lastmod = lastmod or _git_lastmod(
+                    page_path, os.path.join(SRC, 'jams'), os.path.join(SRC, 'templates', 'jams'))
 
         # lastmod is the one field crawlers use; fall back to the page's
         # git history (mtime only for not-yet-committed pages).
@@ -1454,6 +1483,8 @@ def generate_llms():
     template_path = os.path.join(SRC, 'llms-template.txt')
     template = read(template_path)
     llms_txt = template.replace('{{blog_section}}', blog_section)
+    if '{{jams_section}}' in llms_txt:
+        llms_txt = llms_txt.replace('{{jams_section}}', _ensure_jams().llms_section())
     if not llms_txt.endswith('\n'):
         llms_txt += '\n'
 

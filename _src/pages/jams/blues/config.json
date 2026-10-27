@@ -1,0 +1,10 @@
+{
+  "title": "How Denver Blues Jams Work | Fox Lessons",
+  "meta_description": "How Denver blues jams run, from the signup list to the ending, and what each player needs at each level, from first night to working pro.",
+  "output": "jams/blues/index.html",
+  "breadcrumb": "Blues jams",
+  "jams_page": {
+    "type": "genre",
+    "key": "blues"
+  }
+}

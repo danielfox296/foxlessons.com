@@ -4,3 +4,7 @@ __pycache__/
 # Claude Code — per-user local settings & agent worktrees (never commit; may contain secrets)
 .claude/settings.local.json
 .claude/worktrees/
+
+# The jams match list lives outside this public repo, in ../jams-data/
+# (VOICE.md §4). Never commit a copy here.
+data/jams.json

@@ -1,0 +1,46 @@
+{#- /jams/first-jam/ (handoff 7.6). -#}
+<section class="section section--dark hero-section page-hero jams-hero">
+  <div class="container">
+    <span class="eyebrow">{{ guide.eyebrow }}</span>
+    <h1 class="fade-up">{{ guide.h1 }}</h1>
+    <p class="hero-sub fade-up">{{ guide.sub }}</p>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+  </div>
+</section>
+
+<section class="section section--light jams-guide">
+  <div class="container">
+{% for sec in sections %}
+    <h2>{{ sec.heading }}</h2>
+{% for para in sec.paras %}
+    <p>{{ para }}</p>
+{% endfor %}
+{% endfor %}
+    <p class="jams-seeall"><a href="{{ prefix }}jams/">{{ guide.index_link }}</a></p>
+  </div>
+</section>
+
+<section class="section section--dark jams-levels" id="skill-levels" aria-labelledby="skill-levels-h">
+  <div class="container">
+    <h2 id="skill-levels-h">{{ guide.skill_heading }}</h2>
+    <p>{{ guide.skill_intro }}</p>
+    <dl class="jams-levels-list">
+{% for level in skill_levels %}
+      <div><dt>{{ level.level }}</dt><dd>{{ level.text }}</dd></div>
+{% endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section section--light jams-guide" aria-labelledby="jams-openmic-h">
+  <div class="container">
+    <h2 id="jams-openmic-h">{{ guide.open_mic_heading }}</h2>
+{% for para in open_mic_paras %}
+    <p>{{ para }}</p>
+{% endfor %}
+  </div>
+</section>
+
+{{ cta_html }}

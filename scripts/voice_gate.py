@@ -13,11 +13,14 @@ names that never publish, the 2023-26 tell lexicon, sincerity markers and
 candor flags.
 
 NOTES print for the read and never fail: uncontracted forms on a first-person
-surface, paragraphs closing on a fragment of three words or fewer.
+surface, paragraphs closing on a fragment of three words or fewer, and in the
+jams files any "room" (a back room can be real; a venue is never a room).
 
 Scans _src/pages/**/sections/*.html (HTML comments stripped), every
-content.yaml, config.json titles and descriptions, the partials and the llms
-template. Run: python3 scripts/voice_gate.py
+content.yaml, config.json titles and descriptions, the partials, the llms
+template, and the jams guides' copy in _src/jams/*.yaml. The jams match list
+lives outside the repo and never publishes (VOICE.md §4), so it isn't
+scanned. Run: python3 scripts/voice_gate.py
 """
 import json
 import pathlib
@@ -66,19 +69,25 @@ NOTES = [
                                 r"can|could|would|should|will|have|has|had) not\b")),
 ]
 SHORT_CLOSER = re.compile(r"(?:^|\.\s+)([A-Z][^.!?]{0,20}[.!?])\s*$")
+ROOM = re.compile(r"\brooms?\b", re.I)
 
 
 def texts():
+    """(label, text, is_yaml, is_jams) for every surface the gate reads."""
     for p in sorted(SRC.glob("pages/**/sections/*.html")):
-        yield p, COMMENT.sub("", p.read_text())
+        yield p.relative_to(ROOT), COMMENT.sub("", p.read_text()), False, "jams" in p.parts
     for p in sorted(SRC.glob("pages/**/content.yaml")):
-        yield p, p.read_text()
+        yield p.relative_to(ROOT), p.read_text(), True, "jams" in p.parts
     for p in sorted(SRC.glob("pages/**/config.json")):
         cfg = json.loads(p.read_text())
-        yield p, "\n".join(str(cfg.get(k, "")) for k in ("title", "seo_title", "meta_description"))
+        yield (p.relative_to(ROOT),
+               "\n".join(str(cfg.get(k, "")) for k in ("title", "seo_title", "meta_description")),
+               False, "jams" in p.parts)
     for p in (SRC / "llms-template.txt", SRC / "partials" / "header.html", SRC / "partials" / "footer.html"):
         if p.exists():
-            yield p, p.read_text()
+            yield p.relative_to(ROOT), p.read_text(), False, False
+    for p in sorted(SRC.glob("jams/*.yaml")):
+        yield p.relative_to(ROOT), p.read_text(), True, True
 
 
 def strip_markup(text):
@@ -89,10 +98,9 @@ def strip_markup(text):
 
 def main():
     hits, notes = [], []
-    for path, raw in texts():
-        rel = path.relative_to(ROOT)
+    for rel, raw, is_yaml, is_jams in texts():
         text = strip_markup(raw)
-        if path.suffix == ".yaml":
+        if is_yaml:
             text = "\n".join(l for l in text.splitlines() if not l.lstrip().startswith("#"))
         for i, line in enumerate(text.splitlines(), 1):
             scan = line
@@ -107,6 +115,8 @@ def main():
                 found = pat.findall(line)
                 if found:
                     notes.append((rel, i, label, len(found), line.strip()[:100]))
+            if is_jams and ROOM.search(line):
+                notes.append((rel, i, "room (venues are never rooms)", len(ROOM.findall(line)), line.strip()[:100]))
         for para in re.split(r"\n\s*\n", text):
             para = " ".join(para.split())
             m = SHORT_CLOSER.search(para)

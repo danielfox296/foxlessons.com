@@ -1,0 +1,10 @@
+{
+  "title": "How Denver Rock Jams Work | Fox Lessons",
+  "meta_description": "How Denver rock, Grateful Dead and jam-band nights run, from calling a song to the ending, and what each player needs at each level.",
+  "output": "jams/rock/index.html",
+  "breadcrumb": "Rock jams",
+  "jams_page": {
+    "type": "genre",
+    "key": "rock"
+  }
+}

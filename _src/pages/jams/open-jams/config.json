@@ -1,0 +1,10 @@
+{
+  "title": "How Denver Open Jams Work | Fox Lessons",
+  "meta_description": "How Denver open jams run when anyone can sign up for any style, and what each player needs to fit into a band of strangers.",
+  "output": "jams/open-jams/index.html",
+  "breadcrumb": "Open jams",
+  "jams_page": {
+    "type": "genre",
+    "key": "open-jams"
+  }
+}

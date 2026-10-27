@@ -1,0 +1,28 @@
+# Jams match list: the area table (handoff section 2.2), as Daniel confirmed
+# it 2026-10-27. It groups the internal match list by town; VOICE.md §4 keeps
+# every jam, venue and night off the site, so no page renders from it.
+# scripts/jams_check.py warns about any current night whose city isn't here.
+
+areas:
+  - key: denver
+    name: Denver
+    towns: [Denver, Edgewater, Glendale, Sheridan]
+
+  - key: boulder-and-north
+    name: Boulder and north
+    towns: [Boulder, Longmont, Louisville, Lafayette, Superior, Erie, Niwot,
+            Lyons, Nederland, Broomfield, Westminster, Frederick]
+
+  - key: west
+    name: West
+    towns: [Golden, Lakewood, Arvada, Wheat Ridge, Evergreen, Morrison,
+            Indian Hills, Conifer]
+
+  - key: south
+    name: South
+    towns: [Littleton, Englewood, Centennial, Highlands Ranch, Lone Tree,
+            Parker, Castle Rock, Castle Pines, Franktown, Elizabeth]
+
+  - key: east
+    name: East
+    towns: [Aurora, Commerce City]

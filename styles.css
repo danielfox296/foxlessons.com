@@ -85,10 +85,20 @@ main:focus { outline: none; }
 .nav-links .nav-cta { background: var(--accent); color: var(--ink); padding: 0.6rem 1.3rem; display: inline-flex; align-items: center; min-height: 44px; }
 .nav-links .nav-cta:hover { color: var(--ink); filter: brightness(1.1); }
 .mobile-menu-toggle { display: none; background: none; border: none; color: var(--paper); font-size: 1.4rem; line-height: 1; cursor: pointer; padding: 0.55rem; min-width: 44px; min-height: 44px; }
-@media (max-width: 760px) {
+.logo-word, .nav-links .nav-cta { white-space: nowrap; }
+/* The full nav needs about 1140px at its normal spacing. A step below that
+   it tightens; below 1000px, where even the tight spacing overflows, it
+   folds into the menu. */
+@media (min-width: 1000px) and (max-width: 1179px) {
+  .nav-links { gap: 1.15rem; }
+  .nav-links a { font-size: 0.84rem; }
+}
+@media (max-width: 999px) {
   .mobile-menu-toggle { display: block; }
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--panel); flex-direction: column; padding: 1.5rem; gap: 1.2rem; border-bottom: 1px solid var(--line); }
   .nav-links.mobile-open { display: flex; }
+}
+@media (max-width: 760px) {
   /* Desktop line breaks orphan-wrap at phone widths; let the headline flow. */
   .hero-section h1 br { display: none; }
   /* Fold: at 375px the h1 sits at its 3.5rem floor and wraps to ~7 lines, so
@@ -372,3 +382,63 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 #hear-first { scroll-margin-top: 90px; }
 .hear-first { max-width: 34rem; margin-bottom: 3.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(10,11,13,0.14); }
 .form-note { max-width: 34rem; color: rgba(10,11,13,0.65); margin: 0 0 1.4rem; }
+
+/* ==== jams guides (/jams/, _src/lib/jams.py) ==== */
+/* Guide heroes run shorter than the interior .page-hero. */
+.jams-hero { min-height: auto; padding: 5.5rem 0 3.5rem; }
+.jams-hero h1 { max-width: 22ch; }
+.jams-hero .hero-sub { margin: 1.4rem 0 1.6rem; }
+/* Branch-preview marker for copy Daniel hasn't signed off; the build
+   refuses to run on main while any remains. */
+.jams-draft { display: inline-block; font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px dashed var(--accent); padding: 0.35rem 0.7rem; margin: 0 0 1.4rem; }
+.section .jams-draft { max-width: none; }
+.jams-hero .jams-draft { display: block; width: max-content; max-width: 100%; margin: 0; }
+.section--light .jams-draft { color: var(--accent-on-light); border-color: var(--accent-on-light); }
+.jam-label { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.65); margin-bottom: 0.35rem; }
+
+/* the index of style guides */
+.jams-guide-list { list-style: none; margin-top: 1.6rem; max-width: 46rem; }
+.jams-guide-list li { border-top: 1px solid rgba(10,11,13,0.14); }
+.jams-guide-list li:last-child { border-bottom: 1px solid rgba(10,11,13,0.14); }
+.jams-guide-list a { display: block; padding: 1.1rem 0; text-decoration: none; color: var(--ink); }
+.jams-guide-list__name { display: block; font: 700 1.3rem var(--font-display); }
+.jams-guide-list__blurb { display: block; color: rgba(10,11,13,0.7); margin-top: 0.2rem; }
+.jams-guide-list a:hover .jams-guide-list__name, .jams-guide-list a:focus-visible .jams-guide-list__name { color: var(--accent-on-light); }
+
+/* what happens on the night (light ground) */
+.jams-how-grid { display: grid; gap: 2rem 3rem; margin-top: 1.2rem; }
+@media (min-width: 900px) { .jams-how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.jams-how-grid h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+.jams-how-grid p, .jams-how-grid li { color: rgba(10,11,13,0.78); }
+.jams-how-grid ul { padding-left: 1.1rem; }
+.jams-how-grid li + li { margin-top: 0.45rem; }
+.jams-take { border-left: 3px solid var(--accent-on-light); padding-left: 1.3rem; margin-top: 2.6rem; max-width: 42rem; }
+
+/* what each instrumentalist needs (dark ground) */
+.jams-bands { list-style: none; display: grid; gap: 0.55rem; margin-top: 1.4rem; max-width: 46rem; }
+.jams-band { color: rgba(245,247,250,0.85); font-size: 0.97rem; }
+.jams-band__label { display: inline-block; font: 600 0.68rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-right: 0.4rem; }
+.jams-bands__more { margin-top: 0.8rem; font-size: 0.95rem; }
+.prep-grid { display: grid; gap: 1.3rem; margin-top: 2.4rem; }
+@media (min-width: 900px) { .prep-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+.prep-block { border: 1px solid var(--line); padding: 1.4rem 1.4rem 1.2rem; min-width: 0; background: rgba(10,11,13,0.55); }
+.prep-block h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
+.prep-level { padding: 0.55rem 0 0.55rem 0.85rem; }
+.prep-level dt { font: 600 0.66rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+.prep-level dd { color: rgba(245,247,250,0.88); font-size: 0.95rem; line-height: 1.55; }
+.prep-lessons { margin-top: 0.85rem; font-size: 0.92rem; color: var(--gray); }
+
+/* first-jam teaser, call to action */
+.jams-teaser__link { margin-top: 1.6rem; }
+.jams-cta__actions { margin-top: 1.8rem; }
+.section .jams-fine { margin-top: 1.4rem; font-size: 0.9rem; color: var(--gray); }
+.section--light .jams-fine { color: rgba(10,11,13,0.65); }
+
+/* first-jam guide */
+.jams-guide h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 3rem 0 1rem; }
+.jams-guide h2:first-child { margin-top: 0; }
+.jams-seeall { margin-top: 2.4rem; font-weight: 600; }
+.jams-levels-list { margin-top: 2rem; max-width: 46rem; }
+.jams-levels-list > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+.jams-levels-list dt { font: 300 1.9rem/1 var(--font-display); color: var(--accent); }
+.jams-levels-list dd { color: rgba(245,247,250,0.88); }

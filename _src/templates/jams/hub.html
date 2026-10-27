@@ -1,0 +1,33 @@
+{#- /jams/: the index of the style guides. VOICE.md §4: no jam, venue or
+    night is named anywhere in this section. -#}
+<section class="section section--dark hero-section page-hero jams-hero">
+  <div class="container">
+    <span class="eyebrow">{{ s.hub.eyebrow }}</span>
+    <h1 class="fade-up">{{ s.hub.h1 }}</h1>
+    <p class="hero-sub fade-up">{{ s.hub.intro }}</p>
+{% if draft %}
+    <p class="jams-draft">{{ labels.draft_marker }}</p>
+{% endif %}
+  </div>
+</section>
+
+<section class="section section--light jams-index" aria-labelledby="jams-index-h">
+  <div class="container">
+    <h2 id="jams-index-h">{{ s.hub.guides_heading }}</h2>
+    <ul class="jams-guide-list">
+{% for g in guides %}
+      <li><a href="{{ g.href }}"><span class="jams-guide-list__name">{{ g.name }}</span><span class="jams-guide-list__blurb">{{ g.blurb }}</span></a></li>
+{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--dark jams-teaser" aria-labelledby="jams-teaser-h">
+  <div class="container">
+    <h2 id="jams-teaser-h">{{ s.hub.teaser_heading }}</h2>
+    <p>{{ s.hub.teaser }}</p>
+    <p class="jams-teaser__link"><a class="btn btn-ghost" href="{{ prefix }}jams/first-jam/">{{ s.hub.teaser_link }}</a></p>
+  </div>
+</section>
+
+{{ cta_html }}
