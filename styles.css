@@ -383,38 +383,145 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hear-first { max-width: 34rem; margin-bottom: 3.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(10,11,13,0.14); }
 .form-note { max-width: 34rem; color: rgba(10,11,13,0.65); margin: 0 0 1.4rem; }
 
-/* ==== jams guides (/jams/, _src/lib/jams.py) ==== */
-/* Guide heroes run shorter than the interior .page-hero. */
+/* ==== jams directory (/jams/, _src/lib/jams.py, js/jams.js) ==== */
+/* Directory heroes run shorter than the interior .page-hero so the list
+   starts near the fold. */
 .jams-hero { min-height: auto; padding: 5.5rem 0 3.5rem; }
 .jams-hero h1 { max-width: 22ch; }
 .jams-hero .hero-sub { margin: 1.4rem 0 1.6rem; }
+.jams-disclaimer { display: inline-block; max-width: 42rem; padding: 0.6rem 0.95rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); color: var(--paper); font-size: 0.95rem; }
+.jams-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 0.7rem 2.6rem; margin: 0 0 1.9rem; padding: 0; }
+.jams-stats li { display: flex; align-items: baseline; gap: 0.55rem; }
+.jams-stats__n { font: 300 clamp(2.1rem, 4vw, 2.8rem)/1 var(--font-display); letter-spacing: -0.02em; color: var(--paper); }
+.jams-stats__k { font: 600 0.72rem var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 480px) {
+  .jams-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0 1.9rem; }
+  .jams-stats li { flex-direction: column; gap: 0.4rem; }
+}
 /* Branch-preview marker for copy Daniel hasn't signed off; the build
    refuses to run on main while any remains. */
 .jams-draft { display: inline-block; font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px dashed var(--accent); padding: 0.35rem 0.7rem; margin: 0 0 1.4rem; }
 .section .jams-draft { max-width: none; }
-.jams-hero .jams-draft { display: block; width: max-content; max-width: 100%; margin: 0; }
+.jams-hero .jams-draft { display: block; width: max-content; max-width: 100%; margin: 1.2rem 0 0; }
 .section--light .jams-draft { color: var(--accent-on-light); border-color: var(--accent-on-light); }
-.jam-label { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.65); margin-bottom: 0.35rem; }
+.jams-label, .jam-label { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.65); margin-bottom: 0.35rem; }
 
-/* the index of style guides */
-.jams-guide-list { list-style: none; margin-top: 1.6rem; max-width: 46rem; }
-.jams-guide-list li { border-top: 1px solid rgba(10,11,13,0.14); }
-.jams-guide-list li:last-child { border-bottom: 1px solid rgba(10,11,13,0.14); }
-.jams-guide-list a { display: block; padding: 1.1rem 0; text-decoration: none; color: var(--ink); }
-.jams-guide-list__name { display: block; font: 700 1.3rem var(--font-display); }
-.jams-guide-list__blurb { display: block; color: rgba(10,11,13,0.7); margin-top: 0.2rem; }
-.jams-guide-list a:hover .jams-guide-list__name, .jams-guide-list a:focus-visible .jams-guide-list__name { color: var(--accent-on-light); }
+/* the list */
+.jams-directory { padding: 3.5rem 0 5rem; }
+.jams-count { font: 600 0.95rem var(--font-body); margin: 0 0 0.5rem; }
+.jams-list [hidden], .jams-directory [hidden] { display: none !important; }
+.jams-night { margin-top: 3rem; }
+.jams-night__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.3rem 1rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.6rem; margin-bottom: 1.3rem; }
+.section .jams-night__h { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.8rem; }
+.section .jams-night__n { font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.6); margin: 0; }
+.jams-tonight { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.3rem 0.6rem; }
+.jams-cards { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .jams-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.jams-seeall { margin-top: 2.4rem; font-weight: 600; }
+.jams-area-intro { font-size: 1.1rem; margin-bottom: 1.6rem; }
 
-/* what happens on the night (light ground) */
+/* one listing. The when band leads, then the name and place, short facts as
+   tiles, longer facts as rows, the address with its links, and the footer,
+   pinned to the bottom so the cards in a row line up. */
+.jam-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(10,11,13,0.1); box-shadow: 0 1px 2px rgba(10,11,13,0.04); padding: 0 1.4rem 1.1rem; min-width: 0; overflow-wrap: anywhere; scroll-margin-top: 90px; transition: border-color .2s, box-shadow .2s; }
+.jam-card:hover { border-color: rgba(10,11,13,0.2); box-shadow: 0 14px 30px -22px rgba(10,11,13,0.45); }
+.jam-card:target { border-color: var(--accent-on-light); box-shadow: 0 0 0 2px var(--accent-on-light); }
+.jam-card p { max-width: none; }
+.section .jam-card p + p { margin-top: 0; }
+.jam-card > :nth-last-child(2) { margin-bottom: 1.1rem; }
+.jam-head { display: flex; flex-direction: column; }
+.jam-when { order: -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.15rem 1rem; margin: 0 -1.4rem 1.05rem; padding: 0.8rem 1.4rem 0.75rem; background: rgba(31,111,168,0.06); border-bottom: 1px solid rgba(31,111,168,0.14); }
+.jam-when__days { font: 600 0.84rem/1.35 var(--font-body); color: var(--accent-on-light); }
+.jam-when__time { font: 500 1.22rem/1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.jam-when__small { font: 400 0.84rem var(--font-body); letter-spacing: 0; color: rgba(10,11,13,0.62); }
+.section .jam-card .jam-next { flex-basis: 100%; margin-top: 0.25rem; font: 600 0.66rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.58); }
+.section .jam-card .jam-next--soon { color: var(--accent-on-light); }
+.jam-name { font-size: 1.32rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.jam-where { font-weight: 600; color: rgba(10,11,13,0.8); }
+.jam-sep { color: rgba(10,11,13,0.35); }
+.jam-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; }
+.jam-tags li { font: 600 0.62rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,11,13,0.68); border: 1px solid rgba(10,11,13,0.18); padding: 0.22rem 0.5rem; }
+.jam-tags li.jam-tag--format { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.section .jam-card .jam-skill { margin-top: 0.85rem; font-size: 0.85rem; font-weight: 600; }
+.section--light .jam-skill a { color: rgba(10,11,13,0.62); text-decoration-color: rgba(10,11,13,0.25); text-underline-offset: 3px; }
+.section--light .jam-skill a:hover { color: var(--accent-on-light); }
+.jam-meter { display: inline-flex; gap: 3px; margin-left: 0.55rem; vertical-align: middle; }
+.jam-meter span { width: 14px; height: 6px; background: rgba(10,11,13,0.12); }
+.jam-meter span.on { background: var(--accent-on-light); }
+.jam-glance { list-style: none; display: grid; align-self: flex-start; max-width: 100%; grid-template-columns: repeat(var(--glance-cols, 1), minmax(6rem, auto)); gap: 1px; margin-top: 0.95rem; background: rgba(10,11,13,0.09); border: 1px solid rgba(10,11,13,0.09); }
+.jam-glance--2 { --glance-cols: 2; }
+.jam-glance--3 { --glance-cols: 3; }
+.jam-glance--4 { --glance-cols: 4; }
+.jam-glance li { background: #fff; padding: 0.55rem 0.75rem 0.6rem; min-width: 0; }
+.jam-glance__k { display: block; font: 600 0.6rem var(--font-body); letter-spacing: 0.13em; text-transform: uppercase; color: rgba(10,11,13,0.55); }
+.jam-glance__v { display: block; font: 600 0.98rem/1.3 var(--font-body); color: var(--ink); margin-top: 0.15rem; }
+.jam-facts { margin-top: 0.85rem; font-size: 0.93rem; line-height: 1.5; }
+.jam-facts > div { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: 0.9rem; padding: 0.5rem 0; border-top: 1px solid rgba(10,11,13,0.08); }
+.jam-facts dt { font: 600 0.62rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,11,13,0.58); padding-top: 0.25rem; }
+.jam-place { margin-top: 0.95rem; padding-top: 0.85rem; border-top: 1px solid rgba(10,11,13,0.08); }
+.section .jam-card .jam-address { font-size: 0.93rem; color: rgba(10,11,13,0.85); }
+.jam-links { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.section--light .jam-pill { display: inline-block; font: 600 0.78rem/1.2 var(--font-body); color: var(--ink); text-decoration: none; border: 1px solid rgba(10,11,13,0.2); padding: 0.42rem 0.72rem; transition: border-color .15s, color .15s, background .15s; }
+.section--light .jam-pill:hover { border-color: var(--accent-on-light); color: var(--accent-on-light); }
+.section--light .jam-pill--map { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.section--light .jam-pill--map:hover { background: var(--accent-on-light); border-color: var(--accent-on-light); color: #fff; }
+.jam-daniel, .jam-scene { margin-top: 1.15rem; padding: 0.15rem 0 0.15rem 1.1rem; }
+.jam-daniel { border-left: 3px solid var(--accent-on-light); }
+.jam-scene { border-left: 3px solid var(--gray); }
+.section .jam-card .jam-daniel p + p, .section .jam-card .jam-scene p + p { margin-top: 0.5rem; }
+.jam-sig { font-size: 0.85rem; color: rgba(10,11,13,0.62); }
+.jam-scene blockquote + blockquote { margin-top: 0.8rem; }
+.jam-scene footer { font-size: 0.85rem; color: rgba(10,11,13,0.62); margin-top: 0.2rem; }
+.jam-photos { display: grid; gap: 0.8rem; margin-top: 1.1rem; }
+.jam-photo figcaption { font-size: 0.8rem; color: rgba(10,11,13,0.62); margin-top: 0.35rem; }
+.jam-confirmed { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid rgba(10,11,13,0.1); font-size: 0.82rem; color: rgba(10,11,13,0.64); }
+@media (max-width: 480px) {
+  .jam-card { padding: 0 1.1rem 1rem; }
+  .jam-when { margin: 0 -1.1rem 1rem; padding: 0.75rem 1.1rem 0.7rem; }
+  .jam-glance--4 { --glance-cols: 2; }
+  .jam-facts > div { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  .jam-facts dt { padding-top: 0; }
+}
+
+/* filter bar (hub; JS only, so a scriptless page shows no dead controls) */
+.jams-filters { display: none; margin-bottom: 2rem; padding-bottom: 1.3rem; border-bottom: 1px solid rgba(10,11,13,0.14); }
+.js .jams-filters { display: block; }
+.jams-filters__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.8rem 1.2rem; }
+.section .jams-filters__h { font: 600 0.75rem var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(10,11,13,0.65); margin: 0; }
+.jams-filters__h:focus { outline: none; }
+.jams-filters__quick { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.jams-chip { font: 600 0.86rem var(--font-body); color: var(--ink); background: transparent; border: 1px solid rgba(10,11,13,0.28); padding: 0.5rem 0.95rem; min-height: 40px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.jams-chip:hover { border-color: var(--ink); }
+.jams-chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.jams-clear, .jams-linkbtn { font: 600 0.9rem var(--font-body); color: var(--accent-on-light); background: none; border: 0; padding: 0.5rem 0; min-height: 40px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.jams-clear[aria-disabled="true"] { color: rgba(10,11,13,0.45); text-decoration: none; cursor: default; }
+.jams-linkbtn { min-height: 0; padding: 0; font: inherit; }
+.jams-filters__more { margin-top: 0.9rem; }
+.jams-filters__more > summary { cursor: pointer; font: 600 0.92rem var(--font-body); padding: 0.45rem 0; width: max-content; max-width: 100%; }
+.jams-filters__more > summary:focus-visible { outline: 2px solid var(--accent-on-light); outline-offset: 3px; }
+.jams-filters__sets { display: grid; gap: 1.1rem 2rem; margin-top: 0.6rem; }
+@media (min-width: 900px) { .jams-filters__sets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.jams-filters fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.jams-filters legend { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.62); padding: 0; margin-bottom: 0.5rem; }
+.jams-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.jams-empty { margin-top: 2rem; padding: 1.4rem 1.5rem; border: 1px dashed rgba(10,11,13,0.3); }
+.jams-skillnote { margin-top: 1.4rem; font-size: 0.95rem; color: rgba(10,11,13,0.72); }
+
+/* how a genre's nights work (panel ground) */
 .jams-how-grid { display: grid; gap: 2rem 3rem; margin-top: 1.2rem; }
 @media (min-width: 900px) { .jams-how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .jams-how-grid h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
-.jams-how-grid p, .jams-how-grid li { color: rgba(10,11,13,0.78); }
+.jams-how-grid p, .jams-how-grid li { color: rgba(245,247,250,0.84); }
 .jams-how-grid ul { padding-left: 1.1rem; }
 .jams-how-grid li + li { margin-top: 0.45rem; }
-.jams-take { border-left: 3px solid var(--accent-on-light); padding-left: 1.3rem; margin-top: 2.6rem; max-width: 42rem; }
+.jams-take { border-left: 3px solid var(--accent); padding-left: 1.3rem; margin-top: 2.6rem; max-width: 42rem; }
+.jams-take .jam-label, .jams-prep .jam-label { color: var(--gray); }
 
-/* what each instrumentalist needs (dark ground) */
+/* what each instrumentalist needs (dark ground). The empty targets at the
+   top of the section take a card's #prep-<band> link; :target then lights
+   that band in every block. */
+.jams-prep { position: relative; }
+.prep-target { display: block; position: absolute; top: 0; left: 0; scroll-margin-top: 80px; }
 .jams-bands { list-style: none; display: grid; gap: 0.55rem; margin-top: 1.4rem; max-width: 46rem; }
 .jams-band { color: rgba(245,247,250,0.85); font-size: 0.97rem; }
 .jams-band__label { display: inline-block; font: 600 0.68rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-right: 0.4rem; }
@@ -423,12 +530,41 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (min-width: 900px) { .prep-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
 .prep-block { border: 1px solid var(--line); padding: 1.4rem 1.4rem 1.2rem; min-width: 0; background: rgba(10,11,13,0.55); }
 .prep-block h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
-.prep-level { padding: 0.55rem 0 0.55rem 0.85rem; }
+.prep-level { padding: 0.55rem 0 0.55rem 0.85rem; border-left: 3px solid transparent; }
 .prep-level dt { font: 600 0.66rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
 .prep-level dd { color: rgba(245,247,250,0.88); font-size: 0.95rem; line-height: 1.55; }
+#prep-1-2:target ~ .container .prep-level--1-2,
+#prep-3:target ~ .container .prep-level--3,
+#prep-4-5:target ~ .container .prep-level--4-5,
+#prep-1-2:target ~ .container .jams-band--1-2,
+#prep-3:target ~ .container .jams-band--3,
+#prep-4-5:target ~ .container .jams-band--4-5 { border-left-color: var(--accent); background: rgba(98,182,232,0.1); }
+.jams-band { border-left: 3px solid transparent; padding-left: 0.6rem; }
 .prep-lessons { margin-top: 0.85rem; font-size: 0.92rem; color: var(--gray); }
 
-/* first-jam teaser, call to action */
+/* map (hub). Leaflet's own z-indexes stay inside this box. */
+.jams-map { display: none; height: 540px; margin-top: 1.8rem; border: 1px solid var(--line); background: var(--panel); isolation: isolate; }
+.js .jams-map { display: block; }
+.js .jams-map[hidden] { display: none; }
+.js .jams-map-fallback { display: none; }
+.jams-map-fallback, .jams-map-error { color: var(--gray); margin-top: 1.2rem; }
+.jams-map .leaflet-popup-content { font: 400 0.9rem/1.45 var(--font-body); color: var(--ink); margin: 0.8rem 1rem; }
+.jams-map .leaflet-popup-content a { color: var(--accent-on-light); font-weight: 600; }
+.jams-pop p { margin: 0; max-width: none; }
+.jams-pop p + p { margin-top: 0.7rem; padding-top: 0.7rem; border-top: 1px solid rgba(10,11,13,0.12); }
+.jams-pop span { display: block; }
+.jams-map .leaflet-control-attribution a { color: var(--accent-on-light); }
+@media (max-width: 760px) { .jams-map { height: 360px; } }
+
+/* browse links, teaser, call to action */
+.jams-browse-grid { display: grid; gap: 2rem 3rem; margin-top: 1.4rem; }
+@media (min-width: 760px) { .jams-browse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.jams-browse-grid h3 { font: 600 0.75rem var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.6rem; }
+.jams-browse-list { list-style: none; }
+.jams-browse-list li { border-top: 1px solid var(--line); }
+.jams-browse-list a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; color: var(--paper); text-decoration: none; font-weight: 600; }
+.jams-browse-list a:hover { color: var(--accent); }
+.jams-browse-n { color: var(--gray); font-weight: 400; }
 .jams-teaser__link { margin-top: 1.6rem; }
 .jams-cta__actions { margin-top: 1.8rem; }
 .section .jams-fine { margin-top: 1.4rem; font-size: 0.9rem; color: var(--gray); }
@@ -437,8 +573,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* first-jam guide */
 .jams-guide h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 3rem 0 1rem; }
 .jams-guide h2:first-child { margin-top: 0; }
-.jams-seeall { margin-top: 2.4rem; font-weight: 600; }
 .jams-levels-list { margin-top: 2rem; max-width: 46rem; }
 .jams-levels-list > div { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-top: 1px solid var(--line); }
 .jams-levels-list dt { font: 300 1.9rem/1 var(--font-display); color: var(--accent); }
+.jams-levels-list > div:last-child dt { font-size: 1rem; font-weight: 600; padding-top: 0.35rem; }
 .jams-levels-list dd { color: rgba(245,247,250,0.88); }

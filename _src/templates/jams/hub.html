@@ -1,28 +1,56 @@
-{#- /jams/: the index of the style guides. VOICE.md §4: no jam, venue or
-    night is named anywhere in this section. -#}
+{#- /jams/ (handoff 5.1). -#}
 <section class="section section--dark hero-section page-hero jams-hero">
   <div class="container">
     <span class="eyebrow">{{ s.hub.eyebrow }}</span>
     <h1 class="fade-up">{{ s.hub.h1 }}</h1>
-    <p class="hero-sub fade-up">{{ s.hub.intro }}</p>
-{% if draft %}
-    <p class="jams-draft">{{ labels.draft_marker }}</p>
-{% endif %}
-  </div>
-</section>
-
-<section class="section section--light jams-index" aria-labelledby="jams-index-h">
-  <div class="container">
-    <h2 id="jams-index-h">{{ s.hub.guides_heading }}</h2>
-    <ul class="jams-guide-list">
-{% for g in guides %}
-      <li><a href="{{ g.href }}"><span class="jams-guide-list__name">{{ g.name }}</span><span class="jams-guide-list__blurb">{{ g.blurb }}</span></a></li>
+    <p class="hero-sub fade-up">{{ intro }}</p>
+    <ul class="jams-stats">
+{% for n, word in stats %}
+      <li><span class="jams-stats__n">{{ n }}</span> <span class="jams-stats__k">{{ word }}</span></li>
 {% endfor %}
     </ul>
+    <p class="jams-disclaimer">{{ s.disclaimer }}</p>
   </div>
 </section>
 
-<section class="section section--dark jams-teaser" aria-labelledby="jams-teaser-h">
+<section class="section section--light jams-directory" id="nights">
+  <div class="container">
+    {{ filters_html }}
+    {{ list_html }}
+    <div class="jams-empty" id="jams-empty" hidden>
+      <p>{{ s.filters.none_match_before }}<button type="button" class="jams-linkbtn" data-jams-clear>{{ s.filters.none_match_link }}</button>{{ s.filters.none_match_after }}</p>
+    </div>
+    <p class="jams-skillnote" id="jams-skillnote" hidden>{{ s.filters.skill_note }}</p>
+  </div>
+</section>
+
+{{ map_html }}
+
+<section class="section section--panel jams-browse" aria-labelledby="jams-browse-h">
+  <div class="container">
+    <h2 id="jams-browse-h">{{ s.hub.browse_heading }}</h2>
+    <div class="jams-browse-grid">
+      <div>
+        <h3>{{ s.hub.browse_genres }}</h3>
+        <ul class="jams-browse-list">
+{% for g in browse_genres %}
+          <li><a href="{{ g.href }}"><span>{{ g.name }}</span><span class="jams-browse-n">{{ g.count }}<span class="sr-label"> {{ labels.night_many }}</span></span></a></li>
+{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>{{ s.hub.browse_areas }}</h3>
+        <ul class="jams-browse-list">
+{% for a in browse_areas %}
+          <li><a href="{{ a.href }}"><span>{{ a.name }}</span><span class="jams-browse-n">{{ a.count }}<span class="sr-label"> {{ labels.night_many }}</span></span></a></li>
+{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light jams-teaser" aria-labelledby="jams-teaser-h">
   <div class="container">
     <h2 id="jams-teaser-h">{{ s.hub.teaser_heading }}</h2>
     <p>{{ s.hub.teaser }}</p>
@@ -31,3 +59,5 @@
 </section>
 
 {{ cta_html }}
+{{ jsonld }}
+<script src="{{ js_src }}" defer></script>

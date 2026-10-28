@@ -5,6 +5,6 @@ __pycache__/
 .claude/settings.local.json
 .claude/worktrees/
 
-# The jams match list lives outside this public repo, in ../jams-data/
-# (VOICE.md §4). Never commit a copy here.
-data/jams.json
+# data/jams.json is the public export of the jams list, written by
+# scripts/jams_export.py. The master, with the research notes, lives in
+# ../jams-data/ and never gets copied into this public repo.

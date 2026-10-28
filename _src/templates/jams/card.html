@@ -1,0 +1,84 @@
+{#- One listing (handoff 6.1). Blocks keep the handoff's order and a block
+    with no data drops out, except the skill line and the footer line. The
+    when band follows the name in the markup and shows above it. -#}
+<article class="jam-card" id="{{ c.r.slug }}" data-day="{{ c.data.day }}" data-format="{{ c.data.format }}" data-genres="{{ c.data.genres }}" data-area="{{ c.data.area }}" data-skill="{{ c.data.skill }}" data-houseband="{{ c.data.houseband }}" data-gear="{{ c.data.gear }}" data-songlist="{{ c.data.songlist }}" data-allages="{{ c.data.allages }}"{% if c.next %} data-rule="{{ c.next.rule }}" data-known="{{ c.next.known }}" data-skip="{{ c.next.skip }}"{% endif %}>
+  <header class="jam-head">
+    <h3 class="jam-name">{{ c.r.name }}</h3>
+    <p class="jam-where">{{ c.r.venue }}<span class="jam-sep" aria-hidden="true"> · </span>{{ c.r.city }}</p>
+    <div class="jam-when">
+      <p class="jam-when__days">{{ c.when.days }}</p>
+{% if c.when.start %}
+      <p class="jam-when__time">{% if not c.when.end %}<span class="jam-when__small">{{ c.when.from }} </span>{% endif %}{{ c.when.start }}{% if c.when.end %}<span class="jam-when__small"> {{ c.when.to }} {{ c.when.end }}</span>{% endif %}</p>
+{% endif %}
+{% if c.next %}
+      <p class="jam-next" hidden></p>
+{% endif %}
+    </div>
+    <ul class="jam-tags">
+{% for t in c.tags %}
+      <li{% if loop.first %} class="jam-tag--format"{% endif %}>{{ t }}</li>
+{% endfor %}
+    </ul>
+  </header>
+  <p class="jam-skill"><a href="{{ c.skill_href }}">{{ c.skill_text }}{% if c.skill_n %}<span class="jam-meter" aria-hidden="true">{% for i in range(5) %}<span{% if i < c.skill_n %} class="on"{% endif %}></span>{% endfor %}</span>{% endif %}</a></p>
+{% if c.glance %}
+  <ul class="jam-glance jam-glance--{{ c.glance|length }}">
+{% for label, value in c.glance %}
+    <li><span class="jam-glance__k">{{ label }}</span> <span class="jam-glance__v">{{ value }}</span></li>
+{% endfor %}
+  </ul>
+{% endif %}
+{% if c.facts or c.notes %}
+  <dl class="jam-facts">
+{% for label, value in c.facts %}
+    <div><dt>{{ label }}</dt><dd>{{ value }}</dd></div>
+{% endfor %}
+{% for note in c.notes %}
+    <div class="jam-note"><dt>{{ c.labels.good_to_know }}</dt><dd>{{ note }}</dd></div>
+{% endfor %}
+  </dl>
+{% endif %}
+  <div class="jam-place">
+    <p class="jam-address">{{ c.r.address }}</p>
+    <ul class="jam-links">
+      <li><a class="jam-pill jam-pill--map" href="{{ c.map_href }}">{{ c.labels.map_link }}</a></li>
+{% for link in c.links %}
+      <li><a class="jam-pill" href="{{ link.href }}">{{ link.label }}</a></li>
+{% endfor %}
+    </ul>
+  </div>
+{% if c.daniel %}
+  <aside class="jam-daniel" aria-label="{{ c.labels.from_daniel }}">
+    <p class="jam-label">{{ c.labels.from_daniel }}</p>
+{% if c.daniel.notes %}
+    <p>{{ c.daniel.notes }}</p>
+{% endif %}
+{% if c.daniel.tip %}
+    <p><strong>{{ c.labels.first_time }}</strong> {{ c.daniel.tip }}</p>
+{% endif %}
+    <p class="jam-sig">{{ c.daniel.sig }}</p>
+  </aside>
+{% endif %}
+{% if c.scene %}
+  <aside class="jam-scene" aria-label="{{ c.labels.from_scene }}">
+    <p class="jam-label">{{ c.labels.from_scene }}</p>
+{% for q in c.scene %}
+    <blockquote>
+      <p>“{{ q.quote }}”</p>
+      <footer>{% if q.url %}<a href="{{ q.url }}">{{ q.attribution }}</a>{% else %}{{ q.attribution }}{% endif %}</footer>
+    </blockquote>
+{% endfor %}
+  </aside>
+{% endif %}
+{% if c.photos %}
+  <div class="jam-photos">
+{% for p in c.photos %}
+    <figure class="jam-photo">
+      <img src="{{ p.src }}" alt="{{ c.r.name }}, {{ c.r.venue }}" loading="lazy" decoding="async">
+      <figcaption>{{ c.labels.photo }} {% if p.source_url %}<a href="{{ p.source_url }}">{{ p.credit }}</a>{% else %}{{ p.credit }}{% endif %}</figcaption>
+    </figure>
+{% endfor %}
+  </div>
+{% endif %}
+  <footer class="jam-confirmed">{{ c.confirmed }} <a href="{{ c.contact_href }}">{{ c.labels.tell_me }}</a></footer>
+</article>

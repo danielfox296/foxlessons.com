@@ -139,8 +139,8 @@ _jams = None  # lazy-loaded _src.lib.jams (needs jinja2 + pyyaml)
 
 
 def _ensure_jams():
-    """Lazy-import the jams guides module. It caches the _src/jams/*.yaml
-    files itself, so they load once per build."""
+    """Lazy-import the jams directory module. It caches data/jams.json and
+    the _src/jams/*.yaml files itself, so they load once per build."""
     global _jams
     if _jams is None:
         if REPO not in sys.path:
@@ -744,10 +744,20 @@ def build():
                 yaml_data = parse_simple_yaml(read(content_yaml_path))
                 content = resolve_content(content, {'content': yaml_data})
 
-            # Jams guides render from the copy in _src/jams/*.yaml; no jam,
-            # venue or night reaches the site (VOICE.md §4).
+            # Jams directory pages render from data/jams.json. A genre or
+            # area page under the listing threshold isn't built, and any
+            # copy left over from an earlier build is removed so it can't
+            # deploy.
             if config.get('jams_page'):
-                jams_html = _ensure_jams().render_page(config['jams_page'], nav_prefix)
+                jams = _ensure_jams()
+                jams_html = jams.render_page(config['jams_page'], nav_prefix)
+                if jams_html is None:
+                    stale = os.path.join(REPO, output)
+                    if os.path.exists(stale):
+                        os.remove(stale)
+                    print(f'  ~ skipped {output} (fewer than '
+                          f'{jams.MIN_PAGE_LISTINGS} published listings)')
+                    continue
                 content = f'{content}\n\n{jams_html}' if content.strip() else jams_html
 
         # ---------------------------------------------------------------
@@ -1248,6 +1258,12 @@ def build():
     # --- Generate llms.txt ---
     generate_llms()
 
+    # --- Jams directory: contact prefill map + the monthly to-do list ---
+    jams = _ensure_jams()
+    jams.write_contact_js()
+    print('  ✓ js/jams-contact.js')
+    jams.print_aging_report()
+
 
 def _sitemap_url_entry(loc, lastmod):
     """Render one <url> block: loc + lastmod. changefreq/priority are dropped
@@ -1373,11 +1389,14 @@ def generate_sitemap(page_dirs):
                 continue
             lastmod = config.get('lastmod')
             loc = page_url(output)
-            # Jams guides change with their shared copy and templates as
-            # much as with their own config.
+            # Jams pages: skipped ones stay out, and the rest change with
+            # the shared data and copy as much as with their own config.
             if config.get('jams_page'):
+                if not _ensure_jams().page_is_built(config['jams_page']):
+                    continue
                 lastmod = lastmod or _git_lastmod(
-                    page_path, os.path.join(SRC, 'jams'), os.path.join(SRC, 'templates', 'jams'))
+                    page_path, os.path.join(REPO, 'data', 'jams.json'),
+                    os.path.join(SRC, 'jams'), os.path.join(SRC, 'templates', 'jams'))
 
         # lastmod is the one field crawlers use; fall back to the page's
         # git history (mtime only for not-yet-committed pages).

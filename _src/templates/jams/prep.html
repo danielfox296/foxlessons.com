@@ -1,5 +1,8 @@
-{#- What each instrumentalist needs (handoff 7.4). -#}
+{#- What each instrumentalist needs (handoff 7.4). The three empty targets
+    let a card's #prep-<band> link highlight that band in every block with
+    CSS :target alone. -#}
 <section class="section section--dark jams-prep" id="prep" aria-labelledby="prep-h">
+  <span class="prep-target" id="prep-1-2"></span><span class="prep-target" id="prep-3"></span><span class="prep-target" id="prep-4-5"></span>
   <div class="container">
     <h2 id="prep-h">{{ cfg.get('prep_heading') or s.genre_page.prep_heading }}</h2>
 {% if draft %}

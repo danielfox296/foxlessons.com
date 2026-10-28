@@ -34,10 +34,10 @@ jobs:
       - name: Install Python dependencies
         run: pip install jinja2 markdown Pillow pyyaml
 
-      # Fails only while jams copy is still marked draft: true on main. Its
-      # report on the internal match list is warnings, and is skipped when
-      # the list isn't in the checkout.
-      - name: Check jams copy
+      # Fails on a duplicate slug, a published listing whose city isn't in
+      # _src/jams/areas.yaml, or a jams draft block on main. Everything else
+      # it prints is a warning.
+      - name: Check jams data
         run: python3 scripts/jams_check.py --strict
 
       - name: Build site

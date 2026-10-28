@@ -1,0 +1,65 @@
+{#- Hub filter bar (handoff 5.3). Hidden without JavaScript: every card is
+    already in the page, so a scriptless visitor gets the full list and no
+    dead controls. Real buttons with aria-pressed, grouped in fieldsets. -#}
+<div class="jams-filters" id="jams-filters" role="group" aria-labelledby="jams-filters-h">
+  <div class="jams-filters__bar">
+    <h2 class="jams-filters__h" id="jams-filters-h" tabindex="-1">{{ s.filters.heading }}</h2>
+    <div class="jams-filters__quick">
+      <button type="button" class="jams-chip jams-chip--tonight" data-group="day" data-value="tonight" aria-pressed="false">{{ labels.tonight }}</button>
+      <button type="button" class="jams-clear" data-jams-clear aria-disabled="true">{{ s.filters.clear_label }}</button>
+    </div>
+  </div>
+  <details class="jams-filters__more" id="jams-filters-more">
+    <summary>{{ s.filters.more }}</summary>
+    <div class="jams-filters__sets">
+      <fieldset>
+        <legend>{{ s.filters.night }}</legend>
+        <div class="jams-chips">
+{% for key, label in s.filters.days.items() %}
+          <button type="button" class="jams-chip" data-group="day" data-value="{{ key }}" aria-pressed="false">{{ label }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ s.filters.type }}</legend>
+        <div class="jams-chips">
+{% for key, label in s.filters.type_options.items() %}
+          <button type="button" class="jams-chip" data-group="type" data-value="{{ key }}" aria-pressed="false">{{ label }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ s.filters.genre }}</legend>
+        <div class="jams-chips">
+{% for g in genre_filters %}
+          <button type="button" class="jams-chip" data-group="genre" data-value="{{ g.key }}" aria-pressed="false">{{ g.name }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ s.filters.area }}</legend>
+        <div class="jams-chips">
+{% for a in area_filters %}
+          <button type="button" class="jams-chip" data-group="area" data-value="{{ a.key }}" aria-pressed="false">{{ a.name }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ s.filters.skill }}</legend>
+        <div class="jams-chips">
+{% for key, label in s.filters.skill_bands.items() %}
+          <button type="button" class="jams-chip" data-group="skill" data-value="{{ key }}" aria-pressed="false">{{ label }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>{{ s.filters.extras }}</legend>
+        <div class="jams-chips">
+{% for key, label in s.filters.toggles.items() %}
+          <button type="button" class="jams-chip" data-group="{{ key }}" data-value="1" aria-pressed="false">{{ label }}</button>
+{% endfor %}
+        </div>
+      </fieldset>
+    </div>
+  </details>
+</div>

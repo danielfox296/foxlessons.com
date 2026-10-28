@@ -1,0 +1,11 @@
+{#- Map container (hub only, handoff 6.4). js/jams.js loads Leaflet when the
+    box scrolls near view; with JavaScript off only the fallback line shows. -#}
+<section class="section section--dark jams-map-section" id="map" aria-labelledby="jams-map-h">
+  <div class="container">
+    <h2 id="jams-map-h">{{ s.hub.map_heading }}</h2>
+    <div class="jams-map" id="jams-map" role="region" aria-label="{{ s.hub.map_label }}"></div>
+    <p class="jams-map-error" id="jams-map-error" hidden>{{ s.hub.map_error }}</p>
+    <p class="jams-map-fallback">{{ s.hub.map_fallback }}</p>
+    <script type="application/json" id="jams-pins">{{ pins_json }}</script>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{
+  "title": "Jams and Open Mics West of Denver | Fox Lessons",
+  "meta_description": "Jams, open mics and songwriter nights in Golden, Lakewood, Arvada, Wheat Ridge and the foothills, each confirmed as still running, grouped by night.",
+  "output": "jams/west/index.html",
+  "breadcrumb": "West",
+  "jams_page": {
+    "type": "area",
+    "key": "west"
+  }
+}

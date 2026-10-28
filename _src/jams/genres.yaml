@@ -1,14 +1,13 @@
-# Jams section: the style guides (handoff sections 7.3, 7.4, 7.5). VOICE.md
-# §4 stands (Daniel, 2026-10-27), so these pages carry no listings and no
-# line names a jam, a venue or a night. `maps` and `maps_jam_only` group the
-# internal match list by style; they never reach a page.
+# Jams directory: genre pages (handoff sections 2.1, 7.3, 7.4, 7.5).
+# `maps` lists the data genre values that place a listing on the page;
+# `maps_jam_only` values count only when the listing's format is `jam`.
 # An entry carries draft: true until Daniel signs off on its copy; drafts
 # render on branch previews with a visible marker, and the build refuses
 # to run on main while any remain. VOICE.md governs every line (Daniel,
 # 2026-10-27), so prep levels are full sentences with the player as the
 # subject, never the noun stacks of the handoff's example.
 #
-# The prep levels follow the skill bands: 1-2 first-timer friendly,
+# The prep levels follow the bands on the cards: 1-2 first-timer friendly,
 # 3 middle, 4-5 experienced. `lesson_page` appears only on instruments
 # Daniel teaches; every other block gets the teacher-referral line from
 # strings.yaml (open decision 4).
@@ -16,7 +15,8 @@
 genres:
   - key: blues
     name: Blues
-    h1: How blues jams work
+    h1: Blues jams on the Front Range
+    how_heading: How blues nights work
     maps: [blues]
     intro: >-
       Blues jams are the easiest jams to walk into. The songs follow a short
@@ -34,7 +34,7 @@ genres:
         Most blues jams keep a paper list or a whiteboard near the stage. The
         host builds small bands from the list and calls players up in groups,
         mixing instruments so every group has drums, bass and someone playing
-        chords. Signup times and methods vary from night to night.
+        chords. You'll find each night's signup time and method on its card.
       set: >-
         Each group usually plays two or three tunes. The player who calls a
         tune names the key, counts it in and leads it. Solos go around the
@@ -163,7 +163,8 @@ genres:
 
   - key: jazz
     name: Jazz
-    h1: How jazz jams work
+    h1: Jazz jams on the Front Range
+    how_heading: How jazz nights work
     maps: [jazz, B3 organ jazz]
     intro: >-
       Jazz jams run on a shared songbook. A player calls a standard by name
@@ -178,7 +179,7 @@ genres:
       signup: >-
         Signup is often looser than at a blues jam. Some nights keep a list,
         and others run on a word with the host. Some nights are sit-ins with a
-        house trio and have no open list, so find out which kind of night it is
+        house trio and have no open list, so read the signup line on the card
         before you go.
       set: >-
         A tune starts with the melody, called the head, then players take
@@ -294,7 +295,8 @@ genres:
 
   - key: funk-and-soul
     name: Funk and soul
-    h1: How funk and soul jams work
+    h1: Funk and soul jams on the Front Range
+    how_heading: How funk and soul nights work
     maps: [funk, soul, R&B, neo-soul, hip-hop]
     intro: >-
       Funk and soul jams run on a groove more than on chord changes. Most
@@ -310,7 +312,7 @@ genres:
       signup: >-
         Signup is often looser than at a blues night. Some nights keep a list,
         and on others the host waves players up, often calling singers and
-        horn players in batches.
+        horn players in batches. Check the card for that night's signup.
       set: >-
         The leader sets a groove and the band locks into it. Tunes run long,
         players solo over the vamp, and the leader cues breakdowns, hits and
@@ -434,7 +436,8 @@ genres:
 
   - key: rock
     name: Rock
-    h1: How rock jams work
+    h1: Rock jams on the Front Range
+    how_heading: How rock nights work
     maps: [rock, classic rock, metal, indie, Grateful Dead, jam band]
     intro: >-
       Rock jams run from classic covers to Grateful Dead nights where one tune
@@ -451,7 +454,8 @@ genres:
       signup: >-
         Most nights keep a list near the stage. Some hosts collect names and
         instruments and build the bands, and others let a band that arrives
-        together take a slot.
+        together take a slot. Check the card's signup line for how your night
+        works.
       set: >-
         Each group plays two to four songs. Someone calls a song and a key,
         the band finds the form fast, and whoever gets the nod takes the solo.
@@ -577,7 +581,8 @@ genres:
 
   - key: bluegrass-and-folk
     name: Bluegrass and folk
-    h1: How bluegrass and folk jams work
+    h1: Bluegrass and folk jams on the Front Range
+    how_heading: How bluegrass and folk nights work
     maps: [bluegrass, old-time, Irish, folk, ukulele, acoustic, cowboy]
     maps_jam_only: [standards]
     intro: >-
@@ -705,7 +710,8 @@ genres:
 
   - key: open-jams
     name: Open jams
-    h1: How open jams work
+    h1: Open jams on the Front Range
+    how_heading: How open jams work
     maps_jam_only: [mixed]
     intro: >-
       Open jams take any player and any genre. The host builds bands from
@@ -838,7 +844,8 @@ genres:
 
   - key: open-mics
     name: Open mics
-    h1: How open mics and songwriter nights work
+    h1: Open mics and songwriter nights on the Front Range
+    how_heading: How open mics work
     prep_heading: What each act needs
     page_type: format
     intro: >-
@@ -855,8 +862,8 @@ genres:
       signup: >-
         Most nights keep a list at the door, and some of the bigger ones take
         signups online ahead of time. The popular lists fill before the music
-        starts, so get there by the signup time, which is often earlier than
-        the start time.
+        starts, so get there by the signup time on the card, which is often
+        earlier than the start time.
       set: >-
         The host calls you up, the sound person checks that your mic and
         instrument are coming through, and you play your songs with a sentence

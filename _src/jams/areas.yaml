@@ -1,28 +1,53 @@
-# Jams match list: the area table (handoff section 2.2), as Daniel confirmed
-# it 2026-10-27. It groups the internal match list by town; VOICE.md §4 keeps
-# every jam, venue and night off the site, so no page renders from it.
-# scripts/jams_check.py warns about any current night whose city isn't here.
+# Jams directory: area definitions (handoff section 2.2), the table as
+# Daniel confirmed it 2026-10-27 (open decision 1: keep). Every published
+# listing's city must appear in exactly one area's towns list; the build
+# and scripts/jams_check.py fail loudly when one doesn't. Edit this file to
+# move a town; nothing in code carries the table. An intro carries
+# draft: true until Daniel signs off on it.
 
 areas:
   - key: denver
     name: Denver
+    h1: Jams and open mics in Denver
     towns: [Denver, Edgewater, Glendale, Sheridan]
+    intro: >-
+      These nights are in Denver and in Edgewater, Glendale and Sheridan, the
+      small cities on its edges.
 
   - key: boulder-and-north
     name: Boulder and north
+    h1: Jams and open mics in Boulder and north
     towns: [Boulder, Longmont, Louisville, Lafayette, Superior, Erie, Niwot,
             Lyons, Nederland, Broomfield, Westminster, Frederick]
+    intro: >-
+      Boulder is the center of this area, which runs from Westminster and
+      Broomfield on the Denver side up to Longmont, Lyons and Frederick, and
+      west to Nederland. Louisville, Lafayette, Superior, Erie and Niwot are
+      part of it too.
 
   - key: west
     name: West
+    h1: Jams and open mics west of Denver
     towns: [Golden, Lakewood, Arvada, Wheat Ridge, Evergreen, Morrison,
             Indian Hills, Conifer]
+    intro: >-
+      West of Denver, you'll find nights in Golden, Lakewood, Arvada and Wheat
+      Ridge, and up in the foothills in Morrison, Indian Hills, Evergreen and
+      Conifer.
 
   - key: south
     name: South
+    h1: Jams and open mics south of Denver
     towns: [Littleton, Englewood, Centennial, Highlands Ranch, Lone Tree,
             Parker, Castle Rock, Castle Pines, Franktown, Elizabeth]
+    intro: >-
+      South of the city, the towns run from Englewood and Littleton down
+      through Centennial, Highlands Ranch, Lone Tree and Parker to Castle
+      Pines, Castle Rock, Franktown and Elizabeth.
 
   - key: east
     name: East
+    h1: Jams and open mics east of Denver
     towns: [Aurora, Commerce City]
+    intro: >-
+      Out east, the nights are in Aurora and Commerce City.

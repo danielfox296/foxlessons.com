@@ -18,9 +18,9 @@ jams files any "room" (a back room can be real; a venue is never a room).
 
 Scans _src/pages/**/sections/*.html (HTML comments stripped), every
 content.yaml, config.json titles and descriptions, the partials, the llms
-template, and the jams guides' copy in _src/jams/*.yaml. The jams match list
-lives outside the repo and never publishes (VOICE.md §4), so it isn't
-scanned. Run: python3 scripts/voice_gate.py
+template, the jams directory's _src/jams/*.yaml, and Daniel's and the
+researched note fields in data/jams.json. Never scene[].quote: those are
+other people's words, verbatim. Run: python3 scripts/voice_gate.py
 """
 import json
 import pathlib
@@ -70,6 +70,8 @@ NOTES = [
 ]
 SHORT_CLOSER = re.compile(r"(?:^|\.\s+)([A-Z][^.!?]{0,20}[.!?])\s*$")
 ROOM = re.compile(r"\brooms?\b", re.I)
+JAMS_DATA_FIELDS = ("firsthand_notes", "first_timer_tip", "notes_instrumentalists",
+                    "notes_singers", "notes_songwriters")
 
 
 def texts():
@@ -88,6 +90,12 @@ def texts():
             yield p.relative_to(ROOT), p.read_text(), False, False
     for p in sorted(SRC.glob("jams/*.yaml")):
         yield p.relative_to(ROOT), p.read_text(), True, True
+    data = ROOT / "data" / "jams.json"
+    if data.exists():
+        for rec in json.loads(data.read_text())["listings"]:
+            for field in JAMS_DATA_FIELDS:
+                if rec.get(field):
+                    yield f"data/jams.json [{rec['slug']}.{field}]", rec[field], False, True
 
 
 def strip_markup(text):

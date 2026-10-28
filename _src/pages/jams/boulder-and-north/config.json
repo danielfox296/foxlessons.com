@@ -1,0 +1,10 @@
+{
+  "title": "Jams and Open Mics in Boulder and North | Fox Lessons",
+  "meta_description": "Jams, open mics and songwriter nights in Boulder, Longmont, Louisville, Lafayette and nearby towns, each confirmed as still running, grouped by night.",
+  "output": "jams/boulder-and-north/index.html",
+  "breadcrumb": "Boulder and north",
+  "jams_page": {
+    "type": "area",
+    "key": "boulder-and-north"
+  }
+}
