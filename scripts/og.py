@@ -3,10 +3,10 @@
 Design: ink ground, the ripple mark low-right (img/favicon.svg traced —
 concentric ice circles; each ring ~1.9x the last with stroke halving and
 opacity decaying x0.45, continued outward as fading hairlines), page title
-in Space Grotesk, canonical line as the sub. Titles are the existing
+in Inter, canonical line as the sub. Titles are the existing
 page names — no new copy.
 
-LOCAL-only: needs Pillow + the vendored SpaceGrotesk-VF.ttf in
+LOCAL-only: needs Pillow + the vendored Inter-VF.ttf in
 scripts/assets/fonts/ (SIL OFL 1.1 — see the README there). The PNGs are
 committed and CI never regenerates them. Run from the repo root:
 
@@ -25,12 +25,14 @@ GRAY = (152, 161, 171)
 CANONICAL_SUB = 'Music lessons in Denver, in your home or online.'  # ratified footer/OG sub-line
 
 FONT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                         'assets', 'fonts', 'SpaceGrotesk-VF.ttf')
+                         'assets', 'fonts', 'Inter-VF.ttf')
 
 
 def _font(size, weight=400):
+    """Axes are (opsz, wght); opsz tracks the size the way CSS's auto optical
+    sizing does on the site, so big titles get Inter's display cut."""
     f = ImageFont.truetype(FONT_PATH, size * SS)
-    f.set_variation_by_axes([weight])
+    f.set_variation_by_axes([min(max(size, 14), 32), weight])
     return f
 
 

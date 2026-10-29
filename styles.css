@@ -10,7 +10,9 @@
      dark grounds only. */
   --accent-on-light: #1F6FA8;
   --line: rgba(152, 161, 171, 0.18);
-  --font-display: 'Space Grotesk', sans-serif;
+  /* One family: headlines are Inter too, and its opsz axis gives them the
+     display cut automatically at large sizes. */
+  --font-display: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   /* compatibility aliases (legacy class rules) */
   --bg: var(--ink);

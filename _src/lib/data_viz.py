@@ -10,7 +10,7 @@ Brand tokens (DESIGN.md):
     Muted text:  #98A1AB  (--gray)
     Accent:      #62B6E8  (--accent, primary data color)
     Gray:        #98A1AB  (--gray, secondary data color)
-    Heading:     Space Grotesk
+    Heading:     Inter
     Body:        Inter
     Radius:      0 everywhere (sharp editorial edges)
 """
@@ -24,7 +24,7 @@ _TEXT = "#F5F7FA"
 _TEXT_MUTED = "#98A1AB"
 _SERIES1 = "#62B6E8"
 _SERIES2 = "#98A1AB"
-_FONT_HEADING = "'Space Grotesk', sans-serif"
+_FONT_HEADING = "Inter, sans-serif"
 _FONT_BODY = "Inter, sans-serif"
 
 # -- Helpers ----------------------------------------------------------------
