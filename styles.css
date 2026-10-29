@@ -481,6 +481,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .jam-photo { position: relative; flex: 0 0 auto; height: 15rem; scroll-snap-align: start; }
 .jam-photo__open { display: block; height: 100%; }
 .jam-photo img { height: 100%; width: auto; max-width: none; }
+/* a lone photo fills the strip, cropped toward the top where faces sit */
+.jam-photo:only-child { flex: 1 1 100%; }
+.jam-photo:only-child img { width: 100%; object-fit: cover; object-position: 50% 25%; }
 .section .jam-card .jam-photo figcaption { position: absolute; left: 0.5rem; bottom: 0.5rem; max-width: calc(100% - 1rem); font: 600 0.66rem/1.3 var(--font-body); color: #fff; background: rgba(10,11,13,0.66); padding: 0.22rem 0.45rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .jam-photo figcaption a { color: inherit; text-underline-offset: 2px; }
 .jam-photo .jam-photo__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

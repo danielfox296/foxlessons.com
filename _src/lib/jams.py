@@ -51,6 +51,8 @@ MIN_PAGE_LISTINGS = 3
 
 VALID_CADENCE_RULES = re.compile(r'^(weekly|biweekly|monthly|last|irregular|nth:([1-5]|last)(,([1-5]|last))*)$')
 WEBSITE_OWNERS = ('venue', 'jam', 'host', 'listing')
+# A photo's optional crop point when it fills the strip alone: "50% 25%".
+PHOTO_FOCUS = re.compile(r'(100|[1-9]?[0-9])% (100|[1-9]?[0-9])%')
 
 VERIFIED_HOW_DISPLAY = {
     'venue_site':     "the venue's calendar",
@@ -633,7 +635,8 @@ def card_ctx(rec, prefix, built_genres):
             full = lg if os.path.exists(os.path.join(REPO, 'img', 'jams', lg)) else f
             photos.append({'src': f'{prefix}img/jams/{f}', 'full': f'{prefix}img/jams/{full}',
                            'alt': p.get('alt') or f"{rec.get('name')}, {rec.get('venue')}",
-                           'credit': p.get('credit'), 'source_url': p.get('source_url')})
+                           'credit': p.get('credit'), 'source_url': p.get('source_url'),
+                           'focus': p.get('focus') if PHOTO_FOCUS.fullmatch(p.get('focus') or '') else None})
     genre_keys = [k for k in pages_for_listing(rec) if k != 'open-mics']
     # js/jams.js turns these into "Tonight", "Tomorrow" or "Next: Thu, Nov
     # 12" with the same rules as next_occurrence(); a night whose schedule

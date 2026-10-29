@@ -2,13 +2,14 @@
     with no data drops out, except the skill line and the footer line. The
     when band follows the name in the markup and shows above it. Photos lead
     the card as a strip, photos from the night before the venue's; each
-    links to its large copy, which js/jams.js opens in place. -#}
+    links to its large copy, which js/jams.js opens in place. A lone photo
+    fills the strip, so it uses the large copy to stay sharp. -#}
 <article class="jam-card" id="{{ c.r.slug }}" data-day="{{ c.data.day }}" data-format="{{ c.data.format }}" data-genres="{{ c.data.genres }}" data-area="{{ c.data.area }}" data-skill="{{ c.data.skill }}" data-houseband="{{ c.data.houseband }}" data-gear="{{ c.data.gear }}" data-songlist="{{ c.data.songlist }}" data-allages="{{ c.data.allages }}"{% if c.next %} data-rule="{{ c.next.rule }}" data-known="{{ c.next.known }}" data-skip="{{ c.next.skip }}"{% endif %}>
 {% if c.photos %}
   <div class="jam-photos">
 {% for p in c.photos %}
     <figure class="jam-photo">
-      <a class="jam-photo__open" href="{{ p.full }}"><img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" decoding="async"></a>
+      <a class="jam-photo__open" href="{{ p.full }}"><img src="{{ p.full if c.photos|length == 1 else p.src }}" alt="{{ p.alt }}" loading="lazy" decoding="async"{% if p.focus %} style="object-position: {{ p.focus }}"{% endif %}></a>
       <figcaption><span class="jam-photo__label">{{ c.labels.photo }} </span>{% if p.source_url %}<a href="{{ p.source_url }}" rel="nofollow">{{ p.credit }}</a>{% else %}{{ p.credit }}{% endif %}</figcaption>
     </figure>
 {% endfor %}

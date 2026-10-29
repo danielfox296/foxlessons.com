@@ -90,6 +90,8 @@ def validate(recs, today, warns):
                 warns.append(f'{s}: photo {f} needs a credit and a source_url')
             if p.get('kind') not in ('night', 'venue'):
                 warns.append(f'{s}: photo {f} kind {p.get("kind")!r} (night or venue)')
+            if p.get('focus') and not jams.PHOTO_FOCUS.fullmatch(p['focus']):
+                warns.append(f'{s}: photo {f} focus {p["focus"]!r} (like "50% 25%")')
 
 
 def report(recs, today, label):

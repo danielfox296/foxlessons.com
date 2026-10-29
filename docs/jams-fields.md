@@ -29,7 +29,9 @@ ever appears in `data/jams.json`.
 `night` (the jam or open mic itself, the first choice) or `venue` (the room or
 building, filling in when there aren't enough night photos); the card shows
 night photos first.
-Each photo is two files in `img/jams/`: `<slug>-<n>.jpg` (560 px tall, on the
+A listing with one photo shows it across the whole strip, cropped toward the
+top; an optional `focus` (`"50% 60%"`, across then down) moves the crop when
+that cuts off the person playing. Each photo is two files in `img/jams/`: `<slug>-<n>.jpg` (560 px tall, on the
 card) and `<slug>-<n>-lg.jpg` (up to 1280 px, what a tap opens). Add or take
 one down with
 

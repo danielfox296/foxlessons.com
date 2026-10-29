@@ -2,7 +2,8 @@
 """Add a photo to a jam listing, or take one down.
 
     python3 scripts/jams_photo.py add <slug> <image url or file> \\
-        --credit @handle --source <post url> [--kind night|venue] [--alt "..."]
+        --credit @handle --source <post url> [--kind night|venue] [--alt "..."] \\
+        [--focus "50% 60%"]
     python3 scripts/jams_photo.py remove <slug>-<n>.jpg
 
 add writes img/jams/<slug>-<n>.jpg, the copy on the card (560 px tall), and
@@ -10,6 +11,7 @@ add writes img/jams/<slug>-<n>.jpg, the copy on the card (560 px tall), and
 most, never enlarged), both stripped of metadata, then appends the photo to
 the listing in the master list. kind says whether the photo is from the night
 itself (the default) or of the venue; the card shows night photos first.
+focus moves the crop when a listing's only photo fills the strip.
 remove deletes both files and the master's entry. Photos come down whenever
 the person credited asks (Daniel, 2026-10-28). Either way, finish with
 
@@ -86,6 +88,10 @@ def add(args):
     photo = {'file': name, 'credit': args.credit, 'source_url': args.source, 'kind': args.kind}
     if args.alt:
         photo['alt'] = args.alt
+    if args.focus:
+        if not jams.PHOTO_FOCUS.fullmatch(args.focus):
+            sys.exit('jams_photo: --focus looks like "50% 60%" (across, then down)')
+        photo['focus'] = args.focus
     rec['photos'] = (rec.get('photos') or []) + [photo]
     save_master(master)
     print(f'jams_photo: {name} ({img.width}x{img.height} source) added to {args.slug}')
@@ -122,6 +128,7 @@ def main():
     a.add_argument('--source', required=True)
     a.add_argument('--kind', choices=('night', 'venue'), default='night')
     a.add_argument('--alt')
+    a.add_argument('--focus', help='crop point when the photo fills the strip alone, e.g. "50%% 60%%"')
     r = sub.add_parser('remove')
     r.add_argument('file')
     args = ap.parse_args()
