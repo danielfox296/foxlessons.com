@@ -392,14 +392,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .jams-hero h1 { max-width: 22ch; }
 .jams-hero .hero-sub { margin: 1.4rem 0 1.6rem; }
 .jams-disclaimer { display: inline-block; max-width: 42rem; padding: 0.6rem 0.95rem; border: 1px solid var(--line); border-left: 3px solid var(--accent); color: var(--paper); font-size: 0.95rem; }
-.jams-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 0.7rem 2.6rem; margin: 0 0 1.9rem; padding: 0; }
-.jams-stats li { display: flex; align-items: baseline; gap: 0.55rem; }
-.jams-stats__n { font: 300 clamp(2.1rem, 4vw, 2.8rem)/1 var(--font-display); letter-spacing: -0.02em; color: var(--paper); }
-.jams-stats__k { font: 600 0.72rem var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); }
-@media (max-width: 480px) {
-  .jams-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0 1.9rem; }
-  .jams-stats li { flex-direction: column; gap: 0.4rem; }
-}
 /* Branch-preview marker for copy Daniel hasn't signed off; the build
    refuses to run on main while any remains. */
 .jams-draft { display: inline-block; font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px dashed var(--accent); padding: 0.35rem 0.7rem; margin: 0 0 1.4rem; }
@@ -410,17 +402,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 /* the list */
 .jams-directory { padding: 3.5rem 0 5rem; }
-.jams-count { font: 600 0.95rem var(--font-body); margin: 0 0 0.5rem; }
 .jams-list [hidden], .jams-directory [hidden] { display: none !important; }
 .jams-night { margin-top: 3rem; }
 .jams-night__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.3rem 1rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.6rem; margin-bottom: 1.3rem; }
 .section .jams-night__h { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.8rem; }
-.section .jams-night__n { font: 600 0.72rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,11,13,0.6); margin: 0; }
-.jams-tonight { font: 600 0.68rem var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.3rem 0.6rem; }
 .jams-cards { display: grid; gap: 1.25rem; }
 @media (min-width: 900px) { .jams-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .jams-seeall { margin-top: 2.4rem; font-weight: 600; }
-.jams-area-intro { font-size: 1.1rem; margin-bottom: 1.6rem; }
 
 /* one listing. The when band leads, then the name and place, short facts as
    tiles, longer facts as rows, the address with its links, and the footer,
@@ -595,7 +583,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .jams-browse-list li { border-top: 1px solid var(--line); }
 .jams-browse-list a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; color: var(--paper); text-decoration: none; font-weight: 600; }
 .jams-browse-list a:hover { color: var(--accent); }
-.jams-browse-n { color: var(--gray); font-weight: 400; }
 .jams-teaser__link { margin-top: 1.6rem; }
 .jams-cta__actions { margin-top: 1.8rem; }
 .section .jams-fine { margin-top: 1.4rem; font-size: 0.9rem; color: var(--gray); }

@@ -1,5 +1,5 @@
 {#- One listing (handoff 6.1). Blocks keep the handoff's order and a block
-    with no data drops out, except the skill line and the footer line. The
+    with no data drops out, the skill line included. The
     when band follows the name in the markup and shows above it. Photos lead
     the card as a strip, photos from the night before the venue's; each
     links to its large copy, which js/jams.js opens in place. A lone photo
@@ -33,7 +33,9 @@
 {% endfor %}
     </ul>
   </header>
-  <p class="jam-skill"><a href="{{ c.skill_href }}">{{ c.skill_text }}{% if c.skill_n %}<span class="jam-meter" aria-hidden="true">{% for i in range(5) %}<span{% if i < c.skill_n %} class="on"{% endif %}></span>{% endfor %}</span>{% endif %}</a></p>
+{% if c.skill_n %}
+  <p class="jam-skill"><a href="{{ c.skill_href }}">{{ c.skill_text }}<span class="jam-meter" aria-hidden="true">{% for i in range(5) %}<span{% if i < c.skill_n %} class="on"{% endif %}></span>{% endfor %}</span></a></p>
+{% endif %}
 {% if c.glance %}
   <ul class="jam-glance jam-glance--{{ c.glance|length }}">
 {% for label, value in c.glance %}

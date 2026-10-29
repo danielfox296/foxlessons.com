@@ -55,7 +55,7 @@ WEBSITE_OWNERS = ('venue', 'jam', 'host', 'listing')
 PHOTO_FOCUS = re.compile(r'(100|[1-9]?[0-9])% (100|[1-9]?[0-9])%')
 
 VERIFIED_HOW_DISPLAY = {
-    'venue_site':     "the venue's calendar",
+    'venue_site':     "the venue's website",
     'host_post':      "the host's post",
     'facebook_group': 'a Facebook group post',
     'facebook_event': 'a Facebook event',
@@ -606,10 +606,7 @@ def card_ctx(rec, prefix, built_genres):
             handle = urlparse(link['href']).path.strip('/').split('/')[0]
             if handle:
                 link['label'] = f"{link['label']} (@{handle})"
-    if rec.get('skill'):
-        skill_text = f"{labels['skill']}: {rec['skill']} {labels['of_five']}"
-    else:
-        skill_text = f"{labels['skill']}: {labels['no_info']}"
+    skill_n = rec.get('skill') if rec.get('skill') in (1, 2, 3, 4, 5) else None
     daniel = None
     fh_date = parse_date(rec.get('firsthand_date'))
     if rec.get('firsthand_notes') or rec.get('first_timer_tip'):
@@ -648,8 +645,8 @@ def card_ctx(rec, prefix, built_genres):
     return {
         'r': rec,
         'labels': labels,
-        'skill_text': skill_text,
-        'skill_n': rec.get('skill') if rec.get('skill') in (1, 2, 3, 4, 5) else None,
+        'skill_text': f"{labels['skill']}: {skill_n} {labels['of_five']}" if skill_n else None,
+        'skill_n': skill_n,
         'skill_href': _skill_link(rec, prefix, built_genres),
         'when': when_parts(rec),
         'tags': [fmt_label] + [s['genre_labels'].get(g, g) for g in rec.get('genres') or []],
@@ -806,7 +803,7 @@ def _render_list(recs, prefix, built_genres, live=False):
     groups = [(label, key, [card_ctx(r, prefix, built_genres) for r in members])
               for label, key, members in group_by_night(recs)]
     return _env().get_template('list.html').render(
-        groups=groups, live=live, labels=strings()['labels'], count=len(recs),
+        groups=groups, live=live, labels=strings()['labels'],
         next_tpl=strings()['when']['next'], photos_note=strings()['photos_note'],
         has_photos=any(c['photos'] for _, _, cards in groups for c in cards),
         contact_href=f'{prefix}contact/')
@@ -853,11 +850,9 @@ def render_page(spec, nav_prefix):
 
     if t == 'hub':
         built_areas = built_area_keys(today)
-        browse_genres = [{'href': f'{nav_prefix}jams/{k}/', 'name': cfg['name'],
-                          'count': len(genre_page_listings(k, pub))}
+        browse_genres = [{'href': f'{nav_prefix}jams/{k}/', 'name': cfg['name']}
                          for k, cfg in genre_pages() if k in built_genres]
-        browse_areas = [{'href': f"{nav_prefix}jams/{a['key']}/", 'name': a['name'],
-                         'count': len(area_page_listings(a['key'], pub))}
+        browse_areas = [{'href': f"{nav_prefix}jams/{a['key']}/", 'name': a['name']}
                         for a in areas() if a['key'] in built_areas]
         genre_filters = [{'key': k, 'name': cfg['name']} for k, cfg in genre_pages()
                          if k != 'open-mics' and genre_page_listings(k, pub)]
@@ -866,15 +861,13 @@ def render_page(spec, nav_prefix):
         pins = [{'slug': r['slug'], 'name': r['name'], 'venue': r['venue'],
                  'when': when_line(r), 'lat': r['lat'], 'lng': r['lng']}
                 for r in pub if r.get('lat') is not None and r.get('lng') is not None]
-        labels = s['labels']
-        stats = [(len(pub), labels['night_many']),
-                 (len({(r.get('venue') or '').lower().strip() for r in pub}), labels['venue_many']),
-                 (len({r.get('city') for r in pub}), labels['town_many'])]
+        # The skill filter and its note show only once an event carries a rating.
+        has_skill = any(r.get('skill') in (1, 2, 3, 4, 5) for r in pub)
         return env.get_template('hub.html').render(
-            **common, count=len(pub), stats=stats,
-            intro=s['hub']['intro'].format(count=len(pub), days=PUBLISH_WINDOW_DAYS),
+            **common, has_skill=has_skill,
+            intro=s['hub']['intro'].format(days=PUBLISH_WINDOW_DAYS),
             filters_html=_markup(env.get_template('filters.html').render(
-                s=s, labels=s['labels'], count=len(pub),
+                s=s, labels=s['labels'], has_skill=has_skill,
                 genre_filters=genre_filters, area_filters=area_filters)),
             list_html=_markup(_render_list(pub, nav_prefix, built_genres, live=True)),
             map_html=_markup(env.get_template('map.html').render(
@@ -916,7 +909,6 @@ def render_page(spec, nav_prefix):
         return env.get_template('area.html').render(
             **common, area=area, count=len(recs), draft=bool(area.get('draft')),
             eyebrow=s['area_page']['eyebrow'].format(name=area['name']),
-            sub=s['area_page']['sub'].format(days=PUBLISH_WINDOW_DAYS),
             list_html=_markup(_render_list(recs, nav_prefix, built_genres)),
             see_all=f'{nav_prefix}jams/?area={key}',
             cta_html=_markup(_cta_html(nav_prefix, 'dark')),

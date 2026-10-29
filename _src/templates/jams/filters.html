@@ -1,6 +1,7 @@
 {#- Hub filter bar (handoff 5.3). Hidden without JavaScript: every card is
     already in the page, so a scriptless visitor gets the full list and no
-    dead controls. Real buttons with aria-pressed, grouped in fieldsets. -#}
+    dead controls. Real buttons with aria-pressed, grouped in fieldsets.
+    The skill set shows once any event carries a rating. -#}
 <div class="jams-filters" id="jams-filters" role="group" aria-labelledby="jams-filters-h">
   <div class="jams-filters__bar">
     <h2 class="jams-filters__h" id="jams-filters-h" tabindex="-1">{{ s.filters.heading }}</h2>
@@ -44,6 +45,7 @@
 {% endfor %}
         </div>
       </fieldset>
+{% if has_skill %}
       <fieldset>
         <legend>{{ s.filters.skill }}</legend>
         <div class="jams-chips">
@@ -52,6 +54,7 @@
 {% endfor %}
         </div>
       </fieldset>
+{% endif %}
       <fieldset>
         <legend>{{ s.filters.extras }}</legend>
         <div class="jams-chips">

@@ -11,8 +11,8 @@ areas:
     h1: Jams and open mics in Denver
     towns: [Denver, Edgewater, Glendale, Sheridan]
     intro: >-
-      These nights are in Denver and in Edgewater, Glendale and Sheridan, the
-      small cities on its edges.
+      Denver, plus Edgewater, Glendale and Sheridan, the small cities on its
+      edges.
 
   - key: boulder-and-north
     name: Boulder and north
@@ -31,9 +31,8 @@ areas:
     towns: [Golden, Lakewood, Arvada, Wheat Ridge, Evergreen, Morrison,
             Indian Hills, Conifer]
     intro: >-
-      West of Denver, you'll find nights in Golden, Lakewood, Arvada and Wheat
-      Ridge, and up in the foothills in Morrison, Indian Hills, Evergreen and
-      Conifer.
+      Golden, Lakewood, Arvada and Wheat Ridge, and up in the foothills,
+      Morrison, Indian Hills, Evergreen and Conifer.
 
   - key: south
     name: South
@@ -50,4 +49,4 @@ areas:
     h1: Jams and open mics east of Denver
     towns: [Aurora, Commerce City]
     intro: >-
-      Out east, the nights are in Aurora and Commerce City.
+      Aurora and Commerce City.

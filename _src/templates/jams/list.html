@@ -1,13 +1,15 @@
 {#- Listings grouped by night (handoff 4.4): Monday through Sunday, then
-    Varies. js/jams.js moves tonight's group to the top and fills each
-    card's next date. -#}
-<p class="jams-count" id="jams-count"{% if live %} aria-live="polite"{% endif %} data-one="{{ labels.night_one }}" data-many="{{ labels.night_many }}">{{ count }} {{ labels.night_one if count == 1 else labels.night_many }}</p>
-<div class="jams-list" id="jams-list" data-tonight="{{ labels.tonight }}" data-tomorrow="{{ labels.tomorrow }}" data-next="{{ next_tpl }}" data-one="{{ labels.night_one }}" data-many="{{ labels.night_many }}" data-photo-close="{{ labels.photo_close }}" data-photo-prev="{{ labels.photo_prev }}" data-photo-next="{{ labels.photo_next }}">
+    Varies. js/jams.js moves today's group to the top and fills each card's
+    next date. The count is for screen readers only, read out when the
+    filters change the list. -#}
+{% if live %}
+<p class="sr-label" id="jams-count" aria-live="polite" data-one="{{ labels.event_one }}" data-many="{{ labels.event_many }}"></p>
+{% endif %}
+<div class="jams-list" id="jams-list" data-tonight="{{ labels.tonight }}" data-tomorrow="{{ labels.tomorrow }}" data-next="{{ next_tpl }}" data-photo-close="{{ labels.photo_close }}" data-photo-prev="{{ labels.photo_prev }}" data-photo-next="{{ labels.photo_next }}">
 {% for label, key, cards in groups %}
   <section class="jams-night" id="night-{{ key }}" data-night="{{ key }}" aria-labelledby="night-{{ key }}-h">
     <div class="jams-night__head">
       <h2 class="jams-night__h" id="night-{{ key }}-h">{{ label }}</h2>
-      <p class="jams-night__n">{{ cards|length }} {{ labels.night_one if cards|length == 1 else labels.night_many }}</p>
     </div>
     <div class="jams-cards">
 {% for c in cards %}

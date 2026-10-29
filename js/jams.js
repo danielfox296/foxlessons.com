@@ -114,11 +114,13 @@
     return null;
   }
 
+  // Also marks the cards that run tonight, which is what the Tonight filter
+  // shows: a 3rd-Thursday event is in Thursday's group every week.
   function markNextDates() {
-    var fmt;
+    var fmt = null;
     try {
       fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', weekday: 'short', month: 'short', day: 'numeric' });
-    } catch (e) { return; }
+    } catch (e) { /* no "Next:" dates, but Tonight and Tomorrow still work */ }
     var today = denverToday();
     var tpl = list.getAttribute('data-next') || '{date}';
     toArray(list.querySelectorAll('.jam-card[data-rule]')).forEach(function (card) {
@@ -128,11 +130,14 @@
       var skip = (card.getAttribute('data-skip') || '').split(',').filter(Boolean).map(Number);
       var next = nextOccurrence(dow, card.getAttribute('data-rule'), card.getAttribute('data-known'), skip, today);
       if (next === null) return;
+      if (next === today) card.setAttribute('data-tonight', '1');
       if (next === today || next === today + 1) {
         line.textContent = list.getAttribute(next === today ? 'data-tonight' : 'data-tomorrow');
         line.classList.add('jam-next--soon');
-      } else {
+      } else if (fmt) {
         line.textContent = tpl.replace('{date}', fmt.format(new Date(next * DAY_MS)));
+      } else {
+        return;
       }
       line.hidden = false;
     });
@@ -140,18 +145,7 @@
 
   function moveTonightUp() {
     var group = list.querySelector('.jams-night[data-night="' + TODAY + '"]');
-    if (group) {
-      if (group !== list.firstElementChild) list.insertBefore(group, list.firstElementChild);
-      var heading = group.querySelector('.jams-night__h');
-      var label = list.getAttribute('data-tonight');
-      if (heading && label) {
-        var badge = document.createElement('span');
-        badge.className = 'jams-tonight';
-        badge.textContent = label;
-        heading.appendChild(document.createTextNode(' '));
-        heading.appendChild(badge);
-      }
-    }
+    if (group && group !== list.firstElementChild) list.insertBefore(group, list.firstElementChild);
     // A shared #slug link still lands on its card after the reorder.
     if (location.hash.length > 1) {
       var target = null;
@@ -224,8 +218,9 @@
 
     function matches(card) {
       var d = card.dataset;
-      var days = state.day.map(function (v) { return v === 'tonight' ? TODAY : v; });
-      if (days.length && days.indexOf(d.day) < 0) return false;
+      if (state.day.length && !state.day.some(function (v) {
+        return v === 'tonight' ? d.tonight === '1' : v === d.day;
+      })) return false;
       if (state.type.length && state.type.indexOf(d.format) < 0) return false;
       if (state.genre.length) {
         var genres = (d.genres || '').split(' ');
@@ -244,15 +239,15 @@
         if (ok) shown.push(card.id);
       });
       nights.forEach(function (night) {
-        var shownHere = night.querySelectorAll('.jam-card:not([hidden])').length;
-        night.hidden = shownHere === 0;
-        var label = night.querySelector('.jams-night__n');
-        if (label) label.textContent = shownHere + ' ' + list.getAttribute(shownHere === 1 ? 'data-one' : 'data-many');
+        night.hidden = !night.querySelector('.jam-card:not([hidden])');
       });
       var n = shown.length;
-      count.textContent = n + ' ' + count.getAttribute(n === 1 ? 'data-one' : 'data-many');
+      // Only a change is read out; the full list on load says nothing.
+      if (anyActive() || count.textContent) {
+        count.textContent = n + ' ' + count.getAttribute(n === 1 ? 'data-one' : 'data-many');
+      }
       empty.hidden = n > 0;
-      skillNote.hidden = state.skill.length === 0;
+      if (skillNote) skillNote.hidden = state.skill.length === 0;
       barClear.setAttribute('aria-disabled', anyActive() ? 'false' : 'true');
       chips.forEach(function (chip) {
         var g = chip.getAttribute('data-group');

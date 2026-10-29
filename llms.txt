@@ -25,20 +25,20 @@
 
 ## Jams
 
-- [Jams and open mics on the Front Range](https://foxlessons.com/jams/): Recurring jams, open mics and songwriter nights from Boulder to Castle Rock, each confirmed as running within the last 90 days, with signup details and the date of its last confirmation.
-- [Blues jams on the Front Range](https://foxlessons.com/jams/blues/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Jazz jams on the Front Range](https://foxlessons.com/jams/jazz/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Funk and soul jams on the Front Range](https://foxlessons.com/jams/funk-and-soul/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Rock jams on the Front Range](https://foxlessons.com/jams/rock/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Bluegrass and folk jams on the Front Range](https://foxlessons.com/jams/bluegrass-and-folk/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Open jams on the Front Range](https://foxlessons.com/jams/open-jams/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Open mics and songwriter nights on the Front Range](https://foxlessons.com/jams/open-mics/): How these nights run, every current listing, and what each player needs at each skill level.
-- [Jams and open mics in Denver](https://foxlessons.com/jams/denver/): The current jams and open mics in Denver, Edgewater, Glendale and Sheridan, grouped by night of the week.
-- [Jams and open mics in Boulder and north](https://foxlessons.com/jams/boulder-and-north/): The current jams and open mics in Boulder, Longmont, Louisville, Lafayette, Superior, Erie, Niwot, Lyons, Nederland, Broomfield, Westminster and Frederick, grouped by night of the week.
-- [Jams and open mics west of Denver](https://foxlessons.com/jams/west/): The current jams and open mics in Golden, Lakewood, Arvada, Wheat Ridge, Evergreen, Morrison, Indian Hills and Conifer, grouped by night of the week.
-- [Jams and open mics south of Denver](https://foxlessons.com/jams/south/): The current jams and open mics in Littleton, Englewood, Centennial, Highlands Ranch, Lone Tree, Parker, Castle Rock, Castle Pines, Franktown and Elizabeth, grouped by night of the week.
-- [Jams and open mics east of Denver](https://foxlessons.com/jams/east/): The current jams and open mics in Aurora and Commerce City, grouped by night of the week.
-- [Your first jam night](https://foxlessons.com/jams/first-jam/): How a first jam night goes, what to have ready, and what each skill level means.
+- [Jams and open mics on the Front Range](https://foxlessons.com/jams/): Recurring jams, open mics and songwriter nights on the Front Range, each confirmed as running within the last 90 days.
+- [Blues jams on the Front Range](https://foxlessons.com/jams/blues/): How these events run, every current listing, and what each player needs at each skill level.
+- [Jazz jams on the Front Range](https://foxlessons.com/jams/jazz/): How these events run, every current listing, and what each player needs at each skill level.
+- [Funk and soul jams on the Front Range](https://foxlessons.com/jams/funk-and-soul/): How these events run, every current listing, and what each player needs at each skill level.
+- [Rock jams on the Front Range](https://foxlessons.com/jams/rock/): How these events run, every current listing, and what each player needs at each skill level.
+- [Bluegrass and folk jams on the Front Range](https://foxlessons.com/jams/bluegrass-and-folk/): How these events run, every current listing, and what each player needs at each skill level.
+- [Open jams on the Front Range](https://foxlessons.com/jams/open-jams/): How these events run, every current listing, and what each player needs at each skill level.
+- [Open mics and songwriter nights on the Front Range](https://foxlessons.com/jams/open-mics/): How these events run, every current listing, and what each player needs at each skill level.
+- [Jams and open mics in Denver](https://foxlessons.com/jams/denver/): The current jams and open mics in the area that covers Denver, Edgewater, Glendale and Sheridan.
+- [Jams and open mics in Boulder and north](https://foxlessons.com/jams/boulder-and-north/): The current jams and open mics in the area that covers Boulder, Longmont, Louisville, Lafayette, Superior, Erie, Niwot, Lyons, Nederland, Broomfield, Westminster and Frederick.
+- [Jams and open mics west of Denver](https://foxlessons.com/jams/west/): The current jams and open mics in the area that covers Golden, Lakewood, Arvada, Wheat Ridge, Evergreen, Morrison, Indian Hills and Conifer.
+- [Jams and open mics south of Denver](https://foxlessons.com/jams/south/): The current jams and open mics in the area that covers Littleton, Englewood, Centennial, Highlands Ranch, Lone Tree, Parker, Castle Rock, Castle Pines, Franktown and Elizabeth.
+- [Jams and open mics east of Denver](https://foxlessons.com/jams/east/): The current jams and open mics in the area that covers Aurora and Commerce City.
+- [Your first jam](https://foxlessons.com/jams/first-jam/): How a first jam goes, what to have ready, and what each skill level means.
 
 ## Blog
 

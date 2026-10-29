@@ -20,7 +20,6 @@ labels:
   from_scene: From the scene
   daniels_take: Daniel's take
   skill: Skill level
-  no_info: No info
   of_five: of 5
   good_to_know: Good to know
   tell_me: Something changed? Tell me.
@@ -47,11 +46,10 @@ labels:
   no_word: "No"
   owner_host: Host
   owner_venue: Venue
-  see_all: See all nights
-  night_one: night
-  night_many: nights
-  venue_many: venues
-  town_many: towns
+  see_all: See all events
+  # Read out to screen readers when the filters change the list; not shown.
+  event_one: event shown
+  event_many: events shown
   tonight: Tonight
   tomorrow: Tomorrow
   varies: Varies
@@ -96,23 +94,19 @@ confirmed:
 hub:
   eyebrow: Jams · Front Range
   h1: Jams and open mics on the Front Range
-  intro: >-
-    {count} recurring jams, open mics and songwriter nights from Boulder to
-    Castle Rock. Each one was confirmed as still running within the last
-    {days} days, and the date of its last confirmation is on its card.
+  intro: Every event here was confirmed as still running within the last {days} days.
   browse_heading: Browse by genre and area
-  browse_genres: By genre
-  browse_areas: By area
+  browse_genres: Genres
+  browse_areas: Areas
   teaser_heading: Your first jam
   teaser: >-
-    On a first night, you pick a night that fits, learn one tune from memory,
-    find the signup list, watch a set or two, and then play. Each step is laid
-    out in the guide.
+    The first time, you pick a jam that fits, learn one tune from memory,
+    find the signup list, watch a set or two, and then play.
   teaser_link: How a first jam goes
-  map_heading: Every night on a map
-  map_label: Map of the nights in this directory
-  map_fallback: Turn on JavaScript to see the map. Every night is listed above.
-  map_error: The map couldn't load. Every night is listed above.
+  map_heading: On the map
+  map_label: Map of the events in this directory
+  map_fallback: Turn on JavaScript to see the map. Every event is listed above.
+  map_error: The map couldn't load. Every event is listed above.
 
 genre_page:
   eyebrow: "Jams · {name}"
@@ -121,22 +115,15 @@ genre_page:
   how_set: How a set goes
   how_habits: Habits worth knowing
   prep_heading: What each instrumentalist needs
-  prep_intro: >-
-    The skill level on each card links here. Find your instrument, then the
-    level that matches the night.
   skill_guide_link: All five levels, defined
 
 area_page:
   eyebrow: "Jams · {name}"
-  sub: >-
-    These are the recurring jams, open mics and songwriter nights in this
-    area, grouped by night of the week. Each one was confirmed as still
-    running within the last {days} days.
 
 filters:
-  heading: Filter the nights
+  heading: Filters
   more: More filters
-  night: Night
+  night: Day
   type: Type
   genre: Genre
   area: Area
@@ -165,9 +152,9 @@ filters:
     allages: All ages
   clear_label: Clear filters
   none_match_before: "Nothing matches those filters. Try fewer filters, or "
-  none_match_link: see every night
+  none_match_link: see every event
   none_match_after: "."
-  skill_note: Many nights don't have a skill rating yet. Clear the skill filter to see them.
+  skill_note: Events without a skill rating don't show under this filter. Clear it to see them.
 
 # 7.2: shown whole on the first-jam guide. Level 4 drops the handoff's
 # leading fragment ("Experienced players.") under VOICE.md.
@@ -182,8 +169,6 @@ skill_levels:
     text: People expect you to know the tunes or forms by name and keep up.
   - level: "5"
     text: Working pros sit in. Come ready to play at the level of a paid gig.
-  - level: No info
-    text: Nobody has rated this night yet.
 
 # 7.2, summarized for the genre pages' prep sections. Bands match the cards.
 skill_bands:
@@ -202,11 +187,11 @@ skill_bands:
 # no-inanimate-agency rule.
 cta:
   heading: Walk in ready.
-  body_before_material: "In a lesson or two before your first night, we cover "
+  body_before_material: "In a lesson or two before your first jam, we cover "
   material: the tunes people call at that jam
   body_after_material: >-
     , how the signup works, and how a set goes. Once you're my student, I'll
-    help you pick the right night, and I'll be there.
+    help you pick the right jam, and I'll be there.
   book_label: Book a lesson
   guide_label: How a first jam goes
   fine_print: $75 an hour, in your home or on Zoom. You pay after the lesson.
@@ -214,25 +199,24 @@ cta:
 # Lines the build writes into llms.txt (one per built page).
 llms:
   hub: >-
-    Recurring jams, open mics and songwriter nights from Boulder to Castle
-    Rock, each confirmed as running within the last {days} days, with signup
-    details and the date of its last confirmation.
-  genre: How these nights run, every current listing, and what each player needs at each skill level.
-  area: "The current jams and open mics in {towns}, grouped by night of the week."
-  guide: How a first jam night goes, what to have ready, and what each skill level means.
+    Recurring jams, open mics and songwriter nights on the Front Range, each
+    confirmed as running within the last {days} days.
+  genre: How these events run, every current listing, and what each player needs at each skill level.
+  area: "The current jams and open mics in the area that covers {towns}."
+  guide: How a first jam goes, what to have ready, and what each skill level means.
 
 # 7.6: the first-jam guide. Drafted from the Adults page jam section.
 guide:
-  eyebrow: Jams · Your first night
-  h1: Your first jam night
+  eyebrow: Jams · First time
+  h1: Your first jam
   sub: >-
-    How a jam night runs, what to have ready, and what happens when your name
+    How a jam runs, what to have ready, and what happens when your name
     is called.
   sections:
-    - heading: What a jam night actually is
+    - heading: What a jam is
       body: |
-        A jam is a night when musicians who mostly haven't met take turns on
-        stage in small groups, playing tunes most of them already know.
+        At a jam, musicians who mostly haven't met take turns on stage in
+        small groups, playing tunes most of them already know.
         There's usually a host, sometimes a house band that plays first, and
         a signup list. You put your name on the list, the host puts small
         bands together from it, and you play a few tunes with people you just
@@ -244,23 +228,21 @@ guide:
         songs, and some run in the round, with writers taking turns.
     - heading: Before you go
       body: |
-        Pick a night that fits where you are. Each card shows a skill level
-        once I've rated the night, and each genre page explains how those
-        nights run. If you're not sure, go and watch a night before you play
-        one.
+        Pick a jam that fits where you are. Each genre page explains how
+        those jams run. If you're not sure, go and watch one before you play.
 
         Learn the tune you'll call from memory. When your turn comes, the host
         or the band will ask what you want to play. Pick something common for
-        that night's style, in a key you've practiced, and know its form,
+        that jam's style, in a key you've practiced, and know its form,
         meaning how many bars it has, where it repeats, and how it ends. One
-        tune you can play all the way through is enough for a first night.
+        tune you can play all the way through is enough the first time.
 
-        Before you leave the house, read the card for the signup time, the
-        cover, any age restriction, parking, and what gear the venue provides.
-        If the night posts a song list, pick from it.
+        Before you leave the house, check the card and the event's own page
+        for the signup time, the cover, any age restriction, and what gear
+        the venue provides. If the jam posts a song list, pick from it.
     - heading: When you get there
       body: |
-        Find the list and sign up early, because the popular nights fill
+        Find the list and sign up early, because the popular jams fill
         before the first band finishes. Then watch a few sets to see how many
         tunes each group gets, how solos get passed around, and how players
         get on and off the stage. Buy something from the bar or the kitchen
@@ -278,18 +260,15 @@ guide:
 
         When your tunes are done, thank the band, pack up fast, and clear the
         stage for the next group.
-  directory_link: Find a night in the directory
+  directory_link: Find a jam in the directory
   skill_heading: Skill levels, defined
-  skill_intro: >-
-    I add skill ratings one night at a time, so most nights don't have one
-    yet. Here's what each number means.
   open_mic_heading: "Open mics: what to have ready"
   open_mic_body: |
     Your set is short, so make it tight. Bring two or three songs you can play
     from memory, tune up and put your capo on before your name is called, and
-    decide who talks and when. Get there by the signup time on the card,
-    which is often earlier than the start time, because the list can fill
-    before the music starts.
+    decide who talks and when. Get there by the signup time, which is often
+    earlier than the start time, because the list can fill before the music
+    starts.
 
     If a verse falls out, keep playing the chords until the words come back,
     or skip to the chorus. Stay for the acts after yours.

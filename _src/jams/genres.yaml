@@ -7,7 +7,7 @@
 # 2026-10-27), so prep levels are full sentences with the player as the
 # subject, never the noun stacks of the handoff's example.
 #
-# The prep levels follow the bands on the cards: 1-2 first-timer friendly,
+# The prep levels use the skill filter's bands: 1-2 first-timer friendly,
 # 3 middle, 4-5 experienced. `lesson_page` appears only on instruments
 # Daniel teaches; every other block gets the teacher-referral line from
 # strings.yaml (open decision 4).
@@ -16,7 +16,7 @@ genres:
   - key: blues
     name: Blues
     h1: Blues jams on the Front Range
-    how_heading: How blues nights work
+    how_heading: How blues jams work
     maps: [blues]
     intro: >-
       Blues jams are the easiest jams to walk into. The songs follow a short
@@ -25,7 +25,7 @@ genres:
     cta_material: the blues forms and keys that get called
     how:
       what_gets_played: >-
-        The night is mostly twelve-bar blues in E, A, G and C, the keys
+        The music is mostly twelve-bar blues in E, A, G and C, the keys
         guitarists like, played as shuffles and slow blues. Bands also play a
         handful of standards most players can fake, like Stormy Monday, The
         Thrill Is Gone and Sweet Home Chicago, and someone usually calls a
@@ -34,7 +34,7 @@ genres:
         Most blues jams keep a paper list or a whiteboard near the stage. The
         host builds small bands from the list and calls players up in groups,
         mixing instruments so every group has drums, bass and someone playing
-        chords. You'll find each night's signup time and method on its card.
+        chords.
       set: >-
         Each group usually plays two or three tunes. The player who calls a
         tune names the key, counts it in and leads it. Solos go around the
@@ -164,7 +164,7 @@ genres:
   - key: jazz
     name: Jazz
     h1: Jazz jams on the Front Range
-    how_heading: How jazz nights work
+    how_heading: How jazz jams work
     maps: [jazz, B3 organ jazz]
     intro: >-
       Jazz jams run on a shared songbook. A player calls a standard by name
@@ -177,10 +177,9 @@ genres:
         tend to keep the early sets to the best-known tunes so more players
         can join.
       signup: >-
-        Signup is often looser than at a blues jam. Some nights keep a list,
-        and others run on a word with the host. Some nights are sit-ins with a
-        house trio and have no open list, so read the signup line on the card
-        before you go.
+        Signup is often looser than at a blues jam. Some keep a list, and
+        others run on a word with the host. Some are sit-ins with a house trio
+        and have no open list, so find out how signup works before you go.
       set: >-
         A tune starts with the melody, called the head, then players take
         solos over the form, sometimes trade fours with the drummer, and play
@@ -296,23 +295,23 @@ genres:
   - key: funk-and-soul
     name: Funk and soul
     h1: Funk and soul jams on the Front Range
-    how_heading: How funk and soul nights work
+    how_heading: How funk and soul jams work
     maps: [funk, soul, R&B, neo-soul, hip-hop]
     intro: >-
       Funk and soul jams run on a groove more than on chord changes. Most
       tunes sit on one or two chords, and the rhythm section locks together
       underneath them.
-    cta_material: the grooves and tunes those nights run on
+    cta_material: the grooves and tunes those jams run on
     how:
       what_gets_played: >-
         Expect vamps on one or two chords, James Brown and Meters tunes,
-        Stevie Wonder and Aretha Franklin songs, and neo-soul grooves. On the
-        nights that lean hip-hop, rappers freestyle over a groove the band
+        Stevie Wonder and Aretha Franklin songs, and neo-soul grooves. At the
+        jams that lean hip-hop, rappers freestyle over a groove the band
         keeps going.
       signup: >-
-        Signup is often looser than at a blues night. Some nights keep a list,
-        and on others the host waves players up, often calling singers and
-        horn players in batches. Check the card for that night's signup.
+        Signup is often looser than at a blues jam. Some keep a list, and at
+        others the host waves players up, often calling singers and horn
+        players in batches.
       set: >-
         The leader sets a groove and the band locks into it. Tunes run long,
         players solo over the vamp, and the leader cues breakdowns, hits and
@@ -437,29 +436,28 @@ genres:
   - key: rock
     name: Rock
     h1: Rock jams on the Front Range
-    how_heading: How rock nights work
+    how_heading: How rock jams work
     maps: [rock, classic rock, metal, indie, Grateful Dead, jam band]
     intro: >-
-      Rock jams run from classic covers to Grateful Dead nights where one tune
+      Rock jams run from classic covers to Grateful Dead jams where one tune
       can last half an hour. You'll need to know the songs, or know how to
       listen your way into one.
-    cta_material: the covers and keys those nights lean on
+    cta_material: the covers and keys those jams lean on
     how:
       what_gets_played: >-
-        On most nights players call classic covers everyone can join, like the
+        At most of them, players call classic covers everyone can join, like the
         Beatles, the Rolling Stones, Tom Petty, Led Zeppelin and Creedence.
-        Grateful Dead and jam-band nights stretch tunes into long
-        improvisations, and the metal and indie nights work more like an open
+        Jams that lean Grateful Dead or jam band stretch tunes into long
+        improvisations, and the metal and indie jams work more like an open
         mic with gear provided.
       signup: >-
-        Most nights keep a list near the stage. Some hosts collect names and
+        Most keep a list near the stage. Some hosts collect names and
         instruments and build the bands, and others let a band that arrives
-        together take a slot. Check the card's signup line for how your night
-        works.
+        together take a slot.
       set: >-
         Each group plays two to four songs. Someone calls a song and a key,
         the band finds the form fast, and whoever gets the nod takes the solo.
-        At Grateful Dead nights the band moves from song to song and decides
+        At Grateful Dead jams the band moves from song to song and decides
         the transitions on stage.
       habits:
         - Call songs with four chords and a chorus everyone knows. Strangers can't follow a deep cut on the first try.
@@ -483,7 +481,8 @@ genres:
             the other guitarist space the way Grateful Dead players do, and lead
             a band through a song you called.
         lessons: >-
-          We build the cover-night songbook and your lead playing, and we
+          We build a songbook of the covers that get called and your lead
+          playing, and we
           practice passing parts around a band.
       - key: bass
         label: Bassists
@@ -582,13 +581,13 @@ genres:
   - key: bluegrass-and-folk
     name: Bluegrass and folk
     h1: Bluegrass and folk jams on the Front Range
-    how_heading: How bluegrass and folk nights work
+    how_heading: How bluegrass and folk jams work
     maps: [bluegrass, old-time, Irish, folk, ukulele, acoustic, cowboy]
     maps_jam_only: [standards]
     intro: >-
-      Bluegrass, old-time, Irish and folk nights mostly happen in a circle,
+      Bluegrass, old-time, Irish and folk jams mostly happen in a circle,
       acoustic and unplugged, on tunes players learn by ear. Players care
-      about etiquette here more than at any other kind of night on this
+      about etiquette here more than at any other kind of jam on this
       list.
     cta_material: the fiddle keys and circle tunes that come around
     how:
@@ -596,12 +595,12 @@ genres:
         Players in the circle play bluegrass standards like Salt Creek and
         Nine Pound Hammer, old-time fiddle tunes repeated until everyone has
         them, Irish session sets, and folk songs with choruses the whole
-        circle can sing. Most of the night is in G, A, D and C, and capos are
+        circle can sing. Most tunes are in G, A, D and C, and capos are
         welcome.
       signup: >-
         Most circles have no signup. You sit in the circle and play, the lead
         moves around the circle, and you can pass when it's your turn. Some
-        nights split into a fast circle and a slow one, and the slow circle is
+        jams split into a fast circle and a slow one, and the slow circle is
         the place to start.
       set: >-
         Whoever's turn it is calls a tune and a key and starts it. In
@@ -646,7 +645,7 @@ genres:
             rushing banjo.
           "4-5": >-
             You can play in any key that gets called, slap where an old-time
-            night wants it, and keep time for the whole circle.
+            jam wants it, and keep time for the whole circle.
         lessons: >-
           We make root-fifth automatic and train your ear for the changes in
           the fiddle keys.
@@ -856,14 +855,14 @@ genres:
     how:
       what_gets_played: >-
         Each act gets two or three songs or about ten minutes, whichever comes
-        first. Most nights welcome covers, songwriter nights want original
+        first. Most open mics welcome covers, songwriter nights want original
         songs, and a few run in the round, with writers taking turns. At the
-        mixed nights, poets and comics share the list.
+        mixed open mics, poets and comics share the list.
       signup: >-
-        Most nights keep a list at the door, and some of the bigger ones take
+        Most keep a list at the door, and some of the bigger ones take
         signups online ahead of time. The popular lists fill before the music
-        starts, so get there by the signup time on the card, which is often
-        earlier than the start time.
+        starts, so get there by the signup time, which is often earlier than
+        the start time.
       set: >-
         The host calls you up, the sound person checks that your mic and
         instrument are coming through, and you play your songs with a sentence
@@ -886,7 +885,7 @@ genres:
           "3": >-
             You have a tight ten minutes with the intros planned, you can keep
             playing a chord until lost words come back, and you can tell which
-            of your songs fits the night.
+            of your songs fits the crowd.
           "4-5": >-
             You can stretch or cut your set on the host's signal, talk between
             songs without eating into your time, and debut a brand-new song

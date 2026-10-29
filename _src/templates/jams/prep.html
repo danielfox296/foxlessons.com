@@ -8,7 +8,6 @@
 {% if draft %}
     <p class="jams-draft">{{ labels.draft_marker }}</p>
 {% endif %}
-    <p>{{ s.genre_page.prep_intro }}</p>
     <ul class="jams-bands">
 {% for b in s.skill_bands %}
       <li class="jams-band jams-band--{{ b.band }}"><span class="jams-band__label">{{ b.label }}</span> {{ b.text }}</li>
