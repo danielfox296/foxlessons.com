@@ -86,6 +86,10 @@ def validate(recs, today, warns):
             f = p.get('file') or ''
             if not os.path.exists(os.path.join(REPO, 'img', 'jams', f)):
                 warns.append(f'{s}: photo file missing: img/jams/{f}')
+            if not p.get('credit') or not p.get('source_url'):
+                warns.append(f'{s}: photo {f} needs a credit and a source_url')
+            if p.get('kind') not in ('night', 'venue'):
+                warns.append(f'{s}: photo {f} kind {p.get("kind")!r} (night or venue)')
 
 
 def report(recs, today, label):

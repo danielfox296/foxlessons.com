@@ -23,6 +23,26 @@ ever appears in `data/jams.json`.
 `cadence_rule` also takes `last` inside an ordinal list, for nights like
 "1st and last Tuesday" (`nth:1,last`).
 
+## Photos
+
+`photos` is a list of `{file, credit, source_url, kind, alt}`. `kind` is
+`night` (the jam or open mic itself, the first choice) or `venue` (the room or
+building, filling in when there aren't enough night photos); the card shows
+night photos first.
+Each photo is two files in `img/jams/`: `<slug>-<n>.jpg` (560 px tall, on the
+card) and `<slug>-<n>-lg.jpg` (up to 1280 px, what a tap opens). Add or take
+one down with
+
+    python3 scripts/jams_photo.py add <slug> <image url or file> --credit @handle --source <post url> [--kind venue] [--alt "..."]
+    python3 scripts/jams_photo.py remove <slug>-<n>.jpg
+
+The photos are the venues', hosts' and players' own posts, credited and
+linked on each one, used to promote their nights, and any one comes down
+when its owner asks [D 2026-10-28: "i am invoking the DMCA for use here and
+will take down when asked. we are promoting their event. it's a good faith
+use."]. A line under every list with photos says so and links the contact
+page. Never stock photos.
+
 The card's next date ("Tonight", "Tomorrow", "Next: Thu, Nov 12") comes from
 `js/jams.js`, which follows the same rules as `next_occurrence()` in
 `_src/lib/jams.py`. Change one, change both.

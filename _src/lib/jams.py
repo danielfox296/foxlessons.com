@@ -621,12 +621,19 @@ def card_ctx(rec, prefix, built_genres):
         when = _display_month(q_date) if q_date else q.get('date')
         scene.append({'quote': q['quote'], 'url': q.get('url'),
                       'attribution': ', '.join(p for p in (q.get('who'), q.get('where'), when) if p)})
+    # Photos from the night lead, the venue's follow (a stable sort keeps each
+    # group in its listed order). <slug>-<n>-lg.jpg, when present, is the
+    # large copy the photo opens to.
     photos = []
-    for p in rec.get('photos') or []:
+    for p in sorted(rec.get('photos') or [], key=lambda p: p.get('kind') == 'venue'):
         f = p.get('file') or ''
         if f and os.path.exists(os.path.join(REPO, 'img', 'jams', f)):
-            photos.append({'src': f'{prefix}img/jams/{f}', 'credit': p.get('credit'),
-                           'source_url': p.get('source_url')})
+            stem, ext = os.path.splitext(f)
+            lg = f'{stem}-lg{ext}'
+            full = lg if os.path.exists(os.path.join(REPO, 'img', 'jams', lg)) else f
+            photos.append({'src': f'{prefix}img/jams/{f}', 'full': f'{prefix}img/jams/{full}',
+                           'alt': p.get('alt') or f"{rec.get('name')}, {rec.get('venue')}",
+                           'credit': p.get('credit'), 'source_url': p.get('source_url')})
     genre_keys = [k for k in pages_for_listing(rec) if k != 'open-mics']
     # js/jams.js turns these into "Tonight", "Tomorrow" or "Next: Thu, Nov
     # 12" with the same rules as next_occurrence(); a night whose schedule
@@ -797,7 +804,9 @@ def _render_list(recs, prefix, built_genres, live=False):
               for label, key, members in group_by_night(recs)]
     return _env().get_template('list.html').render(
         groups=groups, live=live, labels=strings()['labels'], count=len(recs),
-        next_tpl=strings()['when']['next'])
+        next_tpl=strings()['when']['next'], photos_note=strings()['photos_note'],
+        has_photos=any(c['photos'] for _, _, cards in groups for c in cards),
+        contact_href=f'{prefix}contact/')
 
 
 def _prep_ctx(cfg, prefix):

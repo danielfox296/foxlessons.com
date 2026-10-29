@@ -1,7 +1,19 @@
 {#- One listing (handoff 6.1). Blocks keep the handoff's order and a block
     with no data drops out, except the skill line and the footer line. The
-    when band follows the name in the markup and shows above it. -#}
+    when band follows the name in the markup and shows above it. Photos lead
+    the card as a strip, photos from the night before the venue's; each
+    links to its large copy, which js/jams.js opens in place. -#}
 <article class="jam-card" id="{{ c.r.slug }}" data-day="{{ c.data.day }}" data-format="{{ c.data.format }}" data-genres="{{ c.data.genres }}" data-area="{{ c.data.area }}" data-skill="{{ c.data.skill }}" data-houseband="{{ c.data.houseband }}" data-gear="{{ c.data.gear }}" data-songlist="{{ c.data.songlist }}" data-allages="{{ c.data.allages }}"{% if c.next %} data-rule="{{ c.next.rule }}" data-known="{{ c.next.known }}" data-skip="{{ c.next.skip }}"{% endif %}>
+{% if c.photos %}
+  <div class="jam-photos">
+{% for p in c.photos %}
+    <figure class="jam-photo">
+      <a class="jam-photo__open" href="{{ p.full }}"><img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" decoding="async"></a>
+      <figcaption><span class="jam-photo__label">{{ c.labels.photo }} </span>{% if p.source_url %}<a href="{{ p.source_url }}" rel="nofollow">{{ p.credit }}</a>{% else %}{{ p.credit }}{% endif %}</figcaption>
+    </figure>
+{% endfor %}
+  </div>
+{% endif %}
   <header class="jam-head">
     <h3 class="jam-name">{{ c.r.name }}</h3>
     <p class="jam-where">{{ c.r.venue }}<span class="jam-sep" aria-hidden="true"> · </span>{{ c.r.city }}</p>
@@ -69,16 +81,6 @@
     </blockquote>
 {% endfor %}
   </aside>
-{% endif %}
-{% if c.photos %}
-  <div class="jam-photos">
-{% for p in c.photos %}
-    <figure class="jam-photo">
-      <img src="{{ p.src }}" alt="{{ c.r.name }}, {{ c.r.venue }}" loading="lazy" decoding="async">
-      <figcaption>{{ c.labels.photo }} {% if p.source_url %}<a href="{{ p.source_url }}">{{ p.credit }}</a>{% else %}{{ p.credit }}{% endif %}</figcaption>
-    </figure>
-{% endfor %}
-  </div>
 {% endif %}
   <footer class="jam-confirmed">{{ c.confirmed }} <a href="{{ c.contact_href }}">{{ c.labels.tell_me }}</a></footer>
 </article>

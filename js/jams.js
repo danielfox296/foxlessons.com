@@ -33,6 +33,7 @@
   moveTonightUp();
   if (document.getElementById('jams-filters')) initFilters();
   initMap();
+  initPhotos();
 
   function toArray(nodes) { return Array.prototype.slice.call(nodes); }
 
@@ -305,6 +306,64 @@
     if (window.matchMedia('(min-width: 760px)').matches || (anyActive() && !onlyTonight)) {
       more.open = true;
     }
+  }
+
+  // Photos. A tap opens the photo large in a dialog, with the card's other
+  // photos a step either side. Without the dialog element, or without
+  // JavaScript, the link simply opens the large file.
+  function initPhotos() {
+    if (!list.querySelector('.jam-photo__open') || typeof HTMLDialogElement !== 'function') return;
+    var box = document.createElement('dialog');
+    box.className = 'jam-lightbox';
+    box.innerHTML = '<figure><img alt=""><figcaption></figcaption></figure>' +
+      '<button type="button" class="jam-lightbox__close">×</button>' +
+      '<button type="button" class="jam-lightbox__prev">‹</button>' +
+      '<button type="button" class="jam-lightbox__next">›</button>';
+    var img = box.querySelector('img');
+    var cap = box.querySelector('figcaption');
+    var close = box.querySelector('.jam-lightbox__close');
+    var prev = box.querySelector('.jam-lightbox__prev');
+    var next = box.querySelector('.jam-lightbox__next');
+    close.setAttribute('aria-label', list.getAttribute('data-photo-close'));
+    prev.setAttribute('aria-label', list.getAttribute('data-photo-prev'));
+    next.setAttribute('aria-label', list.getAttribute('data-photo-next'));
+    document.body.appendChild(box);
+    var set = [];
+    var at = 0;
+
+    function show(i) {
+      at = (i + set.length) % set.length;
+      var link = set[at];
+      var thumb = link.querySelector('img');
+      var credit = link.parentNode.querySelector('figcaption');
+      img.src = link.getAttribute('href');
+      img.alt = thumb ? thumb.alt : '';
+      cap.innerHTML = credit ? credit.innerHTML : '';
+      prev.hidden = next.hidden = set.length < 2;
+    }
+
+    list.addEventListener('click', function (e) {
+      var link = e.target.closest ? e.target.closest('.jam-photo__open') : null;
+      if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      set = toArray(link.closest('.jam-photos').querySelectorAll('.jam-photo__open'));
+      show(set.indexOf(link));
+      box.showModal();
+    });
+    prev.addEventListener('click', function () { show(at - 1); });
+    next.addEventListener('click', function () { show(at + 1); });
+    close.addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) {
+      if (e.target === box || e.target.tagName === 'FIGURE') box.close();
+    });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(at - 1);
+      else if (e.key === 'ArrowRight') show(at + 1);
+    });
+    box.addEventListener('close', function () {
+      img.removeAttribute('src');
+      if (set[at]) set[at].focus();
+    });
   }
 
   function initMap() {

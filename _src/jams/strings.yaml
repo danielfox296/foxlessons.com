@@ -7,6 +7,14 @@
 
 disclaimer: Schedules change. Confirm with the venue or host before you go.
 
+# Under the list on any page whose cards carry photos. The photos are the
+# venues' and hosts' own, credited and linked on each one, and come down on
+# request (Daniel, 2026-10-28).
+photos_note:
+  before: Photos belong to the people credited on them. If one is yours and you want it down,
+  link: tell me
+  after: and it comes down.
+
 labels:
   from_daniel: From Daniel
   from_scene: From the scene
@@ -22,6 +30,9 @@ labels:
   event_page: Event page
   first_time: "First time here:"
   photo: "Photo:"
+  photo_close: Close
+  photo_prev: Previous photo
+  photo_next: Next photo
   draft_marker: Draft, waiting on Daniel
   signup: Signup
   signup_how: How to sign up
