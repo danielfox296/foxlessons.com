@@ -357,7 +357,7 @@ chart and a decent set of ears are what I teach with.</p>
 </footer>
 
   <script>
-  // Cymatics ground — ported from entuned.co, recolored to the ink/ice palette.
+  // Cymatics ground, recolored to the ink/ice palette.
   // Chladni plate modes advance with scroll; marching squares traces the nodal lines.
   (function() {
     const canvas = document.getElementById('cymaticsCanvas');
@@ -369,7 +369,7 @@ chart and a decent set of ears are what I teach with.</p>
     let mouseX = 0.5, mouseSmX = 0.5;
     const DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-    // Lower grid + 30fps cap vs. the entuned original: this canvas is a ground
+    // Lower grid + 30fps cap: this canvas is a ground
     // under real content, so it must never contend with the page for the main thread.
     const isMobile = window.innerWidth < 768;
     const GRID = isMobile ? 120 : 180;
